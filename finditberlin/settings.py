@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [ 'finditberlin.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-3pirapu7m1a.ws-eu106.gitpod.io']
 
 
 
@@ -45,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
-    #'location_field.apps.DefaultConfig',
     'blog',
 ]
 
@@ -144,3 +144,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+

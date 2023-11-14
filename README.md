@@ -23,3 +23,5 @@ https://www.abstractapi.com/guides/django-geolocation
 add summernote:
 https://ctrlzblog.com/how-to-add-a-text-editor-to-a-django-blog-with-summernote/
 
+no migrations to apply :
+https://forum.djangoproject.com/t/no-migrations-to-apply-when-run-migrate-after-makemigrations/15519
