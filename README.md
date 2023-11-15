@@ -25,3 +25,8 @@ https://ctrlzblog.com/how-to-add-a-text-editor-to-a-django-blog-with-summernote/
 
 no migrations to apply :
 https://forum.djangoproject.com/t/no-migrations-to-apply-when-run-migrate-after-makemigrations/15519
+
+django templates documentation :
+https://github.com/Williano/django-bona-blog/blob/master/blog/templates/blog/blog_base.html
+https://www.youtube.com/watch?v=_s6g6yP0ahY
+
