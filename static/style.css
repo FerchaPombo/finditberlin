@@ -10,7 +10,7 @@ body {
 }
 
 .red-o {
-    color: #E84610;
+    color: #be5633;
 }
 
 .thin {
@@ -93,7 +93,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #be5633;
 }
 
 .post-title {
@@ -114,11 +114,11 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #090505;
-    color: #23BBBB;
+    color: #fff;
 }
 
 .link {
-    color: #23BBBB;
+    color: #be5633;
     text-decoration: none;
 }
 
@@ -129,14 +129,14 @@ body {
 }
 
 .btn-like {
-    color: #E84610;
+    color: #be5633;
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #E84610;
+    color: #be5633;
     background: transparent;
     border: none;
 }

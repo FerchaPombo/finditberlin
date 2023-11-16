@@ -1,25 +1,19 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load allauth account socialaccount %}
+{% load account socialaccount %}
 
-{% block head_title %}
-    {% trans "Sign In" %}
-{% endblock head_title %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
 <div class="container">
     <div class="row">
          <div class="col-md-8 mt-3 offset-md-2">
-            {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
+            <h3>{% trans "Sign In" %}</h3>
 
-            <p>
-                {% blocktrans %} Not part of the streetart community? then, do not wait longer and 
-            <a href="{{ signup_url }}">sign up</a> NOW.{% endblocktrans %}
-            </p>
+            <p>{% blocktrans %} Not part of the streetart community? Then, do not wait longer and 
+            <a class="link" href="{{ signup_url }}">sign up</a> NOW. {% endblocktrans %}</p>
 
          </div>
     </div>
@@ -30,11 +24,8 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
-                <input type="hidden"
-                name="{{ redirect_field_name }}"
-                value="{{ redirect_field_value }}" />
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-
                 <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
 
             </form>
