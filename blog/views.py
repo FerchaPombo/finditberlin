@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from .forms import CommentsForm
+
 
 class PostList(generic.ListView):
     model = Post 
@@ -24,6 +26,41 @@ class PostDetail(View):
              {
                 'post': post,
                 'comments': comments,
-                'liked' : liked
+                'liked' : liked,
+                'comments_form' : CommentsForm()
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset,slug=slug)
+        comments = post.comments.filter(approved=True).order_by("created_on")
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        comments_form = CommentsForm(data=request.POST)
+        if comments_form.is_valid():
+
+            comments_form.instance.email = request.user.email
+            comments_form.instance.name = request.user.username
+            comments = comments_form.save(commit=False)
+            comments.post = post
+            comment.save
+        else:
+            comments_form = CommentsForm()
+
+        return render(
+            request,
+            "post_detail.html",
+                {
+            
+                    'post': post,
+                    'comments': comments,
+                    'liked' : liked,
+                    'comments_form' : comments_form,
+                    'liked' : liked
                 },
-            )
+
+        )
