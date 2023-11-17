@@ -1,9 +1,12 @@
-{% extends "account/base_manage.html" %}
+{% extends "base.html" %}
 {% load allauth i18n %}
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
 {% block content %}
+<div class="container">
+    <div class="row">
+         <div class="col-md-8 mt-3 offset-md-2">
     {% element h1 %}
         {% trans "Sign Out" %}
     {% endelement %}
@@ -24,4 +27,8 @@
             {% endelement %}
         {% endslot %}
     {% endelement %}
+        </div>
+    </div>
+</div>
+        
 {% endblock content %}
