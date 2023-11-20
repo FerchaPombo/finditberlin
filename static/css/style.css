@@ -29,4 +29,25 @@ strong {
 .card-img-top {
     margin-left: auto;
     margin-right: auto;
+    display: block;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: larger;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    margin-left: 2%;
+}
+
+p.card-text {
+    color: black;
+    margin-left: 2%;
+}
+
+.has-text-centered {
+
+    color: #4a4a4a;
+    font-weight: bolder;
+    font-size: larger;
 }
