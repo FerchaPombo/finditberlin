@@ -1,0 +1,32 @@
+/* general styling of the blog */
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+} 
+
+strong {
+    font-size: xx-large;
+}
+
+.navbar-text.text-muted {
+   
+}
+
+.image-container {
+    align-self: center;
+}
+
+.author {
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.478);
+}
+
+.card {
+    color: antiquewhite;
+}
+.card-img-top {
+    margin-left: auto;
+    margin-right: auto;
+}

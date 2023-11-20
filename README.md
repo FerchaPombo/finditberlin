@@ -30,3 +30,5 @@ django templates documentation :
 https://github.com/Williano/django-bona-blog/blob/master/blog/templates/blog/blog_base.html
 https://www.youtube.com/watch?v=_s6g6yP0ahY
 
+over ride css styles with my style.css file 
+https://www.google.com/search?q=how+to+make+my+style.css+to+override+bootstrap+and+django&oq=how+to+make+my+style.css+to+override+bootstrap+and+django+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRigAdIBCTIxNjE4ajBqNKgCALACAA&sourceid=chrome&ie=UTF-8
