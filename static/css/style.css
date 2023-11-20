@@ -9,8 +9,9 @@ strong {
     font-size: xx-large;
 }
 
-.navbar-text.text-muted {
-   
+.navbar-text.text-muted.navbar-item.is-size-6{
+    margin-left: auto;
+    padding-top: 10%;
 }
 
 .image-container {
