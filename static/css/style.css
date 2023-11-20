@@ -9,9 +9,17 @@ strong {
     font-size: xx-large;
 }
 
+/* Styling header */
+
+.navbar-item {
+    margin-left: 5%;
+
+}
+
 .navbar-text.text-muted.navbar-item.is-size-6{
     margin-left: auto;
-    padding-top: 10%;
+    padding-top: 9%;
+    padding-right: 2%;
 }
 
 .image-container {
@@ -98,4 +106,19 @@ p.card-text {
 .logout_text {
     background-color: #4a4a4a;
     color: aliceblue;
+}
+
+/* Footer styling */
+
+.footer_style {
+    background-color: #fff;
+    height: 6rem !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.text_footer {
+    font-size: medium;
+    font-weight: lighter;
 }
