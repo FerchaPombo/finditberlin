@@ -52,3 +52,36 @@ p.card-text {
     font-weight: bolder;
     font-size: larger;
 }
+
+/* Login styling */
+
+#signup_header {
+    background-color: #4a4a4a;
+    color: aliceblue;
+}
+.signup_text {
+    color: aliceblue;
+}
+
+.container_login {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Register styling */
+
+.container_register {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+
+.register_text {
+    color: aliceblue;
+    background-color: #4a4a4a;
+}
