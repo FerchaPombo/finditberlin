@@ -25,7 +25,7 @@ strong {
 }
 
 .card {
-    color: antiquewhite;
+    color: aliceblue;
 }
 .card-img-top {
     margin-left: auto;
@@ -84,4 +84,18 @@ p.card-text {
 .register_text {
     color: aliceblue;
     background-color: #4a4a4a;
+}
+
+/* Logout styling */
+
+.container_logout {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.logout_text {
+    background-color: #4a4a4a;
+    color: aliceblue;
 }
