@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comments, Place
+from .models import Post, Comments
 from django_summernote.admin import SummernoteModelAdmin 
 
 
@@ -23,7 +23,3 @@ class CommentsAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-
-
-
-admin.site.register(Place)

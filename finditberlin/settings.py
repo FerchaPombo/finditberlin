@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
-    'location_field.apps.DefaultConfig',
     'blog',
     
 ]
@@ -72,12 +71,6 @@ MESSAGES_TAGS = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOCATION_FIELD = {
-    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
-    'provider.google.api_key': 'AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FUo',
-    'provider.google.api_libraries': '',
-    'provider.google.map.type': 'ROADMAP',
-}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

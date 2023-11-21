@@ -1,4 +1,4 @@
-from .models import Comments, Place
+from .models import Comments
 from django import forms
 
 class CommentsForm(forms.ModelForm):
