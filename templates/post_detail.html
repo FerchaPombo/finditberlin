@@ -1,5 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load easy_maps_tags %}
+{% easy_map "Germany, Berlin, Mira 32" 300 400 %}
+{% easy_map adress 200 200 5 using "map.html"}
+
+{% load easy_maps_tags cache %}
+{% cache 600 my_map firm.adress %}
+    {% easy_map firm.adress 300 400 %}
+{% endcache %}
+
+
 {% load crispy_forms_tags %}
 
 <div class="masthead">

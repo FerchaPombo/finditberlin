@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
+    'easy_maps',
     'blog',
     
 ]
@@ -70,6 +71,11 @@ MESSAGES_TAGS = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EASY_MAPS_GOOGLE_KEY ='AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FUo'
+EASY_MAPS_CENTER = (-41.3, 32)
+EASY_MAPS_ZOOM = 7
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
