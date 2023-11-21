@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User 
 from cloudinary.models import CloudinaryField
+from location_field.models.plain import PlainLocationField
 
 STATUS = ((0, "Draft"),(1, "Published"))
 
@@ -43,3 +44,6 @@ class Comments(models.Model):
     def __str__(self):
         return f"This is {self.name} comment: {self.body}"
 
+class Place(models.Model):
+    street = models.CharField(max_length=250)
+    location = PlainLocationField(based_fields=['street'], zoom=7)
