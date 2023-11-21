@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User 
 from cloudinary.models import CloudinaryField
-from location_field.models.plain import PlainLocationField
+from location_field.models import PlainLocationField
+
 
 STATUS = ((0, "Draft"),(1, "Published"))
 
@@ -19,7 +20,8 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
-    location = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_post_location", null=True)
+    city = models.CharField(max_length=250)
+    location_field = models.LocationField(based_fields=['city'], zoom=7)
 
     class Meta: 
         ordering = ['-created_on']
@@ -45,5 +47,5 @@ class Comments(models.Model):
         return f"This is {self.name} comment: {self.body}"
 
 class Place(models.Model):
-    street = models.CharField(max_length=250)
-    location = PlainLocationField(based_fields=['street'], zoom=7)
+    city = models.CharField(max_length=255)
+    location = PlainLocationField(based_fields=['city'], zoom=7)
