@@ -100,7 +100,7 @@
                 {% else %}
                 {% if user.is_authenticated %}
 
-                <h3>Tell us what you think :</h3>
+                <h3 style="background-color: #4a4a4a;"><strong style="color: aliceblue;">Tell us what you think :</strong></h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comments_form | crispy }}
