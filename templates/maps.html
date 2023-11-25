@@ -1,30 +1,52 @@
 {% extends "base.html" %}
 
-    let map;
 
-async function initMap() {
-  // The location of Uluru
-  const position = { lat: -25.344, lng: 131.031 };
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+{% block head_title %}{% trans "maps" %}
 
-  // The map, centered at Uluru
-  map = new Map(document.getElementById("map"), {
-    zoom: 4,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
+{% block content %}
 
-  // The marker, positioned at Uluru
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Uluru",
-  });
-}
+
+<div class="container_form_register">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <div class="map_container">
+                <script>
+                    let map;
+
+                    async function initMap() {
+                    // The location of Berlin
+                        const position = { lat: -	52.520008, lng: 13.404954 };
+                    // Request needed libraries.
+                    //@ts-ignore
+                        const { Map } = await google.maps.importLibrary("maps");
+                        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+  // The map, centered at Berlin
+                        map = new Map(document.getElementById("map"), {
+                            zoom: 4,
+                            center: position,
+                            mapId: "Findit_Berlin",
+                        });
+
+  // The marker, positioned at Berlin
+                        const marker = new AdvancedMarkerElement({
+                            map: map,
+                            position: position,
+                            title: "Berlin",
+                        });
+                    }
 
 initMap();
 
-{%endblock%}
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+
+
+{% endblock %}
