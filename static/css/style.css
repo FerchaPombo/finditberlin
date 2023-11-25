@@ -12,8 +12,13 @@ strong {
 /* Styling header */
 
 .navbar-item {
-    margin-left: 5%;
+    margin-left: 0%;
+   
 
+}
+.navbar-item.is-active.is-size-6.has-text-weight-light {
+    padding-left: 1%;
+    margin-left: -1%;
 }
 
 .navbar-text.text-muted.navbar-item.is-size-6{
