@@ -1,14 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 
-{% load easy_maps_tags %}
-{% easy_map "Germany, Berlin, Mira 32" 300 400 %}
-{% easy_map adress 200 200 5 using "map.html"}
-
-{% load easy_maps_tags cache %}
-{% cache 600 my_map firm.adress %}
-    {% easy_map firm.adress 300 400 %}
-{% endcache %}
-
 
 {% load crispy_forms_tags %}
 
@@ -25,7 +16,7 @@
             <div class="d-none d-md-block col-md-8 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://i0.wp.com/hierdadort.de/wp-content/uploads/2020/05/Karl-marx-marycula-east-side-gallery.jpg?resize=1068%2C1068&ssl=1" width="100%">
+                <img src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
                 {% else %}
                 <img src="" width="100%">
                 {% endif %}
