@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os 
+import os
 import dj_database_url
 from django.contrib.messages import constants as messages
-if os.path.exists("env.py"): 
+if os.path.exists("env.py"):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'blog',
-    
+
 ]
 
 SITE_ID = 1
@@ -70,7 +70,6 @@ MESSAGES_TAGS = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 
 
 MIDDLEWARE = [

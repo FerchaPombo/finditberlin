@@ -98,8 +98,3 @@ class PostLocation(View):
         post.save()
 
         return JsonResponse({"message": "Location updated successfully"})
-
-
-
-        
-
