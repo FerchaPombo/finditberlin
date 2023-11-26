@@ -14,7 +14,7 @@ from pathlib import Path
 import os 
 import dj_database_url
 from django.contrib.messages import constants as messages
-if os.path.isfile("env.py") :
+if os.path.isfile("env.py"): 
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ 'finditberlin.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['finditberlin.heroku.com', 'localhost']
 ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-3pirapu7m1a.ws-eu106.gitpod.io']
 
 
@@ -111,7 +111,7 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
