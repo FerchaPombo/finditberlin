@@ -31,7 +31,31 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">{{ post.content | safe }}</p>
+
+                <div id="map"></div>
+                    <script>
+                        function initMap() {
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: -34.397, lng: 150.644},
+                            zoom: 8
+                        });
+
+    // Allow user to click on the map to select a location
+    google.maps.event.addListener(map, 'click', function(event) {
+      var location = {
+        latitude: event.latLng.lat(),
+        longitude: event.latLng.lng()
+      };
+
+      // Send the location to your Django server (you'll need to implement this)
+      // You can use AJAX or some other method to send this data.
+    });
+  }
+</script>
+
+
                 <div class="row">
+                    
 
                     <div class="col-1">
                         <strong>
@@ -39,10 +63,11 @@
                             <form class="d-inline" action="{ url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="fa-regular fa-heart">
+
+                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="fa fa-heart" aria-hidden="true">
                                 </i></button>
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="fa-regular fa-heart">
+                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i class="fa fa-heart" aria-hidden="true">
                                 </i></button>
                                 {% endif %}
                             </form>
