@@ -14,7 +14,7 @@ from pathlib import Path
 import os 
 import dj_database_url
 from django.contrib.messages import constants as messages
-if os.path.isfile("env.py"): 
+if os.path.exists("env.py"): 
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['finditberlin.heroku.com', 'localhost']
 ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-3pirapu7m1a.ws-eu106.gitpod.io']
-
+ALLOWED_HOSTS = ['8000-ferchapombo-finditberlin-tl0ajklmlw.us2.codeanyapp.com']
 
 
 # Application definition
@@ -81,7 +81,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'finditberlin.urls'
@@ -119,7 +119,6 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
-# Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -163,8 +162,6 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -173,5 +170,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Account email verification
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
-
-

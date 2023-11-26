@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comments
+from .models import Post, Comments, Location
 from django_summernote.admin import SummernoteModelAdmin 
 from django import forms
 

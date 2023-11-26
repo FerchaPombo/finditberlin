@@ -10,6 +10,15 @@ STATUS = ((0, "Draft"),(1, "Published"))
 # Create your models here.
 # check the location key and how to add it later, part of the Post class 
 
+class Location(models.Model):
+    street_name = models.CharField(max_length=255)
+    street_number = models.CharField(max_length=20)
+    city = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.street_number} {self.street_name}, {self.city}"
+
+
 class Post(models.Model):
     title = models.CharField(max_length = 100, unique=True, blank=False)
     slug = models.SlugField(max_length= 100, unique=True, null=False)
@@ -48,12 +57,3 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"This is {self.name} comment: {self.body}"
-
-
-class Location(models.Model):
-    street_name = models.CharField(max_length=255)
-    street_number = models.CharField(max_length=20)
-    city = models.CharField(max_length=255)
-
-    def __str__(self):
-        return f"{self.street_number} {self.street_name}, {self.city}"

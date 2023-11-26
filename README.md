@@ -36,3 +36,9 @@ https://www.google.com/search?q=how+to+make+my+style.css+to+override+bootstrap+a
 
 geo location :
 https://pypi.org/project/django-easy-maps/
+https://developer.mozilla.org/en-US/docs/Web/API/
+https://stackoverflow.com/questions/64113710/extracting-gps-coordinates-from-image-using-python
+https://thepythoncode.com/article/extracting-image-metadata-in-python
+
+traceback error :
+https://realpython.com/python-traceback/#valueerror
