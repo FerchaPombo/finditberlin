@@ -82,19 +82,24 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-
 class PostLocation(View):
-    
+
     def post(self, request, slug):
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        # Query the database to get the post with the given slug
+        post = get_object_or_404(Post, slug=slug, status=1)
 
-    # Assuming you received latitude and longitude from the frontend
-        latitude = float(request.POST.get('latitude'))
-        longitude = float(request.POST.get('longitude'))
+        # Get location data from the request
+        city = request.POST.get('city')
+        street_name = request.POST.get('street_name')
+        street_number = request.POST.get('street_number')
 
-    # Update the location field
-        post.location = {"latitude": latitude, "longitude": longitude}
+        # Update the location fields of the post
+        post.location.city = city
+        post.location.street_name = street_name
+        post.location.street_number = street_number
+
+        # Save the changes to the post
         post.save()
 
+        # Return a JSON response indicating success
         return JsonResponse({"message": "Location updated successfully"})

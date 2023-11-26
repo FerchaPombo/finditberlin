@@ -33,24 +33,52 @@
                 <p class="card-text ">{{ post.content | safe }}</p>
 
                 <div id="map"></div>
-                    <script>
-                        function initMap() {
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                                center: {lat: -34.397, lng: 150.644},
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw" async defer></script>
+                <script>
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: -34.397, lng: 150.644},
                             zoom: 8
+                    });
+
+    // Allow the user to click on the map to select a location
+                        google.maps.event.addListener(map, 'click', function(event) {
+        // Sending location to the database using AJAX
+                            dataToSend = {
+                                "post_location": $("input[name='post_location']").is(':checked'),
+                                "city": city,
+                                "street_name": streetname,
+                                "street_number": streetnumber
+                            };
+
+                            var csrftoken = "{{ csrf_token }}";
+
+                            function csrfSafeMethod(method) {
+                                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                            }
+
+                            $.ajaxSetup({
+                                beforeSend: function(xhr, settings) {
+                                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                            }
+                        }
+                     });
+
+                            $.ajax({
+                                type: "POST",
+                                dataType: 'json',
+                                url: '/location/' + "{{ post.slug }}" + '/',
+                                data: JSON.stringify(dataToSend),
+                                success: function (msg) {
+                                    console.log('Succeeded!');
+                                },
+                            error: function (err) {
+                                console.log('Error!');
+                                }
+                            });
                         });
-
-    // Allow user to click on the map to select a location
-    google.maps.event.addListener(map, 'click', function(event) {
-      var location = {
-        latitude: event.latLng.lat(),
-        longitude: event.latLng.lng()
-      };
-
-      // Send the location to your Django server (you'll need to implement this)
-      // You can use AJAX or some other method to send this data.
-    });
-  }
+}
 </script>
 
 
