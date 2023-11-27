@@ -6,7 +6,37 @@ from .forms import CommentsForm
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import Location
+from .utils import get_google_maps_data 
 
+class PostLocation(View):
+
+    def post(self, request, slug):
+        # Query the database to get the post with the given slug
+        post = get_object_or_404(Post, slug=slug, status=1)
+
+        # Get location data from the request
+        city = request.POST.get('city')
+        street_name = request.POST.get('street_name')
+        street_number = request.POST.get('street_number')
+
+        # Update the location fields of the post
+        post.location.city = city
+        post.location.street_name = street_name
+        post.location.street_number = street_number
+
+        # Use the Google Maps API to get coordinates based on the entered address
+        formatted_address, latitude, longitude = get_google_maps_data(street_name, street_number, city)
+
+        # Update the post with the obtained coordinates
+        post.location.formatted_address = formatted_address
+        post.location.latitude = latitude
+        post.location.longitude = longitude
+
+        # Save the changes to the post
+        post.save()
+
+        # Return a JSON response indicating success
+        return JsonResponse({"message": "Location updated successfully"})
 
 
 class PostList(generic.ListView):
