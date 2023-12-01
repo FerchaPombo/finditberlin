@@ -13,6 +13,7 @@ Django==4.2.7
 django-allauth==0.58.2
 django-cloudinary-storage==0.3.0
 django-crispy-forms==2.1
+django-storages==1.14.2
 django-summernote==0.8.20.0
 httplib2==0.20.2
 idna==3.6
@@ -24,10 +25,7 @@ lazr.restfulclient==0.14.4
 lazr.uri==1.0.6
 more-itertools==8.10.0
 oauthlib==3.2.0
-postgres==4.0
 psycopg2-binary==2.9.9
-psycopg2-pool==1.1
-pycodestyle==2.11.1
 Pygments==2.11.2
 PyGObject==3.42.1
 PyJWT==2.3.0
