@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
+    "storages",
     'blog',
 
 ]
@@ -80,7 +81,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'allauth.account.middleware.AccountMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'finditberlin.urls'
@@ -154,7 +155,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.CloudinaryMediaStorage'
+
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -169,3 +172,44 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Account email verification
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+# crispy form settings
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#  summernote settings
+SUMMERNOTE_THEME = 'bs4'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Cloudinary storage
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME' : 'dwnq0iw7c',
+    'API_KEY' : '782253955156693',
+    'API_SECRET' : '1kpz9tatZXSquN8WxSWR1xU4Vno',
+
+}
+
+# settings.py
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Add leaflet settings
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER' : (52.520008, 13.404954),
+    'DEFAULT_ZOOM' : 2,
+    'MIN_ZOOM' : 2,
+    'MAX_ZOOM' : 12,
+}
+
+# Autentification Backends, not requiring email, but Username and password 
+
+AUTHENTICATION_BACKENDS = (
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'none'  
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_UNIQUE_EMAIL = False
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_UNIQUE_USERNAME = True
