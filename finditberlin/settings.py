@@ -115,9 +115,12 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 #     }
 # }
 
+import dj_database_url
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(default='your-elephantsql-url')
 }
+
 
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -213,3 +216,6 @@ ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_UNIQUE_EMAIL = False
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_UNIQUE_USERNAME = True
+
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://8000-ferchapombo-finditberlin-tl0ajklmlw.us2.codeanyapp.com']
