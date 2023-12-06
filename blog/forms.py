@@ -11,7 +11,7 @@ class CommentsForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CommentsForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()  # Fix typo in attribute name
+        self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             'body',

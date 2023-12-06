@@ -52,8 +52,8 @@ class Comments(models.Model):
         User, on_delete=models.CASCADE, related_name='author')
     approved = models.BooleanField(default=False)
 
-    # class Meta:
-    # ordering = ['created_on']
+    class Meta:
+        ordering = ['created_on']
 
     def __str__(self):
         return f"This is {self.author} comment: {self.body}"
