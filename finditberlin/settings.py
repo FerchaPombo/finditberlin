@@ -30,11 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['finditberlin.heroku.com', 'localhost']
-ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-3pirapu7m1a.ws-eu106.gitpod.io']
-ALLOWED_HOSTS = ['8000-ferchapombo-finditberlin-tl0ajklmlw.us2.codeanyapp.com']
-
-
+ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'finditberlin.urls'
@@ -113,7 +110,6 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 #     }
 # }
 
-import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(default='your-elephantsql-url')
@@ -184,9 +180,9 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Cloudinary storage
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME' : 'dwnq0iw7c',
-    'API_KEY' : '782253955156693',
-    'API_SECRET' : '1kpz9tatZXSquN8WxSWR1xU4Vno',
+    'CLOUD_NAME': 'dwnq0iw7c',
+    'API_KEY': '782253955156693',
+    'API_SECRET': '1kpz9tatZXSquN8WxSWR1xU4Vno',
 
 }
 
@@ -196,24 +192,25 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Add leaflet settings
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER' : (52.520008, 13.404954),
-    'DEFAULT_ZOOM' : 2,
-    'MIN_ZOOM' : 2,
-    'MAX_ZOOM' : 12,
+    'DEFAULT_CENTER': (52.520008, 13.404954),
+    'DEFAULT_ZOOM': 2,
+    'MIN_ZOOM': 2,
+    'MAX_ZOOM': 12,
 }
 
-# Autentification Backends, not requiring email, but Username and password 
+# Autentification Backends, not requiring email, but Username and password
 
 AUTHENTICATION_BACKENDS = (
 
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_VERIFICATION = 'none'  
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_UNIQUE_EMAIL = False
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_UNIQUE_USERNAME = True
 
 CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = ['https://8000-ferchapombo-finditberlin-tl0ajklmlw.us2.codeanyapp.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-ferchapombo-finditberlin-tl0ajklmlw.us2.codeanyapp.com']
