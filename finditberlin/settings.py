@@ -25,12 +25,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'FOOBAR' # os.environ.get("SECRET_KEY")
+GOOGLE_MAPS_API_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', '8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,7 +50,8 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     "storages",
-    "googlemaps",
+    #"googlemaps",
+    #"django_google_maps"
     'blog',
 ]
 
@@ -115,7 +117,7 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default='postgres://ptewhhrj:0yhHkdOAwLzz3BWz_y6nj7a0aJQtbU6S@flora.db.elephantsql.com/ptewhhrj')
 }
-
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
