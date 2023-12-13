@@ -31,8 +31,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
     excerpt = models.TextField(blank=True)
-    location = models.ForeignKey(
-        Location, on_delete=models.SET_NULL, null=True, blank=True, related_name='post_location')
+    #location = models.ForeignKey(
+        #Location, on_delete=models.SET_NULL, null=True, blank=True, related_name='post_location')
 
     class Meta:
         ordering = ['-created_on']

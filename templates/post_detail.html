@@ -4,7 +4,7 @@
 {% load easy_maps_tags %}
 
 
-<ip_list>
+<!-- <ip_list>
   is a list of ip addresses
   <width>
     default is auto
@@ -15,7 +15,7 @@
         <ip_List
           ><width
             ><height>
-              True %}
+              True %} -->
 
               <div class="masthead">
                 <div class="container">
@@ -54,9 +54,35 @@
                       <!-- Use the | safe filter inside the template tags -->
                       <p class="card-text">{{ post.content | safe }}</p>
 
-                      {% easy_map post.location %}
+                      <p class="card-map">{{ maps.html }} </p>
+                      <!-- load djangoeasy maps 
+                      <div class="map">
+                      {% easy_map model.location %}
+                      <script>
+                        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+                          key: "AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FUo",
+                          v: "weekly",
+                          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+                          // Add other bootstrap parameters as needed, using camel case.
+                        });
+                        let map;
 
-                      <!-- Google Maps integration -->
+                          async function initMap() {
+                            const { Map } = await google.maps.importLibrary("maps");
+
+                              map = new Map(document.getElementById("map"), {
+                              center: { lat: -34.397, lng: 150.644 },
+                              zoom: 8,
+                            });
+                          }
+
+                        initMap()
+                      </script>
+                      
+                      </div>
+
+
+                      Google Maps integration 
                       <div id="map" style="height: 400px"></div>
                       <script
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw"
@@ -96,7 +122,7 @@
                             }
                           );
                         }
-                      </script>
+                      </script> -->
 
                       <div class="row">
                         <div class="col-1">
@@ -198,10 +224,10 @@
               </div>
 
               {% endblock content %}
-            </height></width
+           <!-- </height></width
           ></ip_List
         ></show_input
       ></height
     ></width
   ></ip_list
->
+> -->

@@ -28,6 +28,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY= ("FOOBAR") #os.environ.get("SECRET_KEY")
 #os.environ.get("GOOGLE_MAPS_API_KEY")
 EASY_MAPS_GOOGLE_KEY = 'AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FU'
+
+#Easy maps setting 
+EASY_MAPS_CENTER = (52, 13)
 #EASY_MAPS_ZOOM = 8  
 #EASY_MAPS_LANGUAGE = 'en'  
 

@@ -49,3 +49,10 @@ https://stackoverflow.com/questions/44169448/how-to-send-latitude-and-longitude-
 
 crispyform 
 https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms
+
+django eas maps:
+https://pypi.org/project/django-easy-maps/
+
+
+error loading because MIM is not executable :
+https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-because-its-mime-type-text-html-is-not-execut
