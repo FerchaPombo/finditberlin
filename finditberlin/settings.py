@@ -117,8 +117,7 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default='postgres://ptewhhrj:0yhHkdOAwLzz3BWz_y6nj7a0aJQtbU6S@flora.db.elephantsql.com/ptewhhrj')
 }
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
-
+git add .
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
