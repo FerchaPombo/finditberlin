@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     "storages",
-    "googlemap",
+    "googlemaps",
     'blog',
 ]
 
@@ -113,7 +113,7 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='your-elephantsql-url')
+    'default': dj_database_url.config(default='postgres://ptewhhrj:0yhHkdOAwLzz3BWz_y6nj7a0aJQtbU6S@flora.db.elephantsql.com/ptewhhrj')
 }
 
 
