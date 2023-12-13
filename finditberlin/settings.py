@@ -27,6 +27,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'FOOBAR' # os.environ.get("SECRET_KEY")
 GOOGLE_MAPS_API_KEY = ''
+EASY_MAPS_GOOGLE_KEY = ''
+EASY_MAPS_ZOOM = 8  
+EASY_MAPS_LANGUAGE = 'en'  
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,10 +53,12 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     "storages",
+    'easy_maps',
     #"googlemaps",
     #"django_google_maps"
     'blog',
 ]
+
 
 SITE_ID = 1
 
@@ -117,7 +122,6 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default='postgres://ptewhhrj:0yhHkdOAwLzz3BWz_y6nj7a0aJQtbU6S@flora.db.elephantsql.com/ptewhhrj')
 }
-git add .
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -215,4 +219,6 @@ ACCOUNT_UNIQUE_USERNAME = True
 
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-ferchapombo-finditberlin-tl0ajklmlw.us2.codeanyapp.com']
+    'https://8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 
+    'https://8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io'
+]
