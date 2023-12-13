@@ -25,11 +25,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'FOOBAR' # os.environ.get("SECRET_KEY")
-GOOGLE_MAPS_API_KEY = ''
-EASY_MAPS_GOOGLE_KEY = ''
-EASY_MAPS_ZOOM = 8  
-EASY_MAPS_LANGUAGE = 'en'  
+SECRET_KEY= ("FOOBAR") #os.environ.get("SECRET_KEY")
+#os.environ.get("GOOGLE_MAPS_API_KEY")
+EASY_MAPS_GOOGLE_KEY = 'AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FU'
+#EASY_MAPS_ZOOM = 8  
+#EASY_MAPS_LANGUAGE = 'en'  
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -51,9 +51,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary',
     'django_summernote',
-    'crispy_forms',
     "storages",
     'easy_maps',
+    'crispy_forms',
+    'crispy_bootstrap4',
     #"googlemaps",
     #"django_google_maps"
     'blog',
@@ -222,3 +223,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 
     'https://8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io'
 ]
+
+#allowed crispy bootstra4 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

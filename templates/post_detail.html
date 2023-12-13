@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %} {% load easy_maps_tags %}
+{% extends 'base.html' %}
+{% block content %} 
+{% load crispy_forms_tags %} 
+{% load easy_maps_tags %}
 
 
 <ip_list>
@@ -182,7 +185,8 @@
                       <h3><strong>Tell us what you think :</strong></h3>
                       <p>Posting as: {{ user.username }}</p>
                       <form method="post" style="margin-top: 1.3em">
-                        {% csrf_token %} {{ comments_form | crispy }}
+                        {% csrf_token %} 
+                        {{ comments_form | crispy }}
                         <button type="submit" class="btn btn-signup btn-lg">
                           Say it!
                         </button>

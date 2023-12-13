@@ -45,3 +45,7 @@ https://realpython.com/python-traceback/#valueerror
 
 send location to my django server:
 https://stackoverflow.com/questions/44169448/how-to-send-latitude-and-longitude-to-django-server-using-ajax
+
+
+crispyform 
+https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms
