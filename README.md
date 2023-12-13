@@ -56,3 +56,7 @@ https://pypi.org/project/django-easy-maps/
 
 error loading because MIM is not executable :
 https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-because-its-mime-type-text-html-is-not-execut
+
+
+error mim type :
+https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type/50173968

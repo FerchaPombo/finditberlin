@@ -231,3 +231,6 @@ CSRF_TRUSTED_ORIGINS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# django easy maps 
+EASY_MAPS_CENTER = (-41.3, 32)
