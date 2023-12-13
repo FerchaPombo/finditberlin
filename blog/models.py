@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django_google_maps import fields as map_fields
+
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -10,9 +12,12 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Location(models.Model):
+    address = map_fields.AddressField(max_length=200, default=False)
+    geolocation = map_fields.GeoLocationField(max_length=100, default=False)
     street_name = models.CharField(max_length=255)
     street_number = models.CharField(max_length=20)
     city = models.CharField(max_length=255)
+
 
     def __str__(self):
         return f"{self.street_number} {self.street_name}, {self.city}"

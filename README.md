@@ -60,3 +60,16 @@ https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-beca
 
 error mim type :
 https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type/50173968
+https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-because-its-mime-type-text-html-is-not-execut
+https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type/50173968
+rendering data on the console :
+https://stackoverflow.com/questions/70625340/uncaught-in-promise-typeerror-cannot-read-properties-of-undefined-reading-d\
+
+adressFields:
+https://helpv2.quickbase.com/hc/en-us/articles/4570349602836
+
+
+non nullable fields :
+https://ctrlzblog.com/django-migrations-how-to-add-non-nullable-fields-without-compromising-your-database/exit
+https://djangopackages.org/packages/p/django-address/
+
