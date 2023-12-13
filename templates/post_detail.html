@@ -3,19 +3,6 @@
 {% load crispy_forms_tags %} 
 
 
-<!-- <ip_list>
-  is a list of ip addresses
-  <width>
-    default is auto
-    <height>
-      default is 400px
-      <show_input>
-        default if false {% ip_on_map
-        <ip_List
-          ><width
-            ><height>
-              True %} -->
-
               <div class="masthead">
                 <div class="container">
                   <div class="row g-0">
@@ -77,7 +64,7 @@
                       </div>
 
 
-                      Google Maps integration 
+                      <!-- Google Maps integration -->
                       <div id="map" style="height: 400px"></div>
                       <script
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw"
@@ -178,7 +165,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-8 card mb-4 mt-3">
-                    <h3><strong>Comments:</strong></h3>
+                    <h3 style="color: #4a4a4a,">Comments:</h3>
                     <div class="card-body">
                       <!-- We want a for loop inside the tags to iterate through each comment in comments -->
                       {% for comment in comments %}
@@ -203,7 +190,7 @@
                       </div>
                       {% else %} {% if user.is_authenticated %}
 
-                      <h3><strong>Tell us what you think :</strong></h3>
+                      <h3>Tell us what you think :</h3>
                       <p>Posting as: {{ user.username }}</p>
                       <form method="post" style="margin-top: 1.3em">
                         {% csrf_token %} 
@@ -219,10 +206,3 @@
               </div>
 
               {% endblock content %}
-           <!-- </height></width
-          ></ip_List
-        ></show_input
-      ></height
-    ></width
-  ></ip_list
-> -->

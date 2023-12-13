@@ -40,10 +40,6 @@ strong {
     background-color: rgba(0, 0, 0, 0.478);
 }
 
-.card {
-    color: aliceblue;
-}
-
 .card-body {
     color: #4a4a4a;
 }
@@ -119,4 +115,10 @@ p.card-text {
 .text_footer {
     font-size: medium;
     font-weight: lighter;
+}
+h3 {
+    font-weight: bolder;
+}
+.card {
+    color: #4a4a4a;
 }
