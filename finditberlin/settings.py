@@ -33,7 +33,7 @@ GOOGLE_MAPS_API_KEY = 'AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FU'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', '8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', '8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu107.gitpod.io', '8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
@@ -211,7 +211,7 @@ ACCOUNT_UNIQUE_USERNAME = True
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 
-    'https://8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io'
+    'https://8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io',
 ]
 
 #allowed crispy bootstra4 

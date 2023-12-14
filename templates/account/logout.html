@@ -10,7 +10,7 @@
 <div class="container_logout">
     <div class="row">
          <div class="col-md-8 mt-3 offset-md-2">
-            <h3 style="background-color: #4a4a4a;"><strong class="logout_text">{% trans "Log Out" %}</strong></h3>
+            <h3><strong class="logout_text">{% trans "Log Out" %}</strong></h3>
     <p class="logout_text">{% trans 'Are you sure you want to log out?' %}</p>
     {% url 'account_logout' as action_url %}
     {% element form method="post" action=action_url no_visible_fields=True %}

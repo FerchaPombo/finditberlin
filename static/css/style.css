@@ -37,12 +37,10 @@ strong {
 .author {
     font-weight: bolder;
     text-transform: uppercase;
-    background-color: rgba(0, 0, 0, 0.478);
+    background-color: rgb(118 109 109 / 48%);
 }
 
-.card-body {
-    color: #4a4a4a;
-}
+
 
 .card-img-top {
     margin-left: auto;
@@ -121,4 +119,8 @@ h3 {
 }
 .card {
     color: #4a4a4a;
+}
+
+.logout_text {
+    align-items: center;
 }
