@@ -12,8 +12,8 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Location(models.Model):
-    address = map_fields.AddressField(max_length=200, default=False)
-    geolocation = map_fields.GeoLocationField(max_length=100, default=False)
+    address = map_fields.AddressField(max_length=200)
+    geolocation = map_fields.GeoLocationField(max_length=100)
     street_name = models.CharField(max_length=255)
     street_number = models.CharField(max_length=20)
     city = models.CharField(max_length=255)

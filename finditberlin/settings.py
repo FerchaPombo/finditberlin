@@ -27,13 +27,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY= ("FOOBAR") #os.environ.get("SECRET_KEY")
 #os.environ.get("GOOGLE_MAPS_API_KEY")
-#EASY_MAPS_GOOGLE_KEY = 'AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FU'
 GOOGLE_MAPS_API_KEY = 'AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FU'
 
-#Easy maps setting 
-EASY_MAPS_CENTER = (52, 13)
-#EASY_MAPS_ZOOM = 8  
-#EASY_MAPS_LANGUAGE = 'en'  
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -199,13 +194,6 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Add leaflet settings
-LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (52.520008, 13.404954),
-    'DEFAULT_ZOOM': 2,
-    'MIN_ZOOM': 2,
-    'MAX_ZOOM': 12,
-}
 
 # Autentification Backends, not requiring email, but Username and password
 
@@ -230,6 +218,3 @@ CSRF_TRUSTED_ORIGINS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-# django easy maps 
-EASY_MAPS_CENTER = (-41.3, 32)

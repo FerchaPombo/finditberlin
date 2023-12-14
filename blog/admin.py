@@ -32,7 +32,9 @@ class CommentsAdmin(admin.ModelAdmin):
 class LocationAdmin(admin.ModelAdmin):
     list_display = ('street_name', 'street_number', 'city')
     formfield_overrides = {
-        map_fields.AddressField: {'widget': map_widgets.GoogleMapsAddressWidget},
+        map_fields.AddressField: {'widget':
+         map_widgets.GoogleMapsAddressWidget(attrs={
+            'data-map-type': 'roadmap', 'componentRestrictions' : {'city':'bln' }}
+            )},
     
     }
-

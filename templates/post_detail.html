@@ -23,9 +23,9 @@
                       {% if "placeholder" in post.featured_image.url %}
                       <img
                         src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg"
-                      />
+                      >
                       {% else %}
-                      <img src=" {{ post.featured_image.url }}" width="100%" />
+                      <img src=" {{ post.featured_image.url }}" width="100%">
                       {% endif %}
                     </div>
                   </div>
@@ -39,7 +39,7 @@
                       <!-- The post content goes inside the card-text. -->
                       <!-- Use the | safe filter inside the template tags -->
                       <p class="card-text">{{ post.content | safe }} </p>
-                       <p class="card-map">{{ maps.html }} </p>
+                     
                       <script>
                         (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
                           key: "AIzaSyAC2jmjjz6VRs6V6VZKCBmvk7WR8ZL3FUo",
@@ -67,7 +67,7 @@
                       <!-- Google Maps integration -->
                       <div id="map" style="height: 400px"></div>
                       <script
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw"
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw&callback=initMap"
                         async
                         defer
                       ></script>
@@ -149,9 +149,7 @@
                         <div class="col-1">
                           {% with comments.count as total_comments %}
                           <strong class="text-secondary"
-                            ><i class="far fa-comments"></i> {{ total_comments
-                            }}</strong
-                          >
+                            ><i class="fa-regular fa-comment"></i> {{ total_comments }}</strong>
                           {% endwith %}
                         </div>
                       </div>
@@ -160,12 +158,12 @@
                 </div>
                 <div class="row">
                   <div class="col">
-                    <hr />
+                    <hr>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-8 card mb-4 mt-3">
-                    <h3 style="color: #4a4a4a,">Comments:</h3>
+                    <h3 style="color: #4a4a4a,"><strong>Comments:</strong></h3>
                     <div class="card-body">
                       <!-- We want a for loop inside the tags to iterate through each comment in comments -->
                       {% for comment in comments %}
@@ -203,6 +201,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              
 
               {% endblock content %}
