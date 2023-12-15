@@ -108,7 +108,7 @@
 
                       <div class="row">
                         <div class="col-1">
-                          <strong>
+                          
                             {% if user.is_authenticated %}
                             <form
                               class="d-inline"
@@ -123,7 +123,7 @@
                                 value="{{ post.slug }}"
                                 class="btn-like"
                               >
-                                <i class="fa fa-heart fa-sm" aria-hidden="true"> </i>
+                                <i class="fa-regular fa-heart fa-xl" aria-hidden="true"> </i>
                               </button>
                               {% else %}
                               <button
@@ -132,24 +132,24 @@
                                 value="{{ post.slug }}"
                                 class="btn-like"
                               >
-                                <i class="fa fa-heart fa-sm" aria-hidden="true"> </i>
+                                <i class="fa-regular fa-heart fa-xl" aria-hidden="true"> </i>
                               </button>
                               {% endif %}
                             </form>
                             {% else %}
                             <span class="text-secondary"
-                              ><i class="far fa-heart fa-sm"></i
+                              ><i class="fa-regular fa-heart fa-xl"></i
                             ></span>
                             {% endif %}
                             <span class="text-secondary"
                               >{{ post.number_of_likes }}</span
                             >
-                          </strong>
+                          
                         
                         
                           {% with comments.count as total_comments %}
-                          <strong class="text-secondary"
-                            ><i class="fa-regular fa-comment fa-sm"></i> {{ total_comments }}</strong>
+                          <span class="text-secondary"
+                            ><i class="fa-regular fa-comment fa-xl"></i> {{ total_comments }}</span>
                           {% endwith %}
                         
                       </div>

@@ -126,3 +126,11 @@ h3 {
 }
 
 /* font size icons */
+
+.fa.fa-heart {
+    font-size: larger;
+}
+
+.fa-regular.fa-comment {
+    font-size: larger;
+}
