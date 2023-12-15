@@ -73,3 +73,13 @@ non nullable fields :
 https://ctrlzblog.com/django-migrations-how-to-add-non-nullable-fields-without-compromising-your-database/exit
 https://djangopackages.org/packages/p/django-address/
 
+styling icons:
+https://stackoverflow.com/questions/50557610/have-two-font-awesome-icons-side-by-side
+
+center raw container:
+https://stackoverflow.com/questions/13462535/center-contents-of-bootstrap-row-container
+
+images responsiveness:
+https://www.w3schools.com/bootstrap/bootstrap_images.asp#:~:text=Responsive%20images%20automatically%20adjust%20to,nicely%20to%20the%20parent%20element.
+https://getbootstrap.com/docs/4.0/components/card/
+https://stackoverflow.com/questions/61617160/bootstrap-4-card-image-resizing-on-mobile

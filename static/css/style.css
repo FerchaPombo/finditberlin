@@ -24,7 +24,7 @@ strong {
 
 .navbar-text.text-muted.navbar-item.is-size-6 {
     margin-left: auto;
-    padding-top: 9%;
+    padding-top: 5%;
     padding-right: 2%;
 }
 
@@ -133,4 +133,20 @@ h3 {
 
 .fa-regular.fa-comment {
     font-size: larger;
+}
+
+#has-text-primary {
+    color: hsl(171, 100%, 41%);
+}
+
+.navbar-burger.burger {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
 }

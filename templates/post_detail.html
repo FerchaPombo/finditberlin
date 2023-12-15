@@ -22,7 +22,7 @@
                       <!-- The featured image URL goes in the src attribute -->
                       {% if "placeholder" in post.featured_image.url %}
                       <img
-                        src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg"
+                        src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg" width="100%"
                       >
                       {% else %}
                       <img src=" {{ post.featured_image.url }}" width="100%">
@@ -153,7 +153,7 @@
                     <hr>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-left: 20px; margin-right: 20px;">
                   <div class="col-md-8 card mb-4 mt-3">
                     <h3 style="color: #4a4a4a,"><strong>Comments:</strong></h3>
                     <div class="card-body">
