@@ -113,16 +113,13 @@
                             <form
                               class="d-inline"
                               action="{ url 'post_like' post.slug %}"
-                              method="POST"
-                            >
+                              method="POST">
                               {% csrf_token %} {% if liked %}
-
                               <button
                                 type="submit"
                                 name="blogpost_id"
                                 value="{{ post.slug }}"
-                                class="btn-like"
-                              >
+                                class="btn-like">
                                 <i class="fa-regular fa-heart fa-xl" aria-hidden="true"> </i>
                               </button>
                               {% else %}
@@ -130,27 +127,20 @@
                                 type="submit"
                                 name="blogpost_id"
                                 value="{{ post.slug }}"
-                                class="btn-like"
-                              >
+                                class="btn-like">
                                 <i class="fa-regular fa-heart fa-xl" aria-hidden="true"> </i>
                               </button>
                               {% endif %}
-                            </form>
+                            
                             {% else %}
                             <span class="text-secondary"
-                              ><i class="fa-regular fa-heart fa-xl"></i
-                            ></span>
+                              ><i class="fa-regular fa-heart fa-xl"></i></span>
                             {% endif %}
                             <span class="text-secondary"
-                              >{{ post.number_of_likes }}</span
-                            >
-                          
-                        
-                        
-                          {% with comments.count as total_comments %}
-                          <span class="text-secondary"
-                            ><i class="fa-regular fa-comment fa-xl"></i> {{ total_comments }}</span>
+                              >{{ post.number_of_likes }}</span>{% with comments.count as total_comments %}
+                          <span class="text-secondary"><i class="fa-regular fa-comment fa-xl"></i> {{ total_comments }}</span>
                           {% endwith %}
+                        </form>
                         
                       </div>
                     </div>
