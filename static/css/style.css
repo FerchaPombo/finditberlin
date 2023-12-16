@@ -99,6 +99,15 @@ p.card-text {
     padding-right: 10px;
 }
 
+/* Login styling */
+
+.container_login {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 
 /* Footer styling */
 
