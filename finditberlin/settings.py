@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'django_google_maps',
     'fontawesomefree',
+    'about',
     'members',
     'blog',
 ]

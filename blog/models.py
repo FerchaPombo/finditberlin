@@ -17,6 +17,7 @@ class Location(models.Model):
     street_name = models.CharField(max_length=255)
     street_number = models.CharField(max_length=20)
     city = models.CharField(max_length=255)
+    #Need to add the function to pass from street name and street number to lat and long and vice versa
 
 
     def __str__(self):

@@ -38,3 +38,4 @@ class LocationAdmin(admin.ModelAdmin):
             )},
     
     }
+
