@@ -159,18 +159,26 @@
                     <div class="card-body">
                       <!-- We want a for loop inside the tags to iterate through each comment in comments -->
                       {% for comment in comments %}
-                      <div class="comments" style="padding: 10px">
+                      <div class="comments{% if not comment.approved and comment.name == user.username %} faded{% elif not comment.approved %} d-none{% endif %}" style="padding: 10px">
                         <p class="font-weight-normal" style="font-weight: bolder;">
                           <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                           {{ comment.author }} wrote:
                         </p>
                         <!-- The body of the comment goes before the | -->
-                        {{ comment.body | linebreaks }}
+                        <div id="comment{{ comment.id }}">
+                          {{ comment.body | linebreaks }}
+                        </div>
+                        {% if not comment.approved and comment.name == user.username %}
+                        <p class="approval">Your comment is awaiting approval</p>{% endif %}
+                        {% if user.is_authenticated and comment.name == user.username %}
+                        <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                        <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                        {% endif %}
                       </div>
-                      <!-- Our for loop ends here -->
+                  <!-- Our for loop ends here -->
                       {% endfor %}
-                    </div>
                   </div>
+                </div>
                   <div class="col-md-4 card mb-4 mt-3">
                     <div class="card-body">
                       <!-- For later -->
