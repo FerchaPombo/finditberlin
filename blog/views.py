@@ -108,8 +108,8 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
         post = get_object_or_404(queryset, slug=slug)
         comment = post.comments.filter(id=comment_id).first()
 
-        comment_form = CommentForm(data=request.POST, instance=comment)
-        if comment_form.is_valid() and comment.name == request.user.username:
+        comment_form = CommentsForm(data=request.POST, instance=comment)
+        if comment_form.is_valid() and comment.author == request.user.username:
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.approved = False

@@ -86,3 +86,6 @@ https://stackoverflow.com/questions/61617160/bootstrap-4-card-image-resizing-on-
 
 
 https://bobbyhadz.com/blog/javascript-cannot-read-property-classlist-of-null
+https://stackoverflow.com/questions/48101400/django-null-value-in-column-user-id-violates-not-null-constraint-detail-faili
+https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-not-null-constraint/
+https://www.commandprompt.com/education/how-to-add-or-drop-not-null-constraints-in-postgresql/#:~:text=A%20NOT%20NULL%20constraint%20can,Constraint%20From%20a%20Postgres%20Table%3F

@@ -6,7 +6,7 @@ from crispy_forms.layout import Layout, Submit
 class CommentsForm(forms.ModelForm):  
     class Meta:
         model = Comments  
-        fields = ['author', 'body']
+        fields = ['body']
 
 
     def __init__(self, *args, **kwargs):
@@ -17,3 +17,11 @@ class CommentsForm(forms.ModelForm):
             'body',
             Submit('submit', 'Submit', css_class='btn-primary') 
         )
+'''from .models import Comments
+from django import forms
+
+
+class CommentsForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('body',)'''
