@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %} 
 {% load crispy_forms_tags %} 
+{% load static %}
 
 
               <div class="masthead">
@@ -227,5 +228,5 @@
           
           {% block extras %}
           {% load static %}
-          <script src="{% static 'js/comments.js' %}"></script>
+          <script src="{% static '/js/comments.js' %}"></script>
           {% endblock extras %}
