@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Location 
 from .forms import CommentsForm
-from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-from .models import Location
+
 
 
 class PostList(generic.ListView):
@@ -28,7 +28,7 @@ def post_detail(request, slug, *args, **kwargs):
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.all().order_by("author")
+    comments = post.comments.all().order_by("created_on")
     comment_count = post.comments.filter(approved = True).count()
     liked = False
     commented = False
@@ -37,7 +37,7 @@ def post_detail(request, slug, *args, **kwargs):
         liked = True
 
     if request.method == "POST":
-        comment_form = CommentForm(data=request.POST)
+        comment_form = CommentsForm(data=request.POST)
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -84,11 +84,12 @@ def comment_delete(request, slug, comment_id, *args, **kwargs):
     """
     view to delete comment
     """
-    queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset)
-    comment = post.comments.filter(id=comment_id).first()
+    # queryset = Post.objects.filter(status=1)
+    # post = get_object_or_404(queryset)
+    post = get_object_or_404(Post, slug=slug, status=1)
+    comment = post.comments.get(id=comment_id)
 
-    if comment.name == request.user.username:
+    if comment.author == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:

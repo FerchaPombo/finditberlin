@@ -21,7 +21,7 @@ class CommentsAdmin(admin.ModelAdmin):
 
     list_display = ('body', 'post', 'approved')
     list_filter = ('approved', 'author')
-    search_fields = ['name', 'body']
+    search_fields = ['author', 'body']
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):

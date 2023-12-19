@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
+
 {% block content %} 
 {% load crispy_forms_tags %} 
-{% load static %}
+
 
 
               <div class="masthead">
@@ -160,7 +166,7 @@
                       <div class="card-body">
                           <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                           {% for comment in comments %}
-                          <div class="comments{% if not comment.approved and comment.name == user.username %} faded{% elif not comment.approved %} d-none{% endif %}"
+                          <div class="comments{% if not comment.approved and comment.author == user.username %} faded{% elif not comment.approved %} d-none{% endif %}"
                               style="padding: 10px;">
                               <p class="font-weight-bold" style='font-weight: bolder;'>
                                   <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
@@ -174,9 +180,9 @@
                               <div id="comment{{ comment.id }}">
                                   {{ comment.body | linebreaks }}
                               </div>
-                              {% if not comment.approved and comment.name == user.username %}
+                              {% if not comment.approved and comment.author == user.username %}
                               <p class="approval">This comment is awaiting approval</p>{% endif %}
-                              {% if user.is_authenticated and comment.name == user.username %}
+                              {% if request.user.is_superuser or comment.author == request.user %}
                               <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
                               <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
                               {% endif %}
