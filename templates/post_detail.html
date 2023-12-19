@@ -153,54 +153,79 @@
                     <hr>
                   </div>
                 </div>
-                <div class="row" style="margin-left: 20px; margin-right: 20px;">
-                  <div class="col-md-8 card mb-4 mt-3">
-                    <h3 style="color: #4a4a4a,"><strong>Comments:</strong></h3>
-                    <div class="card-body">
-                      <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-                      {% for comment in comments %}
-                      <div class="comments{% if not comment.approved and comment.name == user.username %} faded{% elif not comment.approved %} d-none{% endif %}" style="padding: 10px">
-                        <p class="font-weight-normal" style="font-weight: bolder;">
-                          <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                          {{ comment.author }} wrote:
-                        </p>
-                        <!-- The body of the comment goes before the | -->
-                        <div id="comment{{ comment.id }}">
-                          {{ comment.body | linebreaks }}
-                        </div>
-                        {% if not comment.approved and comment.name == user.username %}
-                        <p class="approval">Your comment is awaiting approval</p>{% endif %}
-                        {% if user.is_authenticated and comment.name == user.username %}
-                        <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-                        <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
-                        {% endif %}
+                <div class="row">
+                  <div class="col-md-8 card mb-4  mt-3 ">
+                      <h3>Comments:</h3>
+                      <div class="card-body">
+                          <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                          {% for comment in comments %}
+                          <div class="comments{% if not comment.approved and comment.name == user.username %} faded{% elif not comment.approved %} d-none{% endif %}"
+                              style="padding: 10px;">
+                              <p class="font-weight-bold" style='font-weight: bolder;'>
+                                  <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                                  {{ comment.author }}
+                                  <span class="font-weight-normal">
+                                      <!-- The comment's created date goes here -->
+                                      {{ comment.created_on }}
+                                  </span> wrote:
+                              </p>
+                              <!-- The body of the comment goes before the | -->
+                              <div id="comment{{ comment.id }}">
+                                  {{ comment.body | linebreaks }}
+                              </div>
+                              {% if not comment.approved and comment.name == user.username %}
+                              <p class="approval">This comment is awaiting approval</p>{% endif %}
+                              {% if user.is_authenticated and comment.name == user.username %}
+                              <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                              <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                              {% endif %}
+                          </div>
+                          <!-- Our for loop ends here -->
+                          {% endfor %}
                       </div>
-                  <!-- Our for loop ends here -->
-                      {% endfor %}
                   </div>
-                </div>
-                  <div class="col-md-4 card mb-4 mt-3">
-                    <div class="card-body">
-                      <!-- For later -->
-                      {% if commented %}
-                      <div class="alert alert-success" role="alert">
-                        Your comment is awaiting approval
+                  <div class="col-md-4 card mb-4  mt-3 ">
+                      <div class="card-body">
+                          <!-- For later -->
+                          {% if user.is_authenticated %}
+          
+                          <h3>Tell us what you think:</h3>
+                          <p>Commenting as: {{ user.username }}</p>
+                          <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                              {{ comment_form | crispy }}
+                              {% csrf_token %}
+                              <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Say it!</button>
+                          </form>
+                          {% else %}
+                          <h3>In order to leave a comment, you need to <a href="{% url 'account_login' %}">Login</a>first!</h3>
+                          {% endif %}
                       </div>
-                      {% else %} {% if user.is_authenticated %}
-
-                      <h3>Tell us what you think :</h3>
-                      <p>Posting as: {{ user.username }}</p>
-                      <form method="post" style="margin-top: 1.3em">
-                        {% csrf_token %} 
-                        {{ comments_form | crispy }}
-                        <button type="submit" class="btn btn-signup btn-lg">
-                          Say it!
-                        </button>
-                      </form>
-                      {% endif %} {% endif %}
-                    </div>
                   </div>
-                </div>
-              
-
-              {% endblock content %}
+              </div>
+          </div>
+          
+          <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          Are you sure you want to delete your comment? This action cannot be undone.
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          
+          {% endblock content %}
+          
+          {% block extras %}
+          {% load static %}
+          <script src="{% static 'js/comments.js' %}"></script>
+          {% endblock extras %}

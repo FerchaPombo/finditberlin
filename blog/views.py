@@ -28,7 +28,7 @@ def post_detail(request, slug, *args, **kwargs):
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.all().order_by("-created_on")
+    comments = post.comments.all().order_by("author")
     comment_count = post.comments.filter(approved = True).count()
     liked = False
     commented = False
@@ -46,9 +46,9 @@ def post_detail(request, slug, *args, **kwargs):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment awaiting moderation.')
         else:
-            comment_form = CommentForm()
+            comment_form = CommentsForm()
     else:
-        comment_form = CommentForm()
+        comment_form = CommentsForm()
 
     return render(
         request,
