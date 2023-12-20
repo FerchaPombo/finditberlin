@@ -8,5 +8,5 @@ urlpatterns = [
     #path('location/<slug:slug>', views.PostLocation.as_view(), name= 'post_location'),
     path('<slug:slug>/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),
     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
-    
+    path('userspost_create/', views.userspost_create, name='userspost_create'),
 ]

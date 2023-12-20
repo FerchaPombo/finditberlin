@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Location 
+from .models import Post, Location, UsersPost
 from .forms import CommentsForm, UsersPostForm
 from django.http import JsonResponse
 
@@ -97,6 +97,28 @@ def comment_delete(request, slug, comment_id, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+#create views for userspost_create
+
+class UsersPostCreate(generic.ListView):
+    model = userspost
+    queryset = Post.objects.filter(status=1)
+    template_name = 'users_post.html'
+    paginate_by = 6
+
+    def userspost_create(request):
+        if request.method == 'POST':
+            form = UsersPostForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.author
+                post.save()
+                messages.success(request, 'Your post was created succesfully!')
+                return redirect(post.get_absolute_url())
+            else:
+                message.error(request, 'Error creating the post')
+        else:
+            form = UsersPostForm()
+        return render(request, 'users_post.html', {'form': form})
 
 '''
 def comment_edit(request, slug, comment_id, *args, **kwargs):
@@ -144,6 +166,9 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
             messages.add_message(request, messages.ERROR, 'You can only edit your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class 
 
 
 
