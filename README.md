@@ -92,3 +92,8 @@ https://www.commandprompt.com/education/how-to-add-or-drop-not-null-constraints-
 
 django messages:
 https://ordinarycoders.com/blog/article/django-messages-framework
+
+
+users creating posts:
+https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django
+https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django

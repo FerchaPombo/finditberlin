@@ -137,7 +137,7 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
                 comment.post = post
                 comment.approved = False
                 comment.save()
-                messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+                messages.add_message(request, messages.SUCCESS, 'Your comment was Updated!')
             else:
                 messages.add_message(request, messages.ERROR, 'Error updating comment!')
         else:
