@@ -102,3 +102,5 @@ https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-the
 importing cloudinary file field to forms :
 https://alphacoder.xyz/image-upload-with-django-and-cloudinary/
 https://cloudinary.com/documentation/django_image_and_video_upload
+
+https://www.contentstack.com/docs/developers/create-custom-fields/cloudinary#use-your-custom-field

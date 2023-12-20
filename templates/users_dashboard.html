@@ -3,19 +3,39 @@
 {% load crispy_forms_tags %} 
 
 {% block content %}
-  <h2>Hey there, welcome, {{ user.username }}!</h2>
+<div class="masthead">
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-md-8 masthead-text">
+                      
+                      <h1>Hey there, welcome, {{ user.username }}!</h1>
 
-  <h3>Here is a list of the posts you've created :</h3>
-  <ul>
-    {% for post in user_posts %}
-      <li><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row" style="width: 80%; float: none; margin: 0 auto;">
+                    <div class="col card mb-4 mt-3 left top">
+                      <div class="card-body">
+                        <h2>Here is a list of the posts you've created :</h2>
+                        <ul>
+                          {% for post in user_posts %}
+                            <li><a href="{% url 'post_list' slug=post.slug %}">{{ post.title }}</a></li> <!--notworking-->
+                          {% endfor %}
+                        </ul>
+                        <div class="container">
+                          <div class="row" style="width: 80%; float: none; margin: 0 auto;">
+                            <div class="col card mb-4 mt-3 left top">
+                              <div class="card-body">
+                                <h3>Share a New Post:</h3>
+                                  <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ UsersPostForm_form | crispy }}
+                                  <button type="submit">Submit</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </div>
 
-  <h3>Create a New Post:</h3>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ UsersPostForm_form | crispy }}
-    <button type="submit">Submit</button>
-  </form>
+
 {% endblock %}

@@ -41,7 +41,7 @@ class UsersPostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
             'author': forms.TextInput(attrs={'placeholder': 'Author'}),
-            'featured_image': CloudinaryJsFileField(),
+            'featured_image': CloudinaryJsFileField(attrs={'placeholder': 'Upload an image here'}),
             'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
         }
         widget_attrs = {

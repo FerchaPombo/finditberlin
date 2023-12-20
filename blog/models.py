@@ -67,6 +67,7 @@ class Comments(models.Model):
 
 class UsersPost(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
+    slug = models.SlugField(max_length=100, unique=True, null=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     featured_image = CloudinaryField('image', default="placeholder", blank=False)
     body = models.TextField()
