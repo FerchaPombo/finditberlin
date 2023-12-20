@@ -51,6 +51,11 @@
                     <a href="{% url 'about' %}" class="navbar-item is-size-6 has-text-weight-light">
                         About
                     </a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'user_postcreate' %}" class="navbar-item is-size-6 has-text-weight-light">
+                        Dashboard
+                    </a>
+                    {% endif %}
 
                     <a href="{% url 'account_signup' %}" class="navbar-item is-size-6 has-text-weight-light">
                         Register

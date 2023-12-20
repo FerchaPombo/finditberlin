@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Location, UsersPost
 from .forms import CommentsForm, UsersPostForm
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -97,28 +98,7 @@ def comment_delete(request, slug, comment_id, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-#create views for userspost_create
 
-class UsersPostCreate(generic.ListView):
-    model = userspost
-    queryset = Post.objects.filter(status=1)
-    template_name = 'users_post.html'
-    paginate_by = 6
-
-    def userspost_create(request):
-        if request.method == 'POST':
-            form = UsersPostForm(request.POST)
-            if form.is_valid():
-                post = form.save(commit=False)
-                post.author = request.author
-                post.save()
-                messages.success(request, 'Your post was created succesfully!')
-                return redirect(post.get_absolute_url())
-            else:
-                message.error(request, 'Error creating the post')
-        else:
-            form = UsersPostForm()
-        return render(request, 'users_post.html', {'form': form})
 
 '''
 def comment_edit(request, slug, comment_id, *args, **kwargs):
@@ -167,8 +147,55 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+'''#create views for userspost_create
 
-class 
+class UsersPostCreate(generic.ListView):
+    model = UsersPost
+    queryset = Post.objects.filter(status=1)
+    template_name = 'users_dashboard.html'
+    paginate_by = 6
+
+    def userspost_create(request):
+        if request.method == 'POST':
+            form = UsersPostForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.author
+                post.save()
+                messages.success(request, 'Your post was created succesfully!')
+                return redirect(post.get_absolute_url())
+            else:
+                message.error(request, 'Error creating the post')
+        else:
+            form = UsersPostForm()
+        return render(request, 'users_dashboard.html', {'form': form}) '''
+
+# create a decorator to autentificate that only when user is logged in , they can actually access the dashboard
+
+@login_required
+def userspost_create(request):
+    if request.method == 'POST':
+        form = UsersPostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Your post was created successfully!')
+            return redirect(post.get_absolute_url())
+        else:
+            messages.error(request, 'Error creating the post')
+    else:
+        form = UsersPostForm()
+    return render(request, 'users_dashboard.html', {'form': form})
+
+class UsersPostList(generic.ListView):
+    model = UsersPost
+    queryset = UsersPost.objects.all()
+    template_name = 'users_dashboard.html'
+    paginate_by = 6
+
+    def get_queryset(self):
+        return UsersPost.objects.filter(author=self.request.user)
 
 
 
