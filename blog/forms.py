@@ -6,7 +6,8 @@ from crispy_forms.layout import Layout, Submit
 class CommentsForm(forms.ModelForm):  
     class Meta:
         model = Comments  
-        fields = ['body']
+        fields = ['author', 'body']
+        widgets = {'author': forms.HiddenInput()}
 
 
     def __init__(self, *args, **kwargs):
@@ -15,8 +16,18 @@ class CommentsForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             'body',
-            Submit('submit', 'Submit', css_class='btn-primary') 
+            Submit('submit', 'Submit', css_class='btn-primary btn-outline-dark btn-sm') 
         )
+
+    def save(self, commit=True):
+        comment = super(CommentsForm, self).save(commit=False)
+        if not comment.author:
+            comment.author = self.initial['author']
+        if commit:
+            comment.save()
+        return comment
+
+
 '''from .models import Comments
 from django import forms
 

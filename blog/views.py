@@ -98,6 +98,7 @@ def comment_delete(request, slug, comment_id, *args, **kwargs):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+'''
 def comment_edit(request, slug, comment_id, *args, **kwargs):
     """
     view to edit comments
@@ -117,6 +118,30 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))'''
+
+def comment_edit(request, slug, comment_id, *args, **kwargs):
+    """
+    View to edit comments
+    """
+    if request.method == "POST":
+        post = get_object_or_404(Post, slug=slug, status=1)
+        comment = post.comments.filter(id=comment_id).first()
+
+        # Check if the user is authenticated and the comment author
+        if request.user.is_authenticated and comment.author == request.user.username:
+            comment_form = CommentsForm(data=request.POST, instance=comment)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.approved = False
+                comment.save()
+                messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            else:
+                messages.add_message(request, messages.ERROR, 'Error updating comment!')
+        else:
+            messages.add_message(request, messages.ERROR, 'You can only edit your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
