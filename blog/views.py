@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Location 
-from .forms import CommentsForm
+from .forms import CommentsForm, UsersPostForm
 from django.http import JsonResponse
 
 
@@ -144,6 +144,10 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
             messages.add_message(request, messages.ERROR, 'You can only edit your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+
+
 
 '''class PostDetail(View):
 

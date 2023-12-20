@@ -73,4 +73,10 @@ class UsersPost(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"This post: {self.body} {self.featured_image} is created by {self.author}"
+
 
