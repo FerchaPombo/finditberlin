@@ -97,3 +97,8 @@ https://ordinarycoders.com/blog/article/django-messages-framework
 users creating posts:
 https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django
 https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django
+
+
+importing cloudinary file field to forms :
+https://alphacoder.xyz/image-upload-with-django-and-cloudinary/
+https://cloudinary.com/documentation/django_image_and_video_upload

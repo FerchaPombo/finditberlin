@@ -64,3 +64,13 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"This is {self.author} comment: {self.body}"
+
+class UsersPost(models.Model):
+    title = models.CharField(max_length=100, unique=True, blank=False)
+    author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
+    featured_image = CloudinaryField('image', default="placeholder", blank=False)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
+
