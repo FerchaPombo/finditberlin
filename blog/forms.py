@@ -41,12 +41,12 @@ class UsersPostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
             'author': forms.TextInput(attrs={'placeholder': 'Author'}),
-            'featured_image': CloudinaryJsFileField(attrs={'placeholder': 'Upload an image here'}),
+            #'featured_image': CloudinaryJsFileField(attrs={'placeholder': 'Upload an image here'}),
             'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
         }
-        widget_attrs = {
+        '''widget_attrs = {
             'featured_image': {'placeholder': 'Upload an image here'},
-        }
+        }'''
 
     def __init__(self, *args, **kwargs):
         super(UsersPostForm, self).__init__(*args, **kwargs)

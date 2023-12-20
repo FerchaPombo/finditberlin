@@ -104,3 +104,15 @@ https://alphacoder.xyz/image-upload-with-django-and-cloudinary/
 https://cloudinary.com/documentation/django_image_and_video_upload
 
 https://www.contentstack.com/docs/developers/create-custom-fields/cloudinary#use-your-custom-field
+https://alphacoder.xyz/image-upload-with-django-and-cloudinary/
+https://stackoverflow.com/questions/59448227/imagefield-object-has-no-attribute-value-from-datadict
+
+default slug value :
+https://stackoverflow.com/questions/4884584/django-generate-default-slug
+
+over ride bootstrap properties :
+https://www.google.com/search?q=how+to+over+ride+all+the+blue+colors+of+the+bootstrap+theme+in+css&oq=how+to+over+ride+all+the+blue+colors+of+the+bootstrap+theme+&gs_lcrp=EgZjaHJvbWUqCQgDECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgkIBBAhGAoYoAHSAQkxOTc4NmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8
+https://blog.hubspot.com/website/how-to-override-bootstrap-css#how-to-customize-bootstrap-colors-sass-variables
+
+styling:
+https://venngage.com/blog/pastel-color-palettes/

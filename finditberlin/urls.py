@@ -1,4 +1,5 @@
 """finditberlin URL Configuration
+    path("about/", include("about.urls
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -21,8 +22,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("about/", include("about.urls"), name="about-urls"),
+
     path("summernote/", include("django_summernote.urls")),
+    path("about/", include("about.urls"), name="about-urls"),
     path('', include("blog.urls"), name='blog-urls'),
     path('accounts/', include('allauth.urls')),
 ]
