@@ -198,8 +198,13 @@ class UsersPostList(generic.ListView):
         return UsersPost.objects.filter(author=self.request.user)
 
 
+#another aproach for the users dashboard 
+@login_required
+def user_dashboard(request):
+    user_posts = Post.objects.filter(author=request.user)
+    form = UsersPostForm()
 
-
+    return render(request, 'users_dashboard.html', {'user_posts': user_posts, 'form': form})
 
 '''class PostDetail(View):
 
