@@ -17,9 +17,14 @@
       <div class="col card mb-4 mt-3 left top">
         <div class="card-body">
           <h3>Here is a list of the posts you've created :</h3>
-            <ul>
+            <ul class="user-posts-list">
               {% for post in user_posts %}
-            <li><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></li>
+            <li>
+              <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
+              <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
+
+              
+            </li>
               {% endfor %}
             </ul>
         </div>
@@ -36,5 +41,29 @@
               {{ form.as_p }}
               <button type="submit">Submit</button>
               </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<!-- styles for this particular template written here in order to over ride bulma bootstrap template, styles not repeated anywhere else -->
+<style>
+  .user-posts-list {
+    list-style: none;
+    padding: 0;
+    font-size: 20px;
+  }
+
+  .user-posts-list li {
+    margin-bottom: 8px;
+  }
+
+  .user-posts-list li::before {
+    content: "•"; 
+    color: #4a4a4a;
+    margin-right: 8px;
+  }
+</style>
+
 {% endblock %}
 
