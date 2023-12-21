@@ -1,4 +1,9 @@
 {% load static %}
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html class="h-100">
@@ -72,20 +77,30 @@
                      <span class="navbar-text text-muted navbar-item is-size-6">
                         Follow the best streetart around berlin!
                     </span>
-                    
-    
+                    <!--Displaying the Django Messages-->
+                
                 </div>
             </div>
         </div>
     </nav>
-
-    <section class="section">
-        <div class="container">
-            {% block content %}
-            {% endblock %}
+    <div class = "container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{message.tags }} alert-dismissable fade show" id="msg" role="alert">
+                {{ message | safe }}
+                <button type="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    </section>
+    </div>
+    <main class="flex-shrink-0 main-bg">
 
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
 
 
     <footer class="footer_style">
@@ -97,6 +112,16 @@
             </p>
         </div>
     </footer>
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2000);
+    </script>
+    {% block extras %}
+
+    {% endblock extras %}
 </body>
 </html>
 
