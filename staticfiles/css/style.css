@@ -1,0 +1,162 @@
+/* general styling of the blog */
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+strong {
+    font-size: xx-large;
+}
+
+/* Styling header */
+
+.navbar-item {
+    margin-left: 0%;
+
+
+}
+
+.navbar-item.is-active.is-size-6.has-text-weight-light {
+    padding-left: 1%;
+    margin-left: -1%;
+}
+
+.navbar-text.text-muted.navbar-item.is-size-6 {
+    margin-left: auto;
+    padding-top: 5%;
+    padding-right: 2%;
+}
+
+/* Styleing Post detail */
+
+.image-container {
+    align-self: center;
+}
+
+.author {
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: rgb(118 109 109 / 48%);
+}
+
+
+
+.card-img-top {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: larger;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    margin-left: 2%;
+}
+
+p.card-text {
+    color: black;
+    margin-left: 2%;
+}
+
+.has-text-centered {
+
+    color: #4a4a4a;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+
+/* Login styling */
+
+
+
+.container_login {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Register styling */
+
+.container_register {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+/* Logout styling */
+
+.container_logout {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Login styling */
+
+.container_login {
+    border-style: double;
+    padding-block: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* Footer styling */
+
+.footer_style {
+    background-color: #fff;
+    height: 6rem !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.text_footer {
+    font-size: medium;
+    font-weight: lighter;
+}
+h3 {
+    font-weight: bolder;
+}
+.card {
+    color: #4a4a4a;
+}
+
+.logout_text {
+    align-items: center;
+}
+
+/* font size icons */
+
+.fa.fa-heart {
+    font-size: larger;
+}
+
+.fa-regular.fa-comment {
+    font-size: larger;
+}
+
+#has-text-primary {
+    color: hsl(171, 100%, 41%);
+}
+
+.navbar-burger.burger {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
