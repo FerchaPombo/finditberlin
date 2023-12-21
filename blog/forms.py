@@ -66,7 +66,7 @@ class UsersPostForm(forms.ModelForm):
         userspost.author = self.initial.get('author', None)
         if commit:
             userspost.save()
-        return userspost
+        return {{ author.post }}
 
 
 

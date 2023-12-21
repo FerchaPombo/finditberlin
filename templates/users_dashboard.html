@@ -8,7 +8,7 @@
                   <div class="row justify-content-center">
                     <div class="col-md-8 masthead-text">
                       
-                      <h1>Hey there, welcome, {{ user.username }}!</h1>
+                      <h1>Hey there{{ user.username }}. Welcome!</h1>
 
                     </div>
                   </div>
@@ -17,7 +17,7 @@
                   <div class="row" style="width: 80%; float: none; margin: 0 auto;">
                     <div class="col card mb-4 mt-3 left top">
                       <div class="card-body">
-                        <h2>Here is a list of the posts you've created :</h2>
+                        <h3>Here is a list of the posts you've created :</h3>
                         <ul>
                           {% for post in user_posts %}
                             <li><a href="{% url 'post_list' slug=post.slug %}">{{ post.title }}</a></li> <!--notworking-->
