@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
     const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-    var deleteButtons = document.getElementsByClassName("btn-delete");
-    var editButtons = document.getElementsByClassName("btn-edit");
-    var deleteConfirm = document.getElementById("deleteConfirm");
-    var commentText = document.getElementsByTagName("textarea")[0];
-    var commentForm = document.getElementById("commentForm");
-    var submitButton = document.getElementById("submitButton");
+    const deleteButtons = document.getElementsByClassName("btn-delete");
+    const editButtons = document.getElementsByClassName("btn-edit");
+    const deleteConfirm = document.getElementById("deleteConfirm");
+    const commentText = document.getElementsByTagName("textarea")[0];
+    const commentForm = document.getElementById("CommentsForm");
+    const submitButton = document.getElementById("submitButton");
+
 
     // empty the comment text after post
 

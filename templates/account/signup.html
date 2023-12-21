@@ -2,7 +2,7 @@
 {% load allauth i18n socialaccount %}
 {% block head_title %}
 {% trans "Signup" %}
-{% endblock head_title %}
+{% endblock %}
 {% block content %}
 
 
@@ -16,12 +16,24 @@
         </div>
     </div>
 
-<div class="container_form_register">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                    <input type="hidden"
+                        name="{{ redirect_field_name }}"
+                        value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-signup right btn-outline-dark btn-sm" type="submit">{% trans "Sign Up" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 
-   
+   <!-- my previous setup 
         {% url 'account_signup' as action_url %}
         {% element form form=form method="post" action=action_url tags="entrance,signup" %}
         {% slot body %}
@@ -44,6 +56,6 @@
         
         </div>
     </div>
-</div>
+</div> -->
 
-{% endblock content %}
+{% endblock %}

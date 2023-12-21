@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Location, UsersPost
+from .models import Post, Comments, UsersPost
 from .forms import CommentsForm, UsersPostForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -40,12 +40,10 @@ def post_detail(request, slug, *args, **kwargs):
     if request.method == "POST":
         comment_form = CommentsForm(data=request.POST)
         if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment awaiting moderation.')
+            messages.add_message(request, messages.SUCCESS, 'Comment awaiting approval')
         else:
             comment_form = CommentsForm()
     else:
@@ -128,8 +126,10 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
     View to edit comments
     """
     if request.method == "POST":
-        post = get_object_or_404(Post, slug=slug, status=1)
-        comment = post.comments.filter(id=comment_id).first()
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comments, pk=comment_id)
+        comment_form = CommentsForm(data=request.POST, instance=comment)
 
         # Check if the user is authenticated and the comment author
         if request.user.is_authenticated and comment.author == request.user.username:

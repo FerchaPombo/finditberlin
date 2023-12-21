@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Post, Comments, Location
+from .models import Post, Comments #Location
 from django_summernote.admin import SummernoteModelAdmin
 from django import forms
-from django_google_maps import widgets as map_widgets
-from django_google_maps import fields as map_fields
+#from django_google_maps import widgets as map_widgets
+#from django_google_maps import fields as map_fields
 
 
 @admin.register(Post)
@@ -27,7 +27,7 @@ class CommentsAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
 
-
+'''
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
     list_display = ('street_name', 'street_number', 'city')
@@ -38,4 +38,4 @@ class LocationAdmin(admin.ModelAdmin):
             )},
     
     }
-
+'''
