@@ -22,6 +22,15 @@
             <li>
               <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
               <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
+              <button class="btn btn-outline-info btn-sm" onclick="editPost('{{ post.slug }}')">Edit</button>
+
+              <div id="editForm_{{ post.slug }}" style="display: none;">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ edit_form.as_p }}
+                  <button type="submit">Submit Edit</button>
+                </form>
+              </div>
 
               
             </li>
@@ -44,6 +53,23 @@
           </div>
       </div>
     </div>
+    <script>
+   
+   // Add for delete later :
+
+   
+  
+      function editPost(slug) {
+        // Hide all edit forms
+        document.querySelectorAll('[id^="editForm_"]').forEach(form => {
+          form.style.display = 'none';
+        });
+  
+        // Show the selected edit form
+        document.getElementById(`editForm_${slug}`).style.display = 'block';
+      }
+    </script>
+  
   </div>
 
 <!-- styles for this particular template written here in order to over ride bulma bootstrap template, styles not repeated anywhere else -->
