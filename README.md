@@ -116,3 +116,8 @@ https://blog.hubspot.com/website/how-to-override-bootstrap-css#how-to-customize-
 
 styling:
 https://venngage.com/blog/pastel-color-palettes/
+
+navbar burger links:
+https://stackoverflow.com/questions/35233307/add-sidebar-links-to-bootstrap-hamburger-menu
+https://getbootstrap.com/docs/4.1/components/navbar/
+
