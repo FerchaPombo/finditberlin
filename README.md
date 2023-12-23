@@ -121,3 +121,5 @@ navbar burger links:
 https://stackoverflow.com/questions/35233307/add-sidebar-links-to-bootstrap-hamburger-menu
 https://getbootstrap.com/docs/4.1/components/navbar/
 
+rendering comments ;
+https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-added-but-they-are-not-visible-on-the-site

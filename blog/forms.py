@@ -82,4 +82,14 @@ class EditForm(forms.ModelForm):
         if author:
             self.fields['author'].queryset = author.blog_posts.all()
 
+# define userspost admin form so i can see the damn form in my admin panel 
 
+class UsersPostAdminForm(forms.ModelForm):
+    class Meta:
+        model = UsersPost
+        fields = ['title', 'body', 'featured_image']
+        exclude = ['slug']
+        widgets ={
+            'title': forms.TextInput(attrs={'placeholder': 'Title'}),
+            'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
+        }

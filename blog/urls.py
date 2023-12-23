@@ -7,7 +7,6 @@ urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('users_dashboard/', views.users_dashboard, name='users_dashboard'),
     path('users_post_form/', views.userspost_create, name='users_post_form'),
-   # path('users_dashboard/', views.userspost_create, name='user_postcreate'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('like/<slug:slug>', views.post_like, name='post_like'),
     path('<slug:slug>/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),

@@ -188,8 +188,8 @@ def userspost_create(request):
         if form.is_valid():
             post = form.save(commit=False, author=request.user)
             post.save()
-            messages.success(request, 'Your post was created successfully!')
-            return redirect(post.get_absolute_url())
+            messages.success(request, 'Your post was created successfully!, now its waiting for aproval')
+            return redirect('post_detail', slug=post.slug)
         else:
             error_message = ', '.join([f'{field}: {error}' for field, error in form.errors.items()])
             messages.error(request, f'Error creating the post: {error_message}')
