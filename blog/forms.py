@@ -81,14 +81,3 @@ class EditForm(forms.ModelForm):
         # Customize the queryset for the author field
         if author:
             self.fields['author'].queryset = author.blog_posts.all()
-
-
-
-'''from .models import Comments
-from django import forms
-
-
-class CommentsForm(forms.ModelForm):
-    class Meta:
-        model = Comments
-        fields = ('body',)'''

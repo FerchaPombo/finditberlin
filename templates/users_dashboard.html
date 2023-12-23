@@ -19,22 +19,27 @@
           <h3>Here is a list of the posts you've created :</h3>
             <ul class="user-posts-list">
               {% for post in user_posts %}
-            <li>
-              <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
-              <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
-              <button class="btn btn-outline-info btn-sm" onclick="editPost('{{ post.slug }}')">Edit</button>
+                <li>
+                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
+                    <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
+                    <button class="btn btn-outline-info btn-sm" onclick="editPost('{{ post.slug }}')">Edit</button>
 
-              <div id="editForm_{{ post.slug }}" style="display: none;">
-                <form method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {{ edit_form.as_p | crispy }}
-                  <button type="submit">Submit Edit</button>
-                </form>
-              </div>
-
-              
-            </li>
-              {% endfor %}
+                    <div id="editForm_{{ post.slug }}" style="display: none;">
+                        <form method="post" enctype="multipart/form-data" onsubmit="closeAlert()">
+                            {% csrf_token %}
+                            {{ edit_forms.post.slug.as_p | crispy }}
+                            {{ edit_forms.post.title.as_widget | crispy}}
+                            {{ edit_forms.post.slug.as_widget | crispy}}
+                            {{ edit_forms.post.content.as_widget |crispy }}
+                            {{ edit_forms.post.featured_image.as_widget | crispy }}
+                            {{ edit_forms.post.status.as_widget | crispy }}
+                            {{ edit_forms.post.excerpt.as_widget | crispy }}
+                            
+                            <button type="submit">Submit Edit</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
             </ul>
         </div>
       </div>
@@ -54,21 +59,23 @@
       </div>
     </div>
     <script>
-   
-   // Add for delete later :
-
-   
-  
       function editPost(slug) {
-        // Hide all edit forms
-        document.querySelectorAll('[id^="editForm_"]').forEach(form => {
-          form.style.display = 'none';
-        });
+          // Hide all edit forms
+          document.querySelectorAll('[id^="editForm_"]').forEach(form => {
+              form.style.display = 'none';
+          });
   
-        // Show the selected edit form
-        document.getElementById(`editForm_${slug}`).style.display = 'block';
+          // Show the selected edit form
+          document.getElementById(`editForm_${slug}`).style.display = 'block';
       }
-    </script>
+  
+      // Add this function to close the alert
+      function closeAlert() {
+          document.querySelectorAll('.alert').forEach(alert => {
+              new bootstrap.Alert(alert).close();
+          });
+      }
+  </script>
   
   </div>
 

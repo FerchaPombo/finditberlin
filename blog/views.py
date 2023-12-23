@@ -202,10 +202,11 @@ class UsersPostList(generic.ListView):
 @login_required
 def user_dashboard(request):
     user_posts = Post.objects.filter(author=request.user)
+    edit_forms = {post.slug: EditForm(instance=post) for post in user_posts}
     form = UsersPostForm()
 
-    return render(request, 'users_dashboard.html', {'user_posts': user_posts, 'form': form})
-
+    return render(request, 'users_dashboard.html', {'user_posts': user_posts, 'form': form, 'edit_forms': edit_forms})
+    
 # Create a view for the edit post form that renders in the users_dashboard
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
