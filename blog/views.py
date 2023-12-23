@@ -46,14 +46,13 @@ def post_detail(request, slug, *args, **kwargs):
             comment.post = post
             comment.author = request.user
             comment.save()
-            #messages.add_message(request, messages.SUCCESS, 'Comment awaiting approval')
             messages.success(request, 'Comment submitted and awaiting approval')
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
-            print(comment_form.errors)
+            #print(comment_form.errors)
             messages.error(request, 'Error submitting comment. Please check the form.')
     
-            #comment_form = CommentsForm()
+            
     else:
         # I want to exclude the author field from the form, so it doesnt require a filled filed when saving it to the daatabase
         comment_form = CommentsForm(initial={'author': request.user})
