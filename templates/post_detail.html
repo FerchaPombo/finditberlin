@@ -1,184 +1,203 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %} 
-
-
-
 {% block extra_js %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
-
 {% block content %} 
-
 <div class="masthead">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1><strong style="text-transform: uppercase">{{ post.title }}</strong></h1>
-                    <!-- Post author goes before the | the post's created date goes after -->
-                    <p class="post-subtitle">{{ post.author }}|{{ post.created_on}}</p>
-            </div>
-            <div class="d-none d-md-block col-md-8 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg" width="100%">
-                {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
-        </div>
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-8 masthead-text">
+            <!-- Post title goes in these h1 tags -->
+            <h1><strong style="text-transform: uppercase">{{ post.title }}</strong></h1>
+            <!-- Post author goes before the | the post's created date goes after -->
+            <p class="post-subtitle">{{ post.author }}|{{ post.created_on}}</p>
+         </div>
+         <div class="d-none d-md-block col-md-8 masthead-image">
+            <!-- The featured image URL goes in the src attribute -->
+            {% if "placeholder" in post.featured_image.url %}
+            <img src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg" width="100%">
+            {% else %}
+            <img src=" {{ post.featured_image.url }}" width="100%">
+            {% endif %}
+         </div>
       </div>
-    </div>
-
-    <div class="container">
-        <div class="row" style="width: 80%; float: none; margin: 0 auto;">
-            <div class="col card mb-4 mt-3 left top">
-                <div class="card-body">
-                  <!-- The post content goes inside the card-text. -->
-                  <p class="card-text">{{ post.content | safe }} </p>
-                  <!-- here we start the map mess 
-                      <script>
-                        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-                          key: "AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw",
-                          v: "weekly",
-                          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-                          // Add other bootstrap parameters as needed, using camel case.
-                        });
-                        let map;
-
-                          async function initMap() {
-                            const { Map } = await google.maps.importLibrary("maps");
-
-                              map = new Map(document.getElementById("map"), {
-                              center: { lat: -34.397, lng: 150.644 },
-                              zoom: 8,
-                            });
-                          }
-
-                        initMap()
-                      </script>
-                      
-                      </div>
-
-
-                       Google Maps integration 
-                      <div id="map" style="height: 400px"></div>
-                      <script
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw&callback=initMap"
-                        async
-                        defer
-                      ></script>
-                      <script>
-                        function initMap() {
-                          var geocoder = new google.maps.Geocoder();
-
-                          geocoder.geocode(
-                            {
-                              address:
-                                "{{ post.location.street_number }} {{ post.location.street_name }}, {{ post.location.city }}",
-                            },
-                            function (results, status) {
-                              if (status == "OK") {
-                                var map = new google.maps.Map(
-                                  document.getElementById("map"),
-                                  {
-                                    center: results[0].geometry.location,
-                                    zoom: 15,
-                                  }
-                                );
-
-                                var marker = new google.maps.Marker({
-                                  map: map,
-                                  position: results[0].geometry.location,
-                                  title: "{{ post.title }}",
-                                });
-                              } else {
-                                console.error(
-                                  "Geocode was not successful for the following reason: " +
-                                    status
-                                );
-                              }
-                            }
-                          );
-                        }
-                      </script>-->
-                </div>
+   </div>
+</div>
+<div class="masthead">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-1">
+            {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+               {% csrf_token %}
+               {% if liked %}
+               <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like">
+               <i class="far fa-heart" style="font-size: larger;"></i>
+               </button>
+               {% else %}
+               <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like">
+               <i class="far fa-heart" style="font-size: larger;"></i>
+               </button>
+               {% endif %}
+            </form>
+            {% else %}
+            <span class="text-secondary" style="font-size: larger;">
+            <i class="far fa-heart" style="font-size: larger;"></i>
+            </span>
+            {% endif %}
+            <!-- The number of likes goes before the closing strong tag -->
+            {{ post.number_of_likes }}
+         </div>
+         <div class="col-1">
+            <span class="text-secondary"><i class="far fa-comments" style="font-size: larger;"></i></span>
+            <!-- Our total_comments variable goes before the closing strong tag -->
+            {{ comment_count }}
+         </div>
+      </div>
+   </div>
+   <!-- here we start the map mess 
+      <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw",
+          v: "weekly",
+          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+          // Add other bootstrap parameters as needed, using camel case.
+        });
+        let map;
+      
+          async function initMap() {
+            const { Map } = await google.maps.importLibrary("maps");
+      
+              map = new Map(document.getElementById("map"), {
+              center: { lat: -34.397, lng: 150.644 },
+              zoom: 8,
+            });
+          }
+      
+        initMap()
+      </script>
+      
+      </div>
+      
+      
+       Google Maps integration 
+      <div id="map" style="height: 400px"></div>
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROz6o_yDQ8681Taxc4Dn7I1hcYABF3Fw&callback=initMap"
+        async
+        defer
+      ></script>
+      <script>
+        function initMap() {
+          var geocoder = new google.maps.Geocoder();
+      
+          geocoder.geocode(
+            {
+              address:
+                "{{ post.location.street_number }} {{ post.location.street_name }}, {{ post.location.city }}",
+            },
+            function (results, status) {
+              if (status == "OK") {
+                var map = new google.maps.Map(
+                  document.getElementById("map"),
+                  {
+                    center: results[0].geometry.location,
+                    zoom: 15,
+                  }
+                );
+      
+                var marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location,
+                  title: "{{ post.title }}",
+                });
+              } else {
+                console.error(
+                  "Geocode was not successful for the following reason: " +
+                    status
+                );
+              }
+            }
+          );
+        }
+      </script>-->
+</div>
+</div>
+</div>
+<!-- Displaying the comments -->
+<div class="row" style="padding-left: 40px; padding-right: 40px;">
+   <div class="col-md-8 card mb-4  mt-3 ">
+      <h3>Comments:</h3>
+      <div class="card-body">
+         <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+         {% for comment in comments %}
+         <div class="comments{% if not comment.approved and comment.author == user.username %} faded{% elif not comment.approved %} d-none{% endif %}"
+            style="padding: 10px;">
+            <p class="font-weight-bold" style='font-weight: bolder;'>
+               <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+               {{ comment.author }}
+               <span class="font-weight-normal">
+                  <!-- The comment's created date goes here -->
+                  {{ comment.created_on }}
+               </span>
+               wrote:
+            </p>
+            <!-- The body of the comment goes before the | -->
+            <div id="comment{{ comment.id }}">
+               {{ comment.body | linebreaks }}
             </div>
-        </div>
-        <!-- Displaying the comments -->
-        <div class="row">
-          <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-            <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-              {% for comment in comments %}
-              <div class="comments{% if not comment.approved and comment.author == user.username %} faded{% elif not comment.approved %} d-none{% endif %}"
-                  style="padding: 10px;">
-                  <p class="font-weight-bold" style='font-weight: bolder;'>
-                  <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                  {{ comment.author }}
-                  <span class="font-weight-normal">
-                    <!-- The comment's created date goes here -->
-                    {{ comment.created_on }}
-                  </span> wrote:
-                  </p>
-                  <!-- The body of the comment goes before the | -->
-                  <div id="comment{{ comment.id }}">
-                    {{ comment.body | linebreaks }}
-                  </div>
-                  {% if not comment.approved and comment.author == user %}
-                  <p class="approval">This comment is awaiting approval</p>
-                  {% endif %}
-                  {% if request.user.is_superuser or comment.author == user %}
-                  <button class="btn btn-delete btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Delete</button>
-                  <button class="btn btn-edit btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Edit</button>
-                  {% endif %}
-                </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
-              </div>
-            </div>
-            <div class="col-md-4 card mb-4  mt-3 ">
-              <div class="card-body">
-                <!-- For later -->
-                {% if user.is_authenticated %}
-                <h3>Tell us what you think:</h3>
-                    <p>Commenting as: {{ user.username }}</p>
-                        <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                          {{ comment_form | crispy }}
-                          {% csrf_token %}
-                          <button id="submitButton" type="submit" class="btn btn-signup btn-outline-dark btn-sm">Say it!</button>
-                        </form>
-                {% else %}
-                <h4>In order to leave a comment, you need to <a href="{% url 'account_login' %}"> Login </a> first!</h4>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Delete Modal -->  
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          Are you sure you want to delete your comment? This action cannot be undone.
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          
-          {% block extras %}
-          {% load static %}
-          
-          <script src="{% static '/js/comments.js' %}"></script>
-          {% endblock extras %}
-          {% endblock content %}
+            {% if not comment.approved and comment.author == user %}
+            <p class="approval">This comment is awaiting approval</p>
+            {% endif %}
+            {% if request.user.is_superuser or comment.author == user %}
+            <button class="btn btn-delete btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Delete</button>
+            <button class="btn btn-edit btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Edit</button>
+            {% endif %}
+         </div>
+         <!-- Our for loop ends here -->
+         {% endfor %}
+      </div>
+   </div>
+   <div class="col-md-4 card mb-4  mt-3 ">
+      <div class="card-body">
+         <!-- For later -->
+         {% if user.is_authenticated %}
+         <h3>Tell us what you think:</h3>
+         <p>Commenting as: {{ user.username }}</p>
+         <form id="commentForm" method="post" style="margin-top: 1.3em;">
+            {{ comment_form | crispy }}
+            {% csrf_token %}
+            <button id="submitButton" type="submit" class="btn btn-signup btn-outline-dark btn-sm">Say it!</button>
+         </form>
+         {% else %}
+         <h4>In order to leave a comment, you need to <a href="{% url 'account_login' %}"> Login </a> first!</h4>
+         {% endif %}
+      </div>
+   </div>
+</div>
+</div>
+<!-- Delete Modal -->  
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            Are you sure you want to delete your comment? This action cannot be undone.
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+         </div>
+      </div>
+   </div>
+</div>
+{% block extras %}
+{% load static %}
+<script src="{% static '/js/comments.js' %}"></script>
+{% endblock extras %}
+{% endblock content %}
