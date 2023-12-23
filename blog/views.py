@@ -186,13 +186,13 @@ def userspost_create(request):
     if request.method == 'POST':
         form = UsersPostForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
+            post = form.save(commit=False, author=request.user)
             post.save()
             messages.success(request, 'Your post was created successfully!')
             return redirect(post.get_absolute_url())
         else:
-            messages.error(request, 'Error creating the post')
+            error_message = ', '.join([f'{field}: {error}' for field, error in form.errors.items()])
+            messages.error(request, f'Error creating the post: {error_message}')
     else:
         form = UsersPostForm()
     return render(request, 'users_dashboard.html', {'form': form})
@@ -248,8 +248,6 @@ def delete_post(request, post_slug):
         messages.success(request, 'Post deleted successfully.')
     else:
         messages.error(request, 'You do not have permission to delete this post.')
-
-        
 '''
 def delete_post(request, post_slug):
     post = get_object_or_404(Post, slug=post_slug, author=request.user)

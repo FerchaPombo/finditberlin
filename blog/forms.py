@@ -37,10 +37,10 @@ class CloudinaryField(BaseCloudinaryField):
 class UsersPostForm(forms.ModelForm):
     class Meta:
         model = UsersPost
-        fields = ['title', 'author', 'body', 'featured_image']
+        fields = ['title', 'body', 'featured_image']
+        exclude = ['slug']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
-            'author': forms.TextInput(attrs={'placeholder': 'Author'}),
             #'featured_image': CloudinaryJsFileField(attrs={'placeholder': 'Upload an image here'}),
             'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
         }
@@ -50,30 +50,30 @@ class UsersPostForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(UsersPostForm, self).__init__(*args, **kwargs)
-        self.initial['author'] = kwargs.get('initial', {}).get('author', None)
+        #self.initial['author'] = kwargs.get('initial', {}).get('author', None)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             'title',
-            'author',
+            #'author',
             'featured_image',
             'body',
             Submit('submit', 'Submit', css_class='btn-primary btn-outline-dark btn-sm')
         )
 
-    def save(self, commit=True):
+    def save(self, commit=True, author=None):
         userspost = super(UsersPostForm, self).save(commit=False)
-        userspost.author = self.initial.get('author', None)
+        userspost.author = author
         if commit:
             userspost.save()
-        return {{ author.post }}
+        return userspost
 
 #create a class for Edit form 
 
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'slug', 'content', 'featured_image', 'status', 'excerpt']
+        fields = ['title', 'content', 'featured_image', 'status', 'excerpt']
 
     def __init__(self, *args, author=None, **kwargs):
         super().__init__(*args, **kwargs)
@@ -81,3 +81,5 @@ class EditForm(forms.ModelForm):
         # Customize the queryset for the author field
         if author:
             self.fields['author'].queryset = author.blog_posts.all()
+
+

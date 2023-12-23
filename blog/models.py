@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from autoslug import AutoSlugField
+from django.urls import reverse
 #from django_google_maps import fields as map_fields
 
 
@@ -27,7 +29,7 @@ class Location(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(max_length=100, unique=True, null=False)
+    slug = AutoSlugField(populate_from='title', unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
@@ -68,7 +70,7 @@ class Comments(models.Model):
 
 class UsersPost(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(max_length=100, unique=True, null=False, default='')
+    slug = AutoSlugField(populate_from='title', unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     featured_image = CloudinaryField('image', default="placeholder", blank=False)
     body = models.TextField()
@@ -80,5 +82,7 @@ class UsersPost(models.Model):
 
     def __str__(self):
         return f"This post: {self.body} {self.featured_image} is created by {self.author}"
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.slug)])
 
 

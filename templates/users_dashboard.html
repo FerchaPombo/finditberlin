@@ -51,7 +51,7 @@
       <div class="col card mb-4 mt-3 left top">
           <div class="card-body">
               <h3>Share a New Post:</h3>
-              <form method="post" enctype="multipart/form-data">
+              <form method="post" enctype="multipart/form-data" action="{% url 'users_post_form' %}">
               {% csrf_token %}
               {{ form.as_p }}
               <button type="submit">Submit</button>
