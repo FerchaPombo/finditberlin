@@ -29,10 +29,12 @@ def post_detail(request, slug, *args, **kwargs):
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.all().order_by("created_on")
-    comment_count = post.comments.filter(approved = True).count()
+    comments = post.comments.filter(approved=True).order_by("created_on")
+    comment_count = comments.count()
     liked = False
-    commented = False
+    #comments = post.comments.filter().order_by("created_on")
+    #comment_count = post.comments.filter(approved = True).count()
+    #commented = False
 
     if post.likes.filter(id=request.user.id).exists():
         liked = True
@@ -42,12 +44,20 @@ def post_detail(request, slug, *args, **kwargs):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.post = post
+            comment.author = request.user
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment awaiting approval')
+            #messages.add_message(request, messages.SUCCESS, 'Comment awaiting approval')
+            messages.success(request, 'Comment submitted and awaiting approval')
+            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
-            comment_form = CommentsForm()
+            print(comment_form.errors)
+            messages.error(request, 'Error submitting comment. Please check the form.')
+    
+            #comment_form = CommentsForm()
     else:
-        comment_form = CommentsForm()
+        # I want to exclude the author field from the form, so it doesnt require a filled filed when saving it to the daatabase
+        comment_form = CommentsForm(initial={'author': request.user})
+        
 
     return render(
         request,
