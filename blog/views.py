@@ -209,7 +209,7 @@ class UsersPostList(generic.ListView):
 
 #another aproach for the users dashboard 
 @login_required
-def user_dashboard(request):
+def users_dashboard(request):
     user_posts = Post.objects.filter(author=request.user)
     edit_forms = {post.slug: EditForm(instance=post) for post in user_posts}
     form = UsersPostForm()
@@ -232,6 +232,40 @@ def edit_post(request, slug):
         form = EditForm(instance=post, author=request.user)
 
     return render(request, 'edit_post.html', {'form': form, 'post': post})
+
+
+def delete_post(request, post_slug):
+
+    post = get_object_or_404(Post, slug=post_slug, author=request.user)
+
+    print(f"Post found: {post.title}")  # You can print any attribute of the post for debugging purposes
+
+    post.delete()
+    return redirect('users_dashboard')
+
+    if request.user == post.author:
+        post.delete()
+        messages.success(request, 'Post deleted successfully.')
+    else:
+        messages.error(request, 'You do not have permission to delete this post.')
+
+        
+'''
+def delete_post(request, post_slug):
+    post = get_object_or_404(Post, slug=post_slug, author=request.user)
+
+    post.delete()
+    return redirect('users_dashboard')
+
+    # Check if the user has the permission to delete the post
+    if request.user == post.author:
+        post.delete()
+        messages.success(request, 'Post deleted successfully.')
+    else:
+        messages.error(request, 'You do not have permission to delete this post.')
+
+    return redirect('users_dashboard')  '''
+
 
 '''class PostDetail(View):
 
@@ -322,5 +356,4 @@ class PostLocation(View):
         post.save()
 
         # Return a JSON response indicating success
-        return JsonResponse({"message": "Location updated successfully"})
-'''
+        return JsonResponse({"message": "Location updated successfully"})'''
