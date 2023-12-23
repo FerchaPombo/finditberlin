@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comments, UsersPost
-from .forms import CommentsForm, UsersPostForm
+from .forms import CommentsForm, UsersPostForm, EditForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
@@ -205,6 +205,23 @@ def user_dashboard(request):
     form = UsersPostForm()
 
     return render(request, 'users_dashboard.html', {'user_posts': user_posts, 'form': form})
+
+# Create a view for the edit post form that renders in the users_dashboard
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == 'POST':
+        form = EditForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Post updated successfully!')
+            return redirect('post_detail', slug=slug)
+        else:
+            messages.error(request, 'Error updating the post. Please check the form.')
+    else:
+        form = EditForm(instance=post, author=request.user)
+
+    return render(request, 'edit_post.html', {'form': form, 'post': post})
 
 '''class PostDetail(View):
 

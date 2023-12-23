@@ -3,11 +3,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <div class="container mt-4">
+  <div class="container mt-4" id="editForm_">
     <h2>Edit your Post</h2>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ edit_post.as_p }}
       <button type="submit" class="btn btn-primary">Update Post</button>
     </form>
   </div>

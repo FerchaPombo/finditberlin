@@ -27,7 +27,7 @@
               <div id="editForm_{{ post.slug }}" style="display: none;">
                 <form method="post" enctype="multipart/form-data">
                   {% csrf_token %}
-                  {{ edit_form.as_p }}
+                  {{ edit_form.as_p | crispy }}
                   <button type="submit">Submit Edit</button>
                 </form>
               </div>

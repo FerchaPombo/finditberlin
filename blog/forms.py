@@ -1,4 +1,4 @@
-from .models import Comments, UsersPost
+from .models import Comments, UsersPost, Post
 from django import forms
 from crispy_forms.helper import FormHelper  
 from crispy_forms.layout import Layout, Submit
@@ -67,6 +67,20 @@ class UsersPostForm(forms.ModelForm):
         if commit:
             userspost.save()
         return {{ author.post }}
+
+#create a class for Edit form 
+
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'slug', 'content', 'featured_image', 'status', 'excerpt']
+
+    def __init__(self, *args, author=None, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Customize the queryset for the author field
+        if author:
+            self.fields['author'].queryset = author.blog_posts.all()
 
 
 
