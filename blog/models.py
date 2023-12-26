@@ -3,29 +3,13 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from autoslug import AutoSlugField
 from django.urls import reverse
-#from django_google_maps import fields as map_fields
+
 
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-# check the location key and how to add it later, part of the Post class
-
-
-'''
-class Location(models.Model):
-    #address = map_fields.AddressField(max_length=200)
-    geolocation = map_fields.GeoLocationField(max_length=100)
-    street_name = models.CharField(max_length=255)
-    street_number = models.CharField(max_length=20)
-    city = models.CharField(max_length=255)
-    #Need to add the function to pass from street name and street number to lat and long and vice versa
-
-
-    def __str__(self):
-        return f"{self.street_number} {self.street_name}, {self.city}"
-'''
 
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
@@ -40,8 +24,6 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
     excerpt = models.TextField(blank=True)
-    #location = models.ForeignKey(
-        #Location, on_delete=models.SET_NULL, null=True, blank=True, related_name='post_location')
 
     class Meta:
         ordering = ['-created_on']

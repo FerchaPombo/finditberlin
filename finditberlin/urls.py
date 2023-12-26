@@ -27,8 +27,5 @@ urlpatterns = [
     path('', include("blog.urls"), name='blog-urls'),
     path('accounts/', include('allauth.urls')),
 ]
-    
-    #path('members/', include('django.contrib.auth.urls')),
-    #path('', include('members.urls')),
-    #path('googlemaps/', include('googlemaps.urls')),
+
     

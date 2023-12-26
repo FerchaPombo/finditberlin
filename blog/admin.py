@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Post, Comments, UsersPost #Location
+from .models import Post, Comments, UsersPost
 from django_summernote.admin import SummernoteModelAdmin
 from django import forms
 from .forms import UsersPostAdminForm
-#from django_google_maps import widgets as map_widgets
-#from django_google_maps import fields as map_fields
+
 
 
 @admin.register(Post)
@@ -42,19 +41,3 @@ class UsersPostAdmin(admin.ModelAdmin):
     def get_form(self,request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         return form 
-
-
-
-
-'''
-@admin.register(Location)
-class LocationAdmin(admin.ModelAdmin):
-    list_display = ('street_name', 'street_number', 'city')
-    formfield_overrides = {
-        map_fields.AddressField: {'widget':
-         map_widgets.GoogleMapsAddressWidget(attrs={
-            'data-map-type': 'roadmap', 'componentRestrictions' : {'city':'bln' }}
-            )},
-    
-    }
-'''

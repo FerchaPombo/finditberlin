@@ -63,16 +63,16 @@
       function editPost(slug) {
         console.log('Edit post clicked for slug:', slug);
     
-        // Hide all edit forms and close alerts
+         // Hide all edit forms and close alerts
         document.querySelectorAll('[id^="editForm_"]').forEach(form => {
           form.style.display = 'none';
         });
     
-        // Show the selected edit form
+        //Show the selected edit form
         document.getElementById(`editForm_${slug}`).style.display = 'block';
       }
     
-      // Add this function to close the alert
+      // function to close the alert
       function closeAlert() {
         document.querySelectorAll('.alert').forEach(alert => {
           if (!alert.classList.contains('show')) {
