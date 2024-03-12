@@ -30,7 +30,7 @@ SECRET_KEY= ("FOOBAR")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 'finditberlin-943ba7305bd2.herokuapp.com', '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu108.gitpod.io']
 # Application definition
