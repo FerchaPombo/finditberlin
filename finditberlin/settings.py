@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     "storages",
     'crispy_forms',
     'crispy_bootstrap4',
-    'django_google_maps',
     'fontawesomefree',
     'about',
     'members',
