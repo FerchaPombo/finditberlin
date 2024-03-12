@@ -57,31 +57,30 @@
                     <span></span>
                 </span>
             </div>
-
             <div id="navbarMenu" class="navbar-menu">
-                
-                    <a href="{% url 'about' %}" class="navbar-item is-size-6 has-text-weight-light">
-                        About
-                    </a>
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'users_dashboard' %}"class="navbar-item is-size-6 has-text-weight-light">Dashboard</a>
-                    {% endif %}
+                <a href="{% url 'about' %}" class="navbar-item is-size-6 has-text-weight-light">
+                    About
+                </a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'users_dashboard' %}" class="navbar-item is-size-6 has-text-weight-light">
+                    Dashboard
+                </a>
+                <a href="{% url 'account_logout' %}" class="navbar-item is-size-6 has-text-weight-light">
+                    Logout
+                </a>
+                {% else %}
+                <a href="{% url 'account_signup' %}" class="navbar-item is-size-6 has-text-weight-light">
+                    Register
+                </a>
+                <a href="{% url 'account_login' %}" class="navbar-item is-size-6 has-text-weight-light">
+                    Login
+                </a>
+                {% endif %}
+                <span class="navbar-text text-muted navbar-item is-size-6">
+                    Follow the best streetart around berlin!
+                </span>
+            </div>
 
-                    <a href="{% url 'account_signup' %}" class="navbar-item is-size-6 has-text-weight-light">
-                        Register
-                    </a>
-
-                    <a href="{% url 'account_login' %}" class="navbar-item is-size-6 has-text-weight-light">
-                        Login
-                    </a>
-
-                    <a href="{% url 'account_logout' %}" class="navbar-item is-size-6 has-text-weight-light">
-                       Logout
-                    </a>
-                    
-                     <span class="navbar-text text-muted navbar-item is-size-6">
-                        Follow the best streetart around berlin!
-                    </span>
                     <!--Displaying the Django Messages-->
                 
                 </div>
