@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from autoslug import AutoSlugField
 from django.urls import reverse
 
 
@@ -13,7 +12,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, null=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
@@ -52,7 +51,7 @@ class Comments(models.Model):
 
 class UsersPost(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = AutoSlugField(populate_from='title', unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     featured_image = CloudinaryField('image', default="placeholder", blank=False)
     body = models.TextField()
