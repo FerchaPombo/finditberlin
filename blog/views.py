@@ -37,7 +37,7 @@ def post_detail(request, slug, *args, **kwargs):
             comment.post = post
             comment.author = request.user
             comment.save()
-            messages.success(request, 'Comment submitted and awaiting approval')
+            messages.success(request, 'Youy comment submitted and awaiting approval')
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
             

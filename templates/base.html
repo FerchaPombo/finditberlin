@@ -81,10 +81,8 @@
                 </span>
             </div>
 
-                    <!--Displaying the Django Messages-->
+                    
                 
-                </div>
-            </div>
         </div>
     </nav>
     <div class = "container">
@@ -93,7 +91,7 @@
                 {% for message in messages %}
                 <div class="alert {{message.tags }} alert-dismissable fade show" id="msg" role="alert">
                 {{ message | safe }}
-                <button type="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 {% endfor %}
             </div>
