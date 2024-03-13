@@ -16,7 +16,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField(max_length=100)
+    content = models.TextField(max_length=200)
     featured_image = CloudinaryField(
         'image', default="placeholder", blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -51,12 +51,13 @@ class Comments(models.Model):
 
 class UsersPost(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(null=False, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     featured_image = CloudinaryField('image', default="placeholder", blank=False)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         ordering = ['created_on']
@@ -64,6 +65,6 @@ class UsersPost(models.Model):
     def __str__(self):
         return f"This post: {self.body} {self.featured_image} is created by {self.author}"
     def get_absolute_url(self):
-        return reverse('post_detail', args=[str(self.slug)])
+        return reverse('users_dashboard', args=[str(self.slug)])
 
 
