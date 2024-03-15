@@ -32,7 +32,7 @@ SECRET_KEY= ("FOOBAR")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 'finditberlin-943ba7305bd2.herokuapp.com', '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu108.gitpod.io', '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu109.gitpod.io']
+ALLOWED_HOSTS = ['https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io/', '8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 'finditberlin-943ba7305bd2.herokuapp.com', '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu108.gitpod.io', '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu109.gitpod.io', '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
@@ -206,15 +206,7 @@ ACCOUNT_UNIQUE_USERNAME = True
 
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
- 
-    'https://8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu106.gitpod.io',
-    'https://8000-ferchapombo-finditberli-smyjn9bcybi.ws-eu107.gitpod.io',
-    'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu108.gitpod.io',
-    'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu109.gitpod.io',
-    'https://*.gitpod.io/',
     'https://*.herokuapp.com',
-    'https://gitpod.io/workspaces',
-    'https://*.gitpod.io'
     'https://gitpod.io'
 ]
 
