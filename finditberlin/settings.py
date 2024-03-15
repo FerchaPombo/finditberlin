@@ -212,7 +212,10 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu108.gitpod.io',
     'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu109.gitpod.io',
     'https://*.gitpod.io/',
-    'https://*.herokuapp.com'
+    'https://*.herokuapp.com',
+    'https://gitpod.io/workspaces',
+    'https://*.gitpod.io'
+    'https://gitpod.io'
 ]
 
 #allowed crispy bootstra4 
