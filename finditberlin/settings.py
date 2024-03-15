@@ -207,7 +207,8 @@ ACCOUNT_UNIQUE_USERNAME = True
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
     'https://*.herokuapp.com',
-    'https://gitpod.io'
+    'https://gitpod.io',
+    'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io'
 ]
 
 #allowed crispy bootstra4 
