@@ -126,3 +126,5 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 
 [Erase Migrations](https://stackoverflow.com/questions/28404461/can-i-delete-the-django-migration-files-inside-migrations-directory)
 [Reset Migrations](https://medium.com/@mustahibmajgaonkar/how-to-reset-django-migrations-6787b2a1e723)
+[Slug](https://github.com/statamic/v2-hub/issues/1514)
+[form validation](https://codereview.stackexchange.com/questions/154820/raise-error-when-slug-already-exists)

@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'about',
     'members',
-    'location_field.apps.DefaultConfig',
     'blog',
 ]
 

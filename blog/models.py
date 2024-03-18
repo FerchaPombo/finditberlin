@@ -12,7 +12,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(max_length=100, unique=True, null=False)
+    slug = models.SlugField(max_length=100, null=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
@@ -51,7 +51,7 @@ class Comments(models.Model):
 
 class UsersPost(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(null=False, unique=True)
+    slug = models.SlugField(null=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     featured_image = CloudinaryField('image', default="placeholder", blank=False)
     content = models.TextField(max_length=200)

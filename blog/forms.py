@@ -4,6 +4,8 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from cloudinary.forms import CloudinaryJsFileField
 from cloudinary.models import CloudinaryField as BaseCloudinaryField
+from django.utils.text import slugify
+from django.core.exceptions import ValidationError
 
 
 class CommentsForm(forms.ModelForm):  
@@ -39,11 +41,20 @@ class UsersPostForm(forms.ModelForm):
     '''Class for Users Post based on my model'''
     class Meta:
         model = UsersPost
-        fields = ['title', 'slug', 'content', 'featured_image']
+        fields = ['title', 'content', 'featured_image']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
             'content': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
         }
+
+    def slug_unique(self,title):
+        
+        slug = slugify(title)
+ 
+        if Post.objects.filter(slug=slug).exist():
+            raise ValidationError('A post with this title already exist')
+
+        return title
 
     def __init__(self, *args, **kwargs):
         super(UsersPostForm, self).__init__(*args, **kwargs)
@@ -81,8 +92,16 @@ class UsersPostAdminForm(forms.ModelForm):
     class Meta:
         model = UsersPost
         fields = ['title', 'content', 'featured_image']
-        exclude = ['slug']
         widgets ={
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
             'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
         }
+
+    def slug_unique(self,title):
+        
+        slug = slugify(title)
+ 
+        if Post.objects.filter(slug=slug).exist():
+            raise ValidationError('A post with this title already exist')
+
+        return title
