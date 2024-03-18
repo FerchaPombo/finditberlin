@@ -54,7 +54,7 @@ class UsersPost(models.Model):
     slug = models.SlugField(null=False, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     featured_image = CloudinaryField('image', default="placeholder", blank=False)
-    body = models.TextField()
+    content = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)

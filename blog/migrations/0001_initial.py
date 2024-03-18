@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=100, unique=True)),
                 ('slug', autoslug.fields.AutoSlugField(editable=False, populate_from='title', unique=True)),
                 ('featured_image', cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image')),
-                ('body', models.TextField()),
+                ('content', models.TextField(max_length=200)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
                 ('author', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),

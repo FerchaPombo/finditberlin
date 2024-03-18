@@ -32,11 +32,11 @@ class CommentsAdmin(admin.ModelAdmin):
 class UsersPostAdmin(SummernoteModelAdmin):
     
     list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title', 'body']
+    search_fields = ['title', 'content']
     prepopulated_fields = {"slug": ("title",)}
     list_filter = ('created_on',)
-    summernote_fields = ('body',)  
-    #form = UsersPostAdminForm
+    summernote_fields = ('content',)  
+    form = UsersPostAdminForm
 
     def get_form(self,request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)

@@ -39,10 +39,10 @@ class UsersPostForm(forms.ModelForm):
     '''Class for Users Post based on my model'''
     class Meta:
         model = UsersPost
-        fields = ['title', 'body', 'featured_image', 'slug']
+        fields = ['title', 'slug', 'content', 'featured_image']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
-            'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
+            'content': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -52,7 +52,7 @@ class UsersPostForm(forms.ModelForm):
         self.helper.layout = Layout(
             'title',
             'featured_image',
-            'body',
+            'content',
             Submit('submit', 'Submit', css_class='btn-primary btn-outline-dark btn-sm')
         )
 
@@ -80,7 +80,7 @@ class UsersPostAdminForm(forms.ModelForm):
     '''Define UsersPostAdmin form so i can see the form in my Admin Panel '''
     class Meta:
         model = UsersPost
-        fields = ['title', 'body', 'featured_image']
+        fields = ['title', 'content', 'featured_image']
         exclude = ['slug']
         widgets ={
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
