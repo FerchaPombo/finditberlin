@@ -64,7 +64,7 @@
          <!-- Displaying the comments -->
          <div class="row" style="padding-left: 40px; padding-right: 40px;">
             <div class="col-md-8 card mb-4  mt-3 ">
-               <h3>Comments:</h3>
+               <h3 style="font-weight:normal;">Comments:</h3>
                <div class="card-body">
                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                {% for comment in comments %}
@@ -99,7 +99,7 @@
       <div class="card-body">
          
          {% if user.is_authenticated %}
-         <h3>Tell us what you think:</h3>
+         <h3 style="font-weight: normal;">Tell us what you think:</h3>
          <p>Commenting as: {{ user.username }}</p>
          <form id="commentForm" method="post" style="margin-top: 1.3em;">
             {{ comment_form | crispy }}
@@ -107,7 +107,7 @@
             <button id="submitButton" type="submit" class="btn btn-signup btn-outline-dark btn-sm">Say it!</button>
          </form>
          {% else %}
-         <h4>In order to leave a comment, you need to <a href="{% url 'account_login' %}"> Login </a> first!</h4>
+         <h4 style="font-size:medium;">In order to see and leave a comment, you need to <a href="{% url 'account_login' %}"> Login </a> first!</h4>
          {% endif %}
       </div>
    </div>
