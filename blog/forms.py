@@ -1,4 +1,4 @@
-from .models import Comments, UsersPost, Post
+from .models import Comments, Post #UsersPost
 from django import forms
 from crispy_forms.helper import FormHelper  
 from crispy_forms.layout import Layout, Submit
@@ -40,7 +40,7 @@ class CloudinaryField(BaseCloudinaryField):
 class UsersPostForm(forms.ModelForm):
     '''Class for Users Post based on my model'''
     class Meta:
-        model = UsersPost
+        model = Post
         fields = ['title', 'slug', 'content', 'featured_image', 'status']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
@@ -90,7 +90,7 @@ class EditForm(forms.ModelForm):
 class UsersPostAdminForm(forms.ModelForm):
     '''Define UsersPostAdmin form so i can see the form in my Admin Panel '''
     class Meta:
-        model = UsersPost
+        model = Post
         fields = ['title', 'slug', 'content', 'featured_image', 'status']
         widgets ={
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comments, UsersPost
+from .models import Post, Comments #UsersPost
 from django_summernote.admin import SummernoteModelAdmin
 from django import forms
 from .forms import UsersPostAdminForm
@@ -27,8 +27,8 @@ class CommentsAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
 
-
-@admin.register(UsersPost)
+'''
+@admin.register(Post)
 class UsersPostAdmin(SummernoteModelAdmin):
     
     list_display = ('title', 'slug', 'status', 'created_on')
@@ -40,3 +40,4 @@ class UsersPostAdmin(SummernoteModelAdmin):
     def get_form(self,request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         return form 
+'''

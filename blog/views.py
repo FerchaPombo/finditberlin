@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comments, UsersPost
+from .models import Post, Comments #UsersPost
 from .forms import CommentsForm, UsersPostForm, EditForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -145,8 +145,8 @@ def userspost_create(request):
     return render(request, 'users_dashboard.html', {'form': form})
 
 class UsersPostList(generic.ListView):
-    model = UsersPost
-    queryset = UsersPost.objects.all()
+    model = Post
+    queryset = Post.objects.all()
     template_name = 'users_dashboard.html'
     paginate_by = 6
 
@@ -157,7 +157,7 @@ class UsersPostList(generic.ListView):
  
 @login_required
 def users_dashboard(request):
-    user_posts = UsersPost.objects.filter(author=request.user)
+    user_posts = Post.objects.filter(author=request.user)
     edit_forms = {post.slug: EditForm(instance=post) for post in user_posts}
     form = UsersPostForm()
 

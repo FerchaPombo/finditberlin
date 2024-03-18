@@ -48,7 +48,7 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"This is {self.author} comment: {self.body}"
-
+'''
 class UsersPost(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
     slug = models.SlugField(null=False)
@@ -67,4 +67,4 @@ class UsersPost(models.Model):
     def get_absolute_url(self):
         return reverse('users_dashboard', args=[str(self.slug)])
 
-
+'''
