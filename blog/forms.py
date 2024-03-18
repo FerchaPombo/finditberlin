@@ -41,7 +41,7 @@ class UsersPostForm(forms.ModelForm):
     '''Class for Users Post based on my model'''
     class Meta:
         model = UsersPost
-        fields = ['title', 'content', 'featured_image']
+        fields = ['title', 'slug', 'content', 'featured_image', 'status']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
             'content': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
@@ -70,8 +70,8 @@ class UsersPostForm(forms.ModelForm):
     def save(self, commit=True, author=None):
         userspost = super(UsersPostForm, self).save(commit=False)
         userspost.author = author
-        if commit:
-            userspost.save()
+        #if commit:
+            #userspost.save()
         return userspost
 
 
@@ -91,7 +91,7 @@ class UsersPostAdminForm(forms.ModelForm):
     '''Define UsersPostAdmin form so i can see the form in my Admin Panel '''
     class Meta:
         model = UsersPost
-        fields = ['title', 'content', 'featured_image']
+        fields = ['title', 'slug', 'content', 'featured_image', 'status']
         widgets ={
             'title': forms.TextInput(attrs={'placeholder': 'Title'}),
             'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),

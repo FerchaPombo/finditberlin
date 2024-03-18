@@ -36,7 +36,6 @@ class UsersPostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_filter = ('created_on',)
     summernote_fields = ('content',)  
-    form = UsersPostAdminForm
 
     def get_form(self,request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)

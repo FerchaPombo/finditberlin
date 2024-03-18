@@ -21,7 +21,8 @@
             <ul class="user-posts-list">
               {% for post in user_posts %}
                 <li>
-                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
+                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title}}</a>
+
                     <button style='margin-left: 20px;' class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
                     <button style='margin-left: 5px;' class="btn btn-outline-info btn-sm" onclick="editPost('{{ post.slug }}')">Edit</button>
 
@@ -50,7 +51,7 @@
   <div class="container">
     <div class="row" style="width: 80%; float: none; margin: 0 auto;">
       <div class="col card mb-4 mt-3 left top">
-          <div class="card-body">
+          <div  class="card-body">
               <h3>Share a New Post:</h3>
               <form method="post" enctype="multipart/form-data" action="{% url 'users_post_form' %}">
               {% csrf_token %}
