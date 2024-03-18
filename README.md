@@ -128,3 +128,4 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Reset Migrations](https://medium.com/@mustahibmajgaonkar/how-to-reset-django-migrations-6787b2a1e723)
 [Slug](https://github.com/statamic/v2-hub/issues/1514)
 [form validation](https://codereview.stackexchange.com/questions/154820/raise-error-when-slug-already-exists)
+[slug](https://stackoverflow.com/questions/56330503/how-to-fix-post-with-this-user-already-exists-error-on-django-while-trying-to)
