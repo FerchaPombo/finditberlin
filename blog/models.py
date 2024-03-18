@@ -63,7 +63,7 @@ class UsersPost(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"This post: {self.body} {self.featured_image} is created by {self.author}"
+        return f"This post: {self.content} {self.featured_image} is created by {self.author}"
     def get_absolute_url(self):
         return reverse('users_dashboard', args=[str(self.slug)])
 
