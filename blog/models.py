@@ -52,23 +52,4 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"This is {self.author} comment: {self.body}"
-'''
-class UsersPost(models.Model):
-    title = models.CharField(max_length=100, unique=True, blank=False)
-    slug = models.SlugField(null=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
-    featured_image = CloudinaryField('image', default="placeholder", blank=False)
-    content = models.TextField(max_length=200)
-    created_on = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=STATUS, default=0)
 
-    class Meta:
-        ordering = ['created_on']
-
-    def __str__(self):
-        return f"This post: {self.content} {self.featured_image} is created by {self.author}"
-    def get_absolute_url(self):
-        return reverse('users_dashboard', args=[str(self.slug)])
-
-'''

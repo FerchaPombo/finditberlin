@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comments #UsersPost
+from .models import Post, Comments
 from .forms import CommentsForm, UsersPostForm, EditForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -142,6 +142,7 @@ def userspost_create(request):
             messages.error(request, f'Error creating the post: {error_message}')
     else:
         form = UsersPostForm()
+        form.set_user(request_user) # only lets admins have the status field when creating a post 
     return render(request, 'users_dashboard.html', {'form': form})
 
 class UsersPostList(generic.ListView):
