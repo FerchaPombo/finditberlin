@@ -28,41 +28,47 @@
 <div class="masthead">
    <div class="container">
       <div class="row justify-content-center">
-         <div class="col-1">
-            {% if user.is_authenticated %}
-            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-               {% csrf_token %}
-               {% if liked %}
-               <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like">
-               <i class="far fa-heart" style="font-size: larger;"></i>
-               </button>
-               {% else %}
-               <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like">
-               <i class="far fa-heart" style="font-size: larger;"></i>
-               </button>
-               {% endif %}
-            </form>
-            {% else %}
-            <span class="text-secondary" style="font-size: larger;">
-            <i class="far fa-heart" style="font-size: larger;"></i>
-            </span>
-            {% endif %}
-            <!-- The number of likes goes before the closing strong tag -->
-            {{ post.number_of_likes }}
-         </div>
-         <div class="col-1">
-            <span class="text-secondary"><i class="far fa-comments" style="font-size: larger;"></i></span>
-            <!-- Our total_comments variable goes before the closing strong tag -->
-            {{ comment_count }}
+         <div class="col-md-8 card mb-4 mt-3">
+            <div class="d-flex justify-content-center align-items-center">
+               <!-- Like icon and count -->
+               <span>
+                  {% if user.is_authenticated %}
+                  <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                     {% csrf_token %}
+                     {% if liked %}
+                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like">
+                     <i class="far fa-heart" style="font-size: larger;"></i>
+                     </button>
+                     {% else %}
+                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like">
+                     <i class="far fa-heart" style="font-size: larger;"></i>
+                     </button>
+                     {% endif %}
+                  </form>
+                  {% else %}
+                  <span class="text-secondary" style="font-size: larger;">
+                  <i class="far fa-heart" style="font-size: larger;"></i>
+                  </span>
+                  {% endif %}
+                  <!-- Like count -->
+                  <span>{{ post.number_of_likes }}</span>
+               </span>
+   
+               <!-- Comment icon and count -->
+               <span style="margin-left: 50px;">
+                  <span class="text-secondary"><i class="far fa-comments" style="font-size: larger;"></i></span>
+                  <!-- Comment count -->
+                  <span>{{ comment_count }}</span>
+               </span>
+            </div>
          </div>
       </div>
    </div>
-
 </div>
    </div>
       </div>
          <!-- Displaying the comments -->
-         <div class="row" style="padding-left: 40px; padding-right: 40px;">
+         <div class="row" style="padding-left: 100px; padding-right: 100px;">
             <div class="col-md-8 card mb-4  mt-3 ">
                <h3 style="font-weight:normal;">Comments:</h3>
                <div class="card-body">
