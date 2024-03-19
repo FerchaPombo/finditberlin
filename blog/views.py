@@ -180,7 +180,7 @@ def edit_post(request, slug):
     else:
         form = EditForm(instance=post, author=request.user)
 
-    return render(request, 'edit_post.html', {'form': form, 'post': post})
+    return render(request, 'edit_post.html', {'edit_form': form, 'post': post})
 
 
 def delete_post(request, post_slug):

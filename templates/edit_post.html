@@ -3,12 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <div class="container mt-4" id="editForm_">
-    <h2>Edit your Post</h2>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ edit_post.as_p }}
-      <button type="submit" class="btn btn-primary">Update Post</button>
-    </form>
-  </div>
+<div id="editForm_{{ post.slug }}" style="display: none;">
+  <form method="post" enctype="multipart/form-data" onsubmit="closeAlert()">
+    {% csrf_token %}
+    {{ form.as_ul | crispy }}
+    <button type="submit">Submit Edit</button>
+  </form>
+  <form id="deleteForm_{{ post.slug }}" action="{% url 'delete_post' post_slug=post.slug %}" method="post" style="display: none;">
+    {% csrf_token %}
+    <input type="hidden" name="post_slug" value="{{ post.slug }}">
+    <button type="submit">Delete</button>
+  </form>
+</div>
 {% endblock %}

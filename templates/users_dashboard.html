@@ -70,9 +70,16 @@
           form.style.display = 'none';
         });
     
-        //Show the selected edit form
-        document.getElementById(`editForm_${slug}`).style.display = 'block';
+        //Drop down the selected edit form
+        var editForm = document.getElementById(`editForm_${slug}`);
+        if (editForm.style.display === 'block') {
+          editForm.style.display = 'none';
+        } else {
+          editForm.style.display = 'block';
+        }
       }
+      //document.getElementById(`editForm_${slug}`).style.display = 'block';
+      
     
       // function to close the alert
       function closeAlert() {
