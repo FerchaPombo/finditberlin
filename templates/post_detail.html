@@ -28,10 +28,10 @@
 <div class="masthead">
    <div class="container">
       <div class="row justify-content-center">
-         <div class="col-md-8 card mb-4 mt-3">
+         <div class="col-md-8 card mb-5 mt-4">
             <div class="d-flex justify-content-center align-items-center">
                <!-- Like icon and count -->
-               <span>
+               <span class="mb-2 mt-1">
                   {% if user.is_authenticated %}
                   <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                      {% csrf_token %}
@@ -68,7 +68,7 @@
    </div>
       </div>
          <!-- Displaying the comments -->
-         <div class="row" style="padding-left: 100px; padding-right: 100px;">
+         <div class="row" style="padding-left: 130px; padding-right: 130px;">
             <div class="col-md-8 card mb-4  mt-3 ">
                <h3 style="font-weight:normal;">Comments:</h3>
                <div class="card-body">
