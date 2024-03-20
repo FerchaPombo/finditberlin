@@ -76,9 +76,9 @@
                     Login
                 </a>
                 {% endif %}
-                <form role="search" method=POST action="{% url 'search_bar' %}">
+                <form class='d-flex align-items-center flex-nowrap' role="search" method=POST action="{% url 'search_bar' %}" style="margin-left: 20px;">
                     {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="Search for any word! " aria-label="Search" name="searched" style="max-height: 40px; margin-top: 20px;">
+                    <input class="form-control me-2" type="search" placeholder="Search for any word! " aria-label="Search" name="searched" style="max-height: 40px;">
                     <button class="btn  btn-light" type="submit">Search</button>
                 </form>
                 <span class="navbar-text text-muted navbar-item is-size-6">
