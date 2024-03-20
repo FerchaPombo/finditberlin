@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<!--Container for favourite posts-->
+<div class="container">
+    <div class="row" style="width: 80%; float: none; margin: 0 auto;">
+      <div class="col card mb-4 mt-3 left top">
+        <div class="card-body">
+          <h3>Here are your favourites! </h3>
+          <p>Here you can view or remove the favourite posts you have added</p>
+          <div class="col-12 mt-3 left rounded-7">
+            <div class="row">
+                {% for post in saved %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                            </div>
+                            {% if post.slug %}
+                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                                </a>
+                            {% else %}
+                                <!-- Handle case where slug is empty -->
+                                {{ post.title }}
+                            {% endif %}
+                        
+                            <hr />
+                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart fa-xl"></i>
+                                {{ blog.likes }}</p>
+                            <div id="favourite-section"><a href="{% url 'add_favourite' post.slug %}" class="btn btn-outline-secondary">Remove</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+              {% endfor %}
+
+            </div>
+        </div>
+
+{% endblock %}

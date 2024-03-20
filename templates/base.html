@@ -65,6 +65,9 @@
                 <a href="{% url 'users_dashboard' %}" class="navbar-item is-size-6 has-text-weight-light">
                     Dashboard
                 </a>
+                <a href="{% url 'users_favourites' %}" class="navbar-item is-size-6 has-text-weight-light">
+                    Favourites
+                </a>
                 <a href="{% url 'account_logout' %}" class="navbar-item is-size-6 has-text-weight-light">
                     Logout
                 </a>
@@ -75,6 +78,7 @@
                 <a href="{% url 'account_login' %}" class="navbar-item is-size-6 has-text-weight-light">
                     Login
                 </a>
+
                 {% endif %}
                 <form class='d-flex align-items-center flex-nowrap' role="search" method=POST action="{% url 'search_bar' %}" style="margin-left: 20px;">
                     {% csrf_token %}

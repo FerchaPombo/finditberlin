@@ -215,17 +215,17 @@ def search_bar(request):
 #logic for adding  a post to a favourite list 
 
 @login_required
-def add_favourite(request, id):
-    post = get_object_or_404(Post, id=id) # getting the id to link the posts liked per user
+def add_favourite(request, slug):
+    post = get_object_or_404(Post, slug=slug) # getting the slug to link the posts liked per user
     if post.favourites.filter(id=request.user.id).exists():
         post.favourites.remove(request.user) # if it already exists in the users id, then we remove it 
     else:
         post.favourites.add(request.user)
-    return HttpResponseRedirect(request.META['HTTP_REFERER']) #page refreshes after adding 
+    return redirect(request.META.get('HTTP_REFERER', 'home')) #page refreshes after adding 
 
 #logic to add the favourite posts to the dashboard list 
 @login_required
 def favourite_list(request):
-    saved_posts = Post.objects.filter(favourites=request.user)
+    saved = Post.objects.filter(favourites=request.user)
     return render(request,'users_dashboard.html',
-    {'saved_posts': saved_posts})
+    {'saved': saved})
