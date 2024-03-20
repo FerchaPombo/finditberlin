@@ -29,7 +29,7 @@
    <div class="container">
       <div class="row justify-content-center">
          <div class="col-md-8 card mb-5 mt-4">
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-between">
                <!-- Like icon and count -->
                <span class="mb-2 mt-1">
                   {% if user.is_authenticated %}
@@ -59,6 +59,10 @@
                   <span class="text-secondary"><i class="far fa-comments" style="font-size: larger;"></i></span>
                   <!-- Comment count -->
                   <span>{{ comment_count }}</span>
+               </span>
+               <span>
+                  <a href="#" class="btn btn-outline-secondary">Add to Favourites😘</a>
+
                </span>
             </div>
          </div>

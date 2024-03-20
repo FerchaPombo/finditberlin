@@ -199,6 +199,8 @@ def delete_post(request, post_slug):
     else:
         messages.error(request, 'You do not have permission to delete this post.')
 
+
+#logic for the search bar, decided to leave it availabel for non logged in users
 def search_bar(request):
     if request.method == "POST":
         searched = request.POST['searched'] # Get the searched word from the form
@@ -210,3 +212,13 @@ def search_bar(request):
     else: 
         return render(request, 'search_bar.html', {})
 
+#logic for adding  a post to a favourite list 
+
+@login_required
+def add_favourite(request, id):
+    post = get_object_or_404(Post, id=id) # getting the id to link the posts liked per user
+    if post.favourites.filter(id=request.user.id).exists():
+        post.favourites.remove(request.user) # if it already exists in the users id, then we remove it 
+    else:
+        post.favourites.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
