@@ -129,3 +129,5 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Slug](https://github.com/statamic/v2-hub/issues/1514)
 [form validation](https://codereview.stackexchange.com/questions/154820/raise-error-when-slug-already-exists)
 [slug](https://stackoverflow.com/questions/56330503/how-to-fix-post-with-this-user-already-exists-error-on-django-while-trying-to)
+[Search Function](https://www.youtube.com/watch?v=AGtae4L5BbI)
+[Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)

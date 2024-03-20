@@ -13,7 +13,7 @@ urlpatterns = [
     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
     path('edit_post/<slug:slug>/', edit_post, name='edit_post'),
     path('delete_post/<slug:post_slug>/', delete_post, name='delete_post'),
-    
+    path('search_bar', views.search_bar, name='search_bar'),
 ]
 
     

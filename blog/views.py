@@ -198,3 +198,7 @@ def delete_post(request, post_slug):
         messages.success(request, 'Post deleted successfully.')
     else:
         messages.error(request, 'You do not have permission to delete this post.')
+
+def search_bar(request):
+    return render(request, 'templates/search_bar.html', {})
+ 
