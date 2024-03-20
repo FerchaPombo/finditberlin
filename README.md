@@ -131,3 +131,4 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [slug](https://stackoverflow.com/questions/56330503/how-to-fix-post-with-this-user-already-exists-error-on-django-while-trying-to)
 [Search Function](https://www.youtube.com/watch?v=AGtae4L5BbI)
 [Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
+[TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)

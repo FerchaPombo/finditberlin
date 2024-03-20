@@ -200,5 +200,16 @@ def delete_post(request, post_slug):
         messages.error(request, 'You do not have permission to delete this post.')
 
 def search_bar(request):
-    return render(request, 'search_bar.html', {})
+    if request.method == "POST":
+        searched = request.POST['searched'] #search variable is now whatever was typed in the search bar 
+        posts = Post.objects.filter(title__contains=searched) #it will filter by the searched word contained in a title 
+
+        return render(request, 'search_bar.html', 
+            {'searched':searched,
+            'posts': posts})
+    else: 
+        return render(request, 'search_bar.html', {})
+
+        
+
  
