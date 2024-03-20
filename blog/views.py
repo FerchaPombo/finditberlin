@@ -221,4 +221,11 @@ def add_favourite(request, id):
         post.favourites.remove(request.user) # if it already exists in the users id, then we remove it 
     else:
         post.favourites.add(request.user)
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+    return HttpResponseRedirect(request.META['HTTP_REFERER']) #page refreshes after adding 
+
+#logic to add the favourite posts to the dashboard list 
+@login_required
+def favourite_list(request):
+    saved_posts = Post.objects.filter(favourites=request.user)
+    return render(request,'users_dashboard.html',
+    {'saved_posts': saved_posts})

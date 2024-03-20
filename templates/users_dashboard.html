@@ -19,6 +19,7 @@
       <div class="col card mb-4 mt-3 left top">
         <div class="card-body">
           <h3>Here is a list of the posts you've created :</h3>
+          <p>Access to the list of posts you have created</p>
             <ul class="user-posts-list">
               {% for post in user_posts %}
                 <li>
@@ -44,6 +45,32 @@
                   </div>
               </li>
           {% endfor %}
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" style="width: 80%; float: none; margin: 0 auto;">
+      <div class="col card mb-4 mt-3 left top">
+        <div class="card-body">
+          <h3>Here are your favourites! </h3>
+          <p>Here you can view or remove the favourite posts you have added</p>
+            <ul class="user-favourite-list">
+              {% for post in saved_posts %}
+                <li>
+                  <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
+                  <!--Check if the current post is in the users fav already -->
+                  {% if post in user.favourites.all %}
+                  <form action="{% url 'add_favourite' post.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-info btn-sm">Remove</button>
+                  </from>
+                  {% endif %}
+                  
+                  
+                </li>
+              {% endfor %}
             </ul>
         </div>
       </div>
