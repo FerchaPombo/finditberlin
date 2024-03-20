@@ -201,15 +201,12 @@ def delete_post(request, post_slug):
 
 def search_bar(request):
     if request.method == "POST":
-        searched = request.POST['searched'] #search variable is now whatever was typed in the search bar 
-        posts = Post.objects.filter(title__contains=searched) #it will filter by the searched word contained in a title 
+        searched = request.POST['searched'] # Get the searched word from the form
+        searched_posts = Post.objects.filter(slug__contains=searched) # Filter posts by the searched word 
 
         return render(request, 'search_bar.html', 
             {'searched':searched,
-            'posts': posts})
+            'searched_posts': searched_posts})  # Pass the filtered posts to the template
     else: 
         return render(request, 'search_bar.html', {})
 
-        
-
- 

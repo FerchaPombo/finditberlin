@@ -10,9 +10,11 @@
     <div class="row justify-content-center">
       <div class="col-md-8 masthead-text" style="width: 80%; float: none; margin: 0 auto;">
         <div class="col card mb-4 mt-3 left top">
-          <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">You searched for...{{ searched }}</h1><br/>
-            {% for post in post %} <!--loop to iterate through tall the possible results that include the searched word-->
-                {{ post }} <br/>
+          <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">You searched for..."{{ searched }}"</h1><br/>
+            {% for post in searched_posts %} <!--loop to iterate through tall the possible results that include the searched word-->
+              <a href="{% url 'post_detail' post.slug %}"> <!-- Use post.slug to generate the URL -->
+                <h4>{{ post.title }}</h4>
+              </a> <br/>
             {% endfor %}
 
 
