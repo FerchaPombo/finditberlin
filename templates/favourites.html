@@ -47,7 +47,7 @@
                                 {{ blog.likes }}</p>
                         </div>
                         <!--Link to the view we created to erase post from liked posts-->
-                        <div id="Favourite-section"><a href="{% url 'favourite_add' post.id %}" class=" btn btn-outline-secondary">Remove</a>
+                        <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class=" btn btn-outline-secondary">Remove</a>
 
                         </div>
                     </div>
