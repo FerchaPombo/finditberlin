@@ -7,57 +7,58 @@
 
 <!DOCTYPE html>
 <html class="h-100">
+<head>
+    <title>Find it Berlin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
+    <!--Googlefonts-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/231b2e80f0.js" crossorigin="anonymous"></script>
+    <!--Bulma Blog Theme-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    {% block extra_js %}
+    {% endblock %}
+    
+    <style>
+        nav.navbar {
+            height: 6rem !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+        }
+    </style>
 
-<html>
-    <head>
-        <title>Find it Berlin</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!--Jquery-->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        
-        <!--Googlefonts-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
-        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-        <script src="https://kit.fontawesome.com/231b2e80f0.js" crossorigin="anonymous"></script>
-        <!--Bulma Blog Theme-->
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
-        <!--Custom Css-->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!--Bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        
-        {% block extra_js %}
-        {% endblock %}
-        
-        <style>
-            nav.navbar {
-                height: 6rem !important;
-                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
-            }
-        </style>
+</head>
 
-    </head>
+<body>
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong class="blog-title-fercha">Findit! BERLIN</strong>
+            </a>
+            
+            <span class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-start">
 
-    <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <strong class="blog-title-fercha">Findit! BERLIN</strong>
-                </a>
-                <span class="navbar-burger burger" data-target="navbarMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </div>
-            <div id="navbarMenu" class="navbar-menu">
                 <a href="{% url 'about' %}" class="navbar-item is-size-6 has-text-weight-light">
                     About
                 </a>
@@ -76,62 +77,62 @@
                     Login
                 </a>
                 {% endif %}
-                <form class='d-flex align-items-center flex-nowrap' role="search" method=POST action="{% url 'search_bar' %}" style="margin-left: 20px;">
-                    {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="Search for any word! " aria-label="Search" name="searched" style="max-height: 40px;">
-                    <button class="btn  btn-light" type="submit">Search</button>
-                </form>
-                <span class="navbar-text text-muted navbar-item is-size-6">
-                    Follow the best streetart around berlin!
-                </span>
             </div>
-
-                    
-                
-        </div>
-    </nav>
-    <div class = "container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{message.tags }} alert-dismissable fade show" id="msg" role="alert">
-                {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-            </div>
+            <form class='navbar-end d-flex align-items-center flex-nowrap' role="search" method="POST" action="{% url 'search_bar' %}" style="margin-left: 20px;">
+                {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="Search for any word!" aria-label="Search" name="searched" style="max-height: 30px; max-width: 70%; font-size: small;">
+                <button class="btn  btn-light btn-sm" type="submit">Search</button>
+            </form>
+            <span class="navbar-text text-muted navbar-item is-size-6" style="align-items: end; margin-left: auto;">
+                Follow the best street art around Berlin!
+            </span>
         </div>
     </div>
-    <main class="flex-shrink-0 main-bg">
-
-        {% block content %}
-        
-        {% endblock content %}
-    </main>
-
-
-    <footer class="footer_style">
-        <div class="content has-text-centered">
-            <p class="text_footer">
-               ║ Created by FerchaPombo ║  Follow me : 
-                <a class="btn btn-floating m-1" href="https://www.instagram.com/ferchapombo" target="_blank" role="button" aria-label="Instagram Link"><i class="fa-brands fa-instagram" style="color: #4a4a4a;"></i></a>
-                <a class="btn btn-floating" href="https://github.com/FerchaPombo" target="_blank" role="button" aria-label="GitHub Link"><i class="fa-brands fa-github" style="color: #4a4a4a;"></i></a>
-                <a class="btn btn-floating" href="https://www.linkedin.com/in/fpombo/" target="_blank" role="button" aria-label="Linkedin"><i class="fa-brands fa-linkedin-in" style="color: #4a4a4a;"></i></a>
-            </p>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+            <div class="alert {{message.tags }} alert-dismissable fade show" id="msg" role="alert">
+            {{ message | safe }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
         </div>
-    </footer>
-    <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 2000);
-    </script>
-    {% block extras %}
+    </div>
+</div>
+<main class="flex-shrink-0 main-bg">
 
-    {% endblock extras %}
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+    {% block content %}
+    
+    {% endblock content %}
+</main>
 
 
+<footer class="footer_style">
+    <div class="content has-text-centered">
+        <p class="text_footer">
+           ║ Created by FerchaPombo ║  Follow me : 
+            <a class="btn btn-floating m-1" href="https://www.instagram.com/ferchapombo" target="_blank" role="button" aria-label="Instagram Link"><i class="fa-brands fa-instagram" style="color: #4a4a4a;"></i></a>
+            <a class="btn btn-floating" href="https://github.com/FerchaPombo" target="_blank" role="button" aria-label="GitHub Link"><i class="fa-brands fa-github" style="color: #4a4a4a;"></i></a>
+            <a class="btn btn-floating" href="https://www.linkedin.com/in/fpombo/" target="_blank" role="button" aria-label="Linkedin"><i class="fa-brands fa-linkedin-in" style="color: #4a4a4a;"></i></a>
+        </p>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Get the navbar burger element
+        var navbarBurger = document.querySelector('.navbar-burger');
+
+        // Get the target navbar menu
+        var target = navbarBurger.dataset.target;
+        var navbarMenu = document.getElementById(target);
+
+        // Toggle the "is-active" class on click
+        navbarBurger.addEventListener('click', function () {
+            navbarBurger.classList.toggle('is-active');
+            navbarMenu.classList.toggle('is-active');
+        });
+    });
+</script>
