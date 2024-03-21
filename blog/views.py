@@ -213,3 +213,15 @@ def search_bar(request):
         return render(request, 'search_bar.html', {})
 
 #logic for adding  a post to a favourite list 
+
+@login_required
+def favourite_add(request, id): #pass the id of the user 
+    post = get_object_or_404(Post, id=id) #grab the post object and get its id 
+    if post.favourites.filter(id=request.user.id).exists(): #we check to see if the id = request user's id 
+        post.favourites.remove(request.user) #if it does exist, we remove user id from the fav field. 
+    else:
+        post.favourite_add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])#refresh page 
+    
+
+
