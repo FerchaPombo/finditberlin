@@ -132,4 +132,3 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Search Function](https://www.youtube.com/watch?v=AGtae4L5BbI)
 [Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
 [TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)
-[Git](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase#:~:text=Rebase%20is%20one%20of%20two,has%20powerful%20history%20rewriting%20features.)
