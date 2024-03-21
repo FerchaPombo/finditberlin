@@ -9,12 +9,13 @@ urlpatterns = [
     path('userspostform/', views.userspost_create, name='users_post_form'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('like/<slug:slug>', views.post_like, name='post_like'),
-    path('fav/<int:id>', views.favourite_add, name='favourite_add'),
+    path('fav/<slug:slug>/', views.favourite_add, name='favourite_add'),
     path('<slug:slug>/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),
     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
     path('edit_post/<slug:slug>/', edit_post, name='edit_post'),
     path('delete_post/<slug:post_slug>/', delete_post, name='delete_post'),
     path('search_bar', views.search_bar, name='search_bar'),
+    path('favourites/', views.favourite_list, name='favourite_list'),
 
 ]
 
