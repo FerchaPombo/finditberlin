@@ -27,17 +27,3 @@ class CommentsAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
 
-'''
-@admin.register(Post)
-class UsersPostAdmin(SummernoteModelAdmin):
-    
-    list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title', 'content']
-    prepopulated_fields = {"slug": ("title",)}
-    list_filter = ('created_on',)
-    summernote_fields = ('content',)  
-
-    def get_form(self,request, obj=None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-        return form 
-'''
