@@ -133,3 +133,6 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
 [TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)
 [Django favourites](https://www.youtube.com/watch?v=1XiJvIuvqhs)
+[Gdal](https://mapscaping.com/installing-gdal-for-beginners/)
+[Gdal](https://mapscaping.com/installing-gdal-for-beginners/)
+[Profile Page](https://www.youtube.com/watch?v=zb4fIvtn4tY)
