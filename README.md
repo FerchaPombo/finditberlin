@@ -137,3 +137,4 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Profile Models](https://www.linkedin.com/advice/0/how-can-you-design-user-friendly-data-model-all)
 [Adress Field](https://django-shop.readthedocs.io/en/latest/reference/addresses.html)
 [City Field](https://medium.com/@FatemeFouladkar/how-to-add-country-and-city-field-in-django-864f80b4c19e)
+[ListView vs DetailView](https://openclassrooms.com/en/courses/6967196-create-a-web-application-with-django/7348925-read-data-in-a-list-view-and-detail-view)

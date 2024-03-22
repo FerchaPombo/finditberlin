@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
+from django.views.generic import DetailView, CreateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comments, Profile
@@ -235,14 +236,35 @@ def favourite_list(request):
     return render(request, 'favourites.html', {'favourites': favourites})
 
 @login_required
-def edit_profile(request):
-    user = request.user
-    profile, created = Profile.objects.get_or_create(user=user)
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            return redirect('users_dashboard')  # Redirect to dashboard after saving
-    else:
-        form = EditProfileForm(instance=profile)
-    return render(request, 'edit_profile.html', {'form': form})
+class ProfileList(generic.ListView):
+    model = Profile
+    template_name = 'profile_page.html'
+
+    def profile_page_create(request):
+        user = request.user
+        profile, created = Profile.objects.get_or_create(user=user)
+        if request.method == 'POST':
+            form = CreateProfileForm(request.POST, instance=profile)
+            if form.is_valid():
+                form.save()
+                return redirect('profile_page.html')
+        else:
+            form = CreateProfileForm(instance=profile)
+        return render(request, 'users_dashboard.html', {'form': form})
+
+    def edit_profile(request):
+        user = request.user
+        profile, created = Profile.objects.get_or_create(user=user)
+        if request.method == 'POST':
+            form = EditProfileForm(request.POST, instance=profile)
+            if form.is_valid():
+                form.save()
+                return redirect('users_dashboard.html')  # Redirect to dashboard after saving
+        else:
+            form = EditProfileForm(instance=profile)
+        return render(request, 'edit_profile.html', {'form': form})
+    
+
+    def profile_page_view(request):
+        user_profile = request.user.profile
+        return render(request, 'my_profile.html', {'user_profile': user_profile})
