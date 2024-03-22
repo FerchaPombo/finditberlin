@@ -220,7 +220,7 @@ def favourite_add(request, slug): #pass the id of the user
     if post.favourites.filter(id=request.user.id).exists(): #we check to see if the id = request user's id 
         post.favourites.remove(request.user) #if it does exist, we remove user id from the fav field. 
     else:
-        post.favourites_add(request.user)
+        post.favourites.add(request.user)
     return HttpResponseRedirect(reverse('favourite_list'))#refresh page 
 
 @login_required
