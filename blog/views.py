@@ -30,6 +30,10 @@ def post_detail(request, slug, *args, **kwargs):
     if post.likes.filter(id=request.user.id).exists():
         liked = True
 
+    fav = bool #Remove button if post already saved to favourites based on the user id existing already or not 
+    if post.favourites.filter(id=request.user.id).exists():
+        fav = True
+
     if request.method == "POST":
         comment_form = CommentsForm(data=request.POST)
         if comment_form.is_valid():
@@ -59,7 +63,8 @@ def post_detail(request, slug, *args, **kwargs):
             "comments": comments,
             "comment_count": comment_count,
             "liked": liked,
-            "comment_form": comment_form
+            "comment_form": comment_form,
+            'fav': fav
         },
     )
 

@@ -61,10 +61,20 @@
                   <span>{{ comment_count }}</span>
                </span>
                {% if request.user.is_authenticated %}
+
+               {% if fav %}
+               <span>
+                  <a href="{% url 'favourite_list' %}" class="btn btn-outline-secondary">Remove from Favourites😔</a>
+
+               </span>
+               {% else %}
+
                <span>
                   <a href="{% url 'favourite_add' post.slug %}" class="btn btn-outline-secondary">Add to Favourites😘</a>
 
                </span>
+               {% endif %}
+
                {% else %}
                <span>
                   <a href="{% url 'account_signup' %}" class="btn btn-outline-secondary">Add to Favourites😘</a>
