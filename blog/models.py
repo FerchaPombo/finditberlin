@@ -54,3 +54,12 @@ class Comments(models.Model):
     def __str__(self):
         return f"This is {self.author} comment: {self.body}"
 
+# create users profile model 
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, null = True, on_delete=models.CASCADE, related_name="profile")
+    bio = models.TextField()
+
+    def __str__(self):
+        return str(self.user)
+

@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comments
-from .forms import CommentsForm, UsersPostForm, EditForm
+from .forms import CommentsForm, UsersPostForm, EditForm, EditProfileForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
@@ -235,4 +235,8 @@ def favourite_list(request):
     return render(request, 'favourites.html', {'favourites': favourites})
 
 
-
+@login_required
+class UserEditProfile(generic, CreateView):
+    form_class = EditProfileForm
+    template_name = 'edit_profile.html'
+    success_url = reverse_lazy('users_dashboard')
