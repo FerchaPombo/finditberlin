@@ -59,7 +59,14 @@ class Comments(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, null = True, on_delete=models.CASCADE, related_name="profile")
     bio = models.TextField()
+    profile_pic = CloudinaryField(
+        'image', blank=False)
+    instagram_url = models.CharField(max_length=255, null=True, blank=True)
+    website_url = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return str(self.user)
+    
+    def get_absolute_url(self):
+        return reverse('home')
 

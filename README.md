@@ -133,3 +133,7 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
 [TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)
 [Django favourites](https://www.youtube.com/watch?v=1XiJvIuvqhs)
+[Profile Models](https://vertabelo.com/blog/user-profile-database-model/)
+[Profile Models](https://www.linkedin.com/advice/0/how-can-you-design-user-friendly-data-model-all)
+[Adress Field](https://django-shop.readthedocs.io/en/latest/reference/addresses.html)
+[City Field](https://medium.com/@FatemeFouladkar/how-to-add-country-and-city-field-in-django-864f80b4c19e)
