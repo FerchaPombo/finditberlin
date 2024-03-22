@@ -2,28 +2,51 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 <div class="masthead">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 masthead-text" style="width: 80%; float: none; margin: 0 auto;">
-        <div class="col card mb-4 mt-3 left top">
-          <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">( ͡❛ ‿ ͡❛) Hey there {{ user.username }}, Welcome!</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 masthead-text" style="width: 80%; float: none; margin: 0 auto;">
+                <div class="col card mb-4 mt-3 left top">
+                    <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">( ͡❛ ‿ ͡❛) Hey there {{ user.username }}, Welcome!</h1>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+<!-- New config  -->
+<div class="masthead">
   <div class="container">
-    <div class="row" style="width: 80%; float: none; margin: 0 auto;">
-      <div class="col card mb-4 mt-3 left top">
-        <div class="card-body">
-          <h3>Here is a list of the posts you've created :</h3>
-          <p>Access to the list of posts you have created</p>
-            <ul class="user-posts-list">
-              {% for post in user_posts %}
-                <li>
-                    <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title}}</a>
+<div class="col-12 mt-3 left rounded-7">
+    <div class="row">
+        <h3>Here is a list of the posts you've created :</h3>
+        <p>Access to the list of posts you have created</p>
+        {% for post in user_posts %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="image-container">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-img-top" src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
+                        {% else %}
+                        <img class="card-img-top" src="{{ post.featured_image.url }}">
+                        {% endif %}
+                        <div class="image-flash">
+                            <p class="author">Author: {{ post.author }}</p>
+                        </div>
+                    </div>
+                    {% if post.slug %}
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                    </a>
+                    {% else %}
+                    <!-- Handle case where slug is empty -->
+                    {{ post.title }}
+                    {% endif %}
+
+                    <hr />
+                    <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart fa-xl"></i> {{ blog.likes }}</p>
 
                     <button style='margin-left: 20px;' class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
                     <button style='margin-left: 5px;' class="btn btn-outline-info btn-sm" onclick="editPost('{{ post.slug }}')">Edit</button>
@@ -43,24 +66,35 @@
                           <button type="submit">Delete</button>
                       </form>
                   </div>
-              </li>
-          {% endfor %}
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
 
+                </div>
+            </div>
         </div>
-      </div>
+        {% if forloop.counter|divisibleby:3 %}
     </div>
-  </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+<div class="masthead">
   <div class="container">
-    <div class="row" style="width: 80%; float: none; margin: 0 auto;">
-      <div class="col card mb-4 mt-3 left top">
-          <div  class="card-body">
-              <h3>Share a New Post:</h3>
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="card-title">Share a New Post:</h2>
               <form method="post" enctype="multipart/form-data" action="{% url 'users_post_form' %}">
               {% csrf_token %}
               {{ form.as_p }}
