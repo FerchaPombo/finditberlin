@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comments
+from .models import Post, Comments, Profile
 from .forms import CommentsForm, UsersPostForm, EditForm, EditProfileForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -234,9 +234,15 @@ def favourite_list(request):
     favourites = Post.objects.filter(favourites=request.user)
     return render(request, 'favourites.html', {'favourites': favourites})
 
-
 @login_required
-class UserEditProfile(generic, CreateView):
-    form_class = EditProfileForm
-    template_name = 'edit_profile.html'
-    success_url = reverse_lazy('users_dashboard')
+def edit_profile(request):
+    user = request.user
+    profile, created = Profile.objects.get_or_create(user=user)
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('users_dashboard')  # Redirect to dashboard after saving
+    else:
+        form = EditProfileForm(instance=profile)
+    return render(request, 'edit_profile.html', {'form': form})

@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import edit_post , delete_post, users_dashboard, userspost_create, favourite_add, favourite_list, UserEditProfile
+from .views import edit_post , delete_post, users_dashboard, userspost_create, favourite_add, favourite_list, edit_profile
 
 
 urlpatterns = [
@@ -9,7 +9,7 @@ urlpatterns = [
     path('userspostform/', views.userspost_create, name='users_post_form'),
     path('favourites/', views.favourite_list, name='favourite_list'),
     path('search_bar', views.search_bar, name='search_bar'),
-    path('edit_profile', views.UserEditProfile, name='edit_profile'),
+    path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('fav/<slug:slug>/', views.favourite_add, name='favourite_add'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('like/<slug:slug>', views.post_like, name='post_like'),

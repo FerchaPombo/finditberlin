@@ -1,4 +1,4 @@
-from .models import Comments, Post
+from .models import Comments, Post, Profile
 from django import forms
 from crispy_forms.helper import FormHelper  
 from crispy_forms.layout import Layout, Submit
@@ -119,3 +119,11 @@ class UsersPostAdminForm(forms.ModelForm):
             raise ValidationError('A post with this title already exist')
 
         return title
+'''Class for Edit Profile  based on  model Profile'''
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['bio']
+        widgets = {
+            'bio': forms.TextInput(attrs={'class': 'form-control'}),
+        }
