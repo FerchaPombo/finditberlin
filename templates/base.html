@@ -82,7 +82,7 @@
 
                 {% endif %}
             </div>
-            <form class='navbar-end d-flex align-items-center flex-nowrap' role="search" method="POST" action="{% url 'search_bar' %}" style="margin-left: 20px;">
+            <form class='navbar-end d-flex align-items-center' role="search" method="POST" action="{% url 'search_bar' %}">
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search for any word!" aria-label="Search" name="searched" style="max-height: 30px; max-width: 70%; font-size: small;">
                 <button class="btn  btn-light btn-sm" type="submit">Search</button>
