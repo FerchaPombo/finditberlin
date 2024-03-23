@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import edit_post , delete_post, users_dashboard, userspost_create, favourite_add, favourite_list, edit_profile
+from .views import edit_post , delete_post, users_dashboard, userspost_create, favourite_add, favourite_list, edit_pfile
 
 
 urlpatterns = [
