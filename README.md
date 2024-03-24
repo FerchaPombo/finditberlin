@@ -1,3 +1,123 @@
+# Findit Berlin ! 
+
+Welcome to Findit Berlin!
+Findit Berlin is your ultimate destination for exploring and documenting street art in the vibrant city of Berlin. This Django-based blog empowers users to engage with Berlin's street art scene in various ways.
+Findit Berlin offers a simple and intuitive platform for street art lovers to connect and discover new artworks across the city. Whether you're a seasoned enthusiast or new to the scene, Findit Berlin is your gateway to exploring Berlin's vibrant street art culture.
+Join us today and become part of a thriving community passionate about uncovering the hidden gems of Berlin's street art scene!
+
+[Am I responsive]()
+---
+## UX Design 
+
+### Ux principles 
+User Experience (UX) design is a process focused on creating products that offer meaningful and relevant experiences to users. It involves various elements, including branding, design, usability, and functionality, aiming to address users' pain points and needs throughout their journey with the product. While designers cannot control users' perceptions and responses, they can influence how the product behaves and looks.
+
+UX design is user-centered and multidisciplinary, drawing from backgrounds such as visual design, programming, psychology, and interaction design. Designers conduct tasks like user research, creating personas, designing wireframes and prototypes, and testing designs.
+
+### Project Goals
+
+Create an account to unlock full access to Findit Berlin's features.
+Create, Edit, and Delete Posts: Share your favorite graffiti artworks with the community. Add descriptions to provide context and insights about the art.
+Commenting and Liking: Engage with fellow street art enthusiasts by leaving comments and expressing appreciation through likes.
+Interactive Dashboard: Upon logging in, users are greeted with an interactive dashboard. From here, they can manage their posts effortlessly. This includes listing, editing, and deleting posts, as well as leaving new comments directly from the dashboard.
+---
+
+## Agile Developement Methodology 
+
+Agile methodology, rooted in the Agile Manifesto, transforms product development by prioritizing incremental delivery, frequent customer feedback, and adaptability. It addresses the shortcomings of traditional waterfall approaches by breaking projects into smaller, manageable iterations called sprints, fostering quicker response to evolving requirements. Agile extends its applicability beyond software development to various industries, emphasizing responsiveness to market needs and customer demands. It encompasses methods like Scrum, XP, and Kanban, along with technical practices like DevOps, facilitating efficient delivery processes. The Agile Manifesto, established in 2001, articulates core values and principles for software development, serving as a guiding beacon for agile practitioners worldwide.
+![Agile Diagram]()
+
+
+
+### 12 Agile Manifesto Principles:
+
+* Customer satisfaction through early and continuous delivery of valuable software.
+* Embrace changing requirements for the customer's competitive advantage.
+* Deliver working software frequently, preferably in shorter timescales.
+* Daily collaboration between businesspeople and developers.
+* Build projects around motivated individuals, providing them with the necessary support.
+* Face-to-face conversation is the most efficient way to convey information within a team.
+* Working software is the primary measure of progress.
+* Promote sustainable development for long-term success.
+* Continuous attention to technical excellence and good design enhances agility.
+* Simplicity is crucial; maximize work not done.
+* Self-organizing teams produce the best architectures, requirements, and designs.
+* Regular reflection and adaptation to improve effectiveness.
+
+### Popular Agile Methodologies:
+* Scrum
+* Extreme Programming (XP)
+* Adaptive Software Development (ASD)
+* Dynamic Software Development Method (DSDM)
+* Feature Driven Development (FDD)
+* Kanban
+* Behavior Driven Development (BDD)
+
+This project was developed using Github Kanbanboard [here]() 
+Kanban is an Agile management method built on a philosophy of continuous improvement, where work items are “pulled” from a product backlog into a steady flow of work. The framework is applied using Kanban boards, a form of visual project management. In a Kanban board, tasks—represented as cards—move through stages of work—represented as columns. That way, your team can see where work is in real-time.
+
+Kanban is especially popular with product, engineering, and software development teams. But any team that wants to create a more dynamic, flexible workflow can use them.
+
+Kanban teams use a visualization tool called Kanban boards to manage their workload and flow.
+
+In a Kanban board, work is displayed on a project board that is organized by columns. Traditionally, each column represents a stage of work. The most basic Kanban board might have columns like “To do,” “In progress,” and “Done.” Each column is filled with visual cards that represent individual tasks. A team moves through the columns until the tasks are completed.
+
+Like the shelves in a supermarket. As product inventory diminishes because it’s bought by consumers, staff refills the shelves with new products. The shelves are never empty, but the product is constantly replaced with new items—a Kanban board is continuously filled with new tasks as your team completes old ones.
+
+![MY Kanban board]()
+
+Kanban boards visually represent a team's tasks using cards or sticky notes arranged in columns on a whiteboard. Swimlanes within the columns illustrate the value stream, representing stages tasks must pass through. Cards are placed in the appropriate swimlane to map out the workflow.
+
+As work advances, team members shift cards from left to right. Some swimlanes may have a WIP limit to maintain the system's efficiency.
+
+![4 principles of Kanban]()
+
+### Epics 
+
+### User Stories 
+--- 
+## Features 
+
+### Existing Features :
+
+#### Header and Navigation bar
+
+#### Footer
+
+#### Landing Maing Page
+
+#### About Page
+
+#### Dashboard
+
+#### Admin Panel 
+
+#### Registration 
+
+#### Login 
+
+#### Logout 
+
+#### Profile 
+
+
+---
+## Features Left to implement 
+---
+## Teechnologies Used 
+---
+## Testing 
+---
+## Bugs
+---
+## Deployment 
+---
+## Credits 
+---
+## Content 
+---
+## Acknowledgements 
+
 Source Code Links: 
 diference between  null=true, blank=true django: https://stackoverflow.com/questions/8609192/what-is-the-difference-between-null-true-and-blank-true-in-django
 
@@ -144,3 +264,5 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Agile management](https://businessmap.io/agile/project-management/workflow)
 [Scrum](https://businessmap.io/blog/scrum)
 [UX](https://www.interaction-design.org/literature/topics/ux-design)
+[UX](https://www.pencilandpaper.io/articles/ux-design-documentation-guide)
+[kanban](https://asana.com/resources/what-is-kanban?utm_campaign=NB--EMEA--DE--EN--PMAX&utm_source=google&utm_medium=pd_cpc_pmax&gad_source=1&gclid=CjwKCAjwnv-vBhBdEiwABCYQA9IVacHizXzHNMiD4kBaGj1m9OJga_Z8mCGsruz2Cfj4k-JsQMWenhoC0vMQAvD_BwE&gclsrc=aw.ds)
