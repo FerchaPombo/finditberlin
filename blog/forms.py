@@ -9,6 +9,8 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.shortcuts import render
 
+STATUS = ((0, "Draft"), (1, "Published"))
+
 class CommentsForm(forms.ModelForm):  
     class Meta:
         model = Comments  
@@ -93,12 +95,15 @@ class EditForm(forms.ModelForm):
     '''Form to edit a post'''
     class Meta:
         model = Post
-        fields = ['title', 'content', 'featured_image','excerpt', 'author']  # Include 'author' field in the form
+        fields = ['title', 'content', 'featured_image','excerpt']
 
-    def __init__(self, *args, author=None, **kwargs):
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)  # Get the user passed as argument
         super().__init__(*args, **kwargs)
-        if author:
-            self.fields['author'].queryset = author.blog_posts.all()
+        if user and user.is_superuser:  # Check if the user is a superuser (admin)
+            self.fields['status'] = forms.ChoiceField(choices=STATUS, initial=self.instance.status)  # Add 'status' field to the form for admins
+        else:
+            self.fields.pop('status', None)  # Remove 'status' field from the form for non-admins
 
 
 class UsersPostAdminForm(forms.ModelForm):
@@ -119,6 +124,8 @@ class UsersPostAdminForm(forms.ModelForm):
             raise ValidationError('A post with this title already exist')
 
         return title
+
+
 '''Class for Edit Profile  based on  model Profile'''
 class EditProfileForm(forms.ModelForm):
     class Meta:

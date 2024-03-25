@@ -170,22 +170,22 @@ def users_dashboard(request):
 
     return render(request, 'users_dashboard.html', {'user_posts': user_posts, 'form': form, 'edit_forms': edit_forms})
     
-
+@login_required
 def edit_post(request, slug):
     '''View for the edit post form that renders in the users_dashboard'''
     post = get_object_or_404(Post, slug=slug)
-    author = post.author
+    user = request.user 
 
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=post)
+        form = EditForm(request.POST, instance=post, user=user)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Post updated successfully!')
+            messages.success(request, 'Post updated successfully! waiting for aproval...')
             return redirect('post_detail', slug=slug)
         else:
             messages.error(request, 'Error updating the post. Please check the form.')
     else:
-        form = EditForm(instance=post, author=request.user)
+        form = EditForm(instance=post, user=request.user)
 
     return render(request, 'edit_post.html', {'form': form, 'post': post})
 
