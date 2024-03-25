@@ -63,11 +63,20 @@
                     About
                 </a>
                 {% if user.is_authenticated %}
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle navbar-item is-size-6 has-text-weight-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="">Profile</a>
+                        <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
+                        <a class="dropdown-item" href="">?</a>
+                        <!-- Add other profile-related options here -->
+                    </div>
+                </div>
+                        
                 <a href="{% url 'users_dashboard' %}" class="navbar-item is-size-6 has-text-weight-light">
                     Dashboard
-                </a>
-                <a href="{% url 'edit_profile' %}" class="navbar-item is-size-6 has-text-weight-light">
-                    Edit Profile
                 </a>
                 <a href="{% url 'favourite_list' %}" class="navbar-item is-size-6 has-text-weight-light">
                     Favourites 

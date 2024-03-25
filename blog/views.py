@@ -250,7 +250,9 @@ def edit_profile(request):
         form = EditProfileForm(instance=profile)
     return render(request, 'edit_profile.html', {'form': form})
 
+@login_required
 def profile_page(request, slug):
     page_user = get_object_or_404(Profile, id=slug)
     return render(request, 'profile_page.html', {'page_user': page_user})
+
 
