@@ -27,6 +27,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY= ("FOOBAR") 
 
+# allows session data, including messages is cleared when the user closes the browser
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
