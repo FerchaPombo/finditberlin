@@ -54,6 +54,7 @@ class Comments(models.Model):
     def __str__(self):
         return f"This is {self.author} comment: {self.body}"
 
+
 # create users profile model 
 
 class Profile(models.Model):
