@@ -7,7 +7,8 @@ from .models import Post, Comments, Profile
 from .forms import CommentsForm, UsersPostForm, EditForm, EditProfileForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.forms import UserChangeForm
+from django.urls import reverse_lazy
 
 
 class PostList(generic.ListView):
@@ -236,6 +237,19 @@ def favourite_list(request):
     favourites = Post.objects.filter(favourites=request.user)
     return render(request, 'favourites.html', {'favourites': favourites})
 
+class UserProfile(generic.UpdateView):
+    form_class = UserChangeForm
+    template_name = 'edit_profile.html'
+    success_url = reverse_lazy('home')
+
+    def get_object(self):
+        return self.request.user
+
+
+
+
+
+'''
 @login_required
 class ProfileList(generic.ListView):
     model = Profile
@@ -269,3 +283,4 @@ class ProfileList(generic.ListView):
     def profile_page_view(request):
         user_profile = request.user.profile
         return render(request, 'my_profile.html', {'user_profile': user_profile})
+'''
