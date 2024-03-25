@@ -93,12 +93,14 @@ class EditForm(forms.ModelForm):
     '''Form to edit a post'''
     class Meta:
         model = Post
-        fields = ['title', 'content', 'featured_image', 'status', 'excerpt', 'author']  # Include 'author' field in the form
+        fields = ['title', 'content', 'featured_image','excerpt', 'author']  # Include 'author' field in the form
 
     def __init__(self, *args, author=None, **kwargs):
         super().__init__(*args, **kwargs)
         if author:
             self.fields['author'].queryset = author.blog_posts.all()
+
+
 class UsersPostAdminForm(forms.ModelForm):
     '''Define UsersPostAdmin form so i can see the form in my Admin Panel '''
     class Meta:
