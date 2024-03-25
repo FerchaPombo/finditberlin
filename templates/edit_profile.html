@@ -13,19 +13,21 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <form id="editProfileForm" method="post" enctype="multipart/form-data" action="{% url 'edit_profile' %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-secondary">Update Profile</button>
-                </form>
+<div class="masthead">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 masthead-text" style="width: 80%; float: none; margin: 0 auto;">
+                <div class="col card mb-4 mt-3 left top">
+
+                    <form id="editProfileForm" method="post" enctype="multipart/form-data" action="{% url 'edit_profile' %}" style="margin: 25px 40px 40px 100px;">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-secondary">Update Profile</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 {% endblock %}
