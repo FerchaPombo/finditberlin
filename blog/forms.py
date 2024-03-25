@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField as BaseCloudinaryField
 from django.utils.text import slugify
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from django.shortcuts import render
 
 class CommentsForm(forms.ModelForm):  
     class Meta:
@@ -88,19 +89,16 @@ class UsersPostForm(forms.ModelForm):
             self.add_status_field()
 
 
-
 class EditForm(forms.ModelForm):
+    '''Form to edit a post'''
     class Meta:
         model = Post
-        fields = ['title', 'content', 'featured_image', 'status', 'excerpt']
+        fields = ['title', 'content', 'featured_image', 'status', 'excerpt', 'author']  # Include 'author' field in the form
 
     def __init__(self, *args, author=None, **kwargs):
         super().__init__(*args, **kwargs)
-
         if author:
             self.fields['author'].queryset = author.blog_posts.all()
-
-
 class UsersPostAdminForm(forms.ModelForm):
     '''Define UsersPostAdmin form so i can see the form in my Admin Panel '''
     class Meta:

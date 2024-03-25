@@ -49,15 +49,8 @@
                         <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart fa-xl"></i> {{ blog.likes }}</p>
 
                         <button style='margin-left: 20px;' class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
-                        <button style='margin-left: 5px;' class="btn btn-outline-info btn-sm" onclick="editPost('{{ post.slug }}')">Edit</button>
-
-                        <div id="editForm_{{ post.slug }}" style="display: none;">
-                            <form method="post" enctype="multipart/form-data" onsubmit="closeAlert()">
-                                {% csrf_token %}
-                                {{ edit_form.as_ul | crispy }}
-                                <button type="submit">Submit Edit</button>
-                            </form>
-                            <form id="deleteForm_{{ post.slug }}" action="{% url 'delete_post' post_slug=post.slug %}" method="post" style="display: none;">
+                        <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-info btn-sm">Edit</a>
+                        <form id="deleteForm_{{ post.slug }}" action="{% url 'delete_post' post_slug=post.slug %}" method="post" style="display: none;">
                                 {% csrf_token %}
                                 <input type="hidden" name="post_slug" value="{{ post.slug }}">
                                 <button type="submit">Delete</button>
@@ -93,7 +86,7 @@
                     <form method="post" enctype="multipart/form-data" action="{% url 'users_post_form' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit">Submit</button>
+                        <button type="submit">Post!</button>
                     </form>
                 </div>
             </div>

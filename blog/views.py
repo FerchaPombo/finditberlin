@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, ListView, UpdateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comments, Profile
@@ -174,6 +174,7 @@ def users_dashboard(request):
 def edit_post(request, slug):
     '''View for the edit post form that renders in the users_dashboard'''
     post = get_object_or_404(Post, slug=slug)
+    author = post.author
 
     if request.method == 'POST':
         form = EditForm(request.POST, instance=post)
@@ -184,7 +185,7 @@ def edit_post(request, slug):
         else:
             messages.error(request, 'Error updating the post. Please check the form.')
     else:
-        form = EditForm(instance=post, author=request.user)
+        form = EditForm(instance=post, author=author)
 
     return render(request, 'edit_post.html', {'edit_form': form, 'post': post})
 
