@@ -237,19 +237,20 @@ def favourite_list(request):
     favourites = Post.objects.filter(favourites=request.user)
     return render(request, 'favourites.html', {'favourites': favourites})
 
-class UserProfile(generic.UpdateView):
-    form_class = UserChangeForm
-    template_name = 'edit_profile.html'
-    success_url = reverse_lazy('home')
+@login_required
+def edit_profile(request):
+    user = request.user
+    profile, created = Profile.objects.get_or_create(user=user)
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('users_dashboard')  # Redirect to dashboard after saving
+    else:
+        form = EditProfileForm(instance=profile)
+    return render(request, 'edit_profile.html', {'form': form})
 
-    def get_object(self):
-        return self.request.user
 
-
-
-
-
-'''
 @login_required
 class ProfileList(generic.ListView):
     model = Profile
@@ -266,21 +267,8 @@ class ProfileList(generic.ListView):
         else:
             form = CreateProfileForm(instance=profile)
         return render(request, 'users_dashboard.html', {'form': form})
-
-    def edit_profile(request):
-        user = request.user
-        profile, created = Profile.objects.get_or_create(user=user)
-        if request.method == 'POST':
-            form = EditProfileForm(request.POST, instance=profile)
-            if form.is_valid():
-                form.save()
-                return redirect('users_dashboard.html')  # Redirect to dashboard after saving
-        else:
-            form = EditProfileForm(instance=profile)
-        return render(request, 'edit_profile.html', {'form': form})
     
 
     def profile_page_view(request):
         user_profile = request.user.profile
         return render(request, 'my_profile.html', {'user_profile': user_profile})
-'''

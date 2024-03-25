@@ -130,7 +130,10 @@ class UsersPostAdminForm(forms.ModelForm):
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['bio']
+        fields = ['bio', 'profile_pic', 'instagram_url', 'website_url']
         widgets = {
             'bio': forms.TextInput(attrs={'class': 'form-control'}),
+            'profile_pic': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+            'instagram_url': forms.URLInput(attrs={'class': 'form-control'}),
+            'website_url': forms.URLInput(attrs={'class': 'form-control'}),
         }
