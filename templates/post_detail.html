@@ -10,7 +10,11 @@
       <div class="row justify-content-center">
          <div class="col-md-8 masthead-text">
             <!-- Post title goes in these h1 tags -->
-            <h1><strong style="text-transform: uppercase">{{ post.title }}</strong></h1>
+            <h1><strong style="text-transform: uppercase">{{ post.title }}</strong>
+               {% if user.is_authenticated and user == post.author %}
+                  <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-info btn-sm" style="margin-left: 8%;">Edit</a>
+               {% endif %}
+            </h1>
             <!-- Post author goes before the | the post's created date goes after -->
             <p class="post-subtitle">{{ post.author }}|{{ post.created_on}}</p>
          </div>
