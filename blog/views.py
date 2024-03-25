@@ -256,3 +256,16 @@ def profile_page(request, slug):
     return render(request, 'profile_page.html', {'page_user': page_user})
 
 
+@login_required
+def profile_create(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            messages.success(request, 'Profile created successfully!')
+            return redirect('users_dashboard')  # Redirect to profile detail page
+    else:
+        form = EditProfileForm()
+    return render(request, 'create_profile.html', {'form': form})

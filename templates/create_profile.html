@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="masthead">
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-body">
+                {% if user.is_authenticated%}
+                <h2 class="card-title">Create a new Profile:</h2>
+                
+                <form method="post" enctype="multipart/form-data" action="{% url 'profile_create' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary" type="submit">Create new profile!</button>
+                </form>
+                {% else %}
+                You are not allowed here ... Sign up!
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

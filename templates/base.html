@@ -85,7 +85,7 @@
                         <a class="dropdown-item" href="{% url 'profile_page' user.profile.id %}">Profile</a>
                         <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
                     {% else %}
-                        <a class="dropdown-item" href="">Create Profile</a>
+                        <a class="dropdown-item" href="{% url 'profile_create' %}">Create Profile</a>
                     {% endif %}
                         <!-- Add other profile-related options here -->
                     </div>
