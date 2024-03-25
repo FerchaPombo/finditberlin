@@ -127,7 +127,7 @@ class UsersPostAdminForm(forms.ModelForm):
 
 
 '''Class for Edit Profile  based on  model Profile'''
-class EditProfileForm(UserChangeForm):
+class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['bio', 'profile_pic', 'instagram_url', 'website_url']
