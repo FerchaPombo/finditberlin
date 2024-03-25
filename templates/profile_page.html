@@ -3,10 +3,38 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <h1>Users Profile Page</h1>
-        {{ page_user }}
+<!-- Display profile from author of post -->
+<div class="masthead">
+    <div class="container">
+       <div class="row justify-content-center">
+          <div class="col-md-8 card mb-5 mt-4">
+             <div class="d-flex justify-content-between">
+                {% if page_user.profile.profile_pic %}
+                <img src="{% static 'images/avatar_icon.png' %}" width="100" height="100" class="rounded" style="margin: 4px 4px 4px 10px;">
+                {% else %}
+                <img src='{{ page_user.profile_pic.url }}' width="100", height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+          
+                {% endif %}
+                <div class="card-body">
+                   <div class="card-title">
+                      <h5 class="card-title">{{ post.author }}</h5>
+                      
+                         {% if page_user.instagram_url %}
+                         <a href="{{ post.author.profile.instagram_url }}">Instagram</a> | 
+                         {% endif %}
+                         {% if page_user.website_url %}
+                         <a href="{{ post.author.profile.website_url }}">Website</a> 
+                         {% endif %}
+                      </p>
+                      <p class="card-text">
+                      {{ page_user.bio }}
+                      </p>
+ 
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
     </div>
-</div>
+ </div>
 {%endblock%}
