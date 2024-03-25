@@ -269,6 +269,10 @@ class ProfileList(generic.ListView):
         return render(request, 'users_dashboard.html', {'form': form})
     
 
-    def profile_page_view(request):
-        user_profile = request.user.profile
-        return render(request, 'my_profile.html', {'user_profile': user_profile})
+    
+
+@login_required
+class ProfilePageView(generic.ListView):
+    model = Profile
+    template_name = 'profile_page.html'
+    

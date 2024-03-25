@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% load crispy_forms_tags %} 
 {% block extra_js %}
 <script src="{% static 'js/comments.js' %}"></script>
@@ -97,10 +98,11 @@
       <div class="row justify-content-center">
          <div class="col-md-8 card mb-5 mt-4">
             <div class="d-flex justify-content-between">
-               {% if post.author.profile.profile_pic %}
-                  <img src='{{ post.author.profile.profile_pic.url }}' width="100", height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+               {% if "placeholder" in post.author.profile.profile_pic %}
+               <img src="{% static 'images/avatar_icon.png' %}" width="100" height="100" class="rounded" style="margin: 4px 4px 4px 10px;">
                {% else %}
-               <img src="{% static 'images/avatar.png' %}" width="100", height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+               <img src='{{ post.author.profile.profile_pic.url }}' width="100", height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+         
                {% endif %}
                <div class="card-body">
                   <div class="card-title">
