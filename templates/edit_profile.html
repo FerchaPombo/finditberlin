@@ -5,14 +5,14 @@
 
 
 <div class="masthead">
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-8 masthead-text">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 masthead-text" style="width: 80%; float: none; margin: 0 auto;">
+                <div class="col card mb-4 mt-3 left top">
            <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">Hey {{ request.user.username }}, edit your profile...</h1>
         </div>
     </div>
 </div>
-{{ user.profile.bio }}
 <div class="row">
     <div class="col-md-4">
         <div class="card mb-4">
