@@ -238,7 +238,7 @@ def favourite_list(request):
     return render(request, 'favourites.html', {'favourites': favourites})
 
 class UserProfile(generic.UpdateView):
-    form_class = UserChangeForm
+    form_class = EditProfileForm
     template_name = 'edit_profile.html'
     success_url = reverse_lazy('home')
 

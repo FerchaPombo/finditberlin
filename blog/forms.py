@@ -8,7 +8,7 @@ from django.utils.text import slugify
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.shortcuts import render
-
+from django.contrib.auth.forms import UserChangeForm
 STATUS = ((0, "Draft"), (1, "Published"))
 
 class CommentsForm(forms.ModelForm):  
@@ -127,10 +127,15 @@ class UsersPostAdminForm(forms.ModelForm):
 
 
 '''Class for Edit Profile  based on  model Profile'''
-class EditProfileForm(forms.ModelForm):
+class EditProfileForm(UserChangeForm):
+    username = forms.CharField(max_length=100)
+    first_name = forms.CharField(max_length=100)
+    last_name = forms.CharField(max_length=100)
+    email = forms.CharField(max_length=100)
+    last_login = forms.CharField(max_length=100)
+    is_superuser = forms.CharField(max_length=100)
+    date_joined = forms.CharField(max_length=100)
     class Meta:
-        model = Profile
-        fields = ['bio']
-        widgets = {
-            'bio': forms.TextInput(attrs={'class': 'form-control'}),
-        }
+        model = User
+        fields = ['username', 'fist_name', 'last_name', 'email','date_joined']
+
