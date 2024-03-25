@@ -250,29 +250,7 @@ def edit_profile(request):
         form = EditProfileForm(instance=profile)
     return render(request, 'edit_profile.html', {'form': form})
 
+def profile_page(request, slug):
+    page_user = get_object_or_404(Profile, id=slug)
+    return render(request, 'profile_page.html', {'page_user': page_user})
 
-@login_required
-class ProfileList(generic.ListView):
-    model = Profile
-    template_name = 'profile_page.html'
-
-    def profile_page_create(request):
-        user = request.user
-        profile, created = Profile.objects.get_or_create(user=user)
-        if request.method == 'POST':
-            form = CreateProfileForm(request.POST, instance=profile)
-            if form.is_valid():
-                form.save()
-                return redirect('profile_page.html')
-        else:
-            form = CreateProfileForm(instance=profile)
-        return render(request, 'users_dashboard.html', {'form': form})
-    
-
-    
-
-@login_required
-class ProfilePageView(generic.ListView):
-    model = Profile
-    template_name = 'profile_page.html'
-    

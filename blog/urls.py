@@ -1,10 +1,11 @@
 from . import views
 from django.urls import path
-from .views import edit_post , delete_post, users_dashboard, userspost_create, favourite_add, favourite_list, edit_profile
+from .views import edit_post , delete_post, users_dashboard, userspost_create, favourite_add, favourite_list, edit_profile, profile_page
 
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
+    path('profile/<slug:slug>/', views.profile_page, name='profile_page'),
     path('users_dashboard/', views.users_dashboard, name='users_dashboard'),
     path('userspostform/', views.userspost_create, name='users_post_form'),
     path('edit_post/<slug:slug>/', views.edit_post, name='edit_post'),
