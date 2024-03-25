@@ -245,6 +245,7 @@ def edit_profile(request):
         form = EditProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Profile edited successfully!')
             return redirect('users_dashboard')  # Redirect to dashboard after saving
     else:
         form = EditProfileForm(instance=profile)
@@ -265,7 +266,7 @@ def profile_create(request):
             profile.user = request.user
             profile.save()
             messages.success(request, 'Profile created successfully!')
-            return redirect('users_dashboard')  # Redirect to profile detail page
+            return redirect('users_dashboard')  # Redirect to dashboard page
     else:
         form = EditProfileForm()
     return render(request, 'create_profile.html', {'form': form})
