@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% load allauth i18n %}
+{% load allauth i18n %}  <!-- Load allauth and internationalization tags -->
 
 {% block head_title %}
-{% trans "Sign Out" %}
+{% trans "Sign Out" %}  <!-- Define the title of the page -->
 {% endblock head_title %}
 
 {% block content %}
@@ -11,25 +11,26 @@
 <div class="container_logout">
     <div class="row">
          <div class="col-md-8 mt-3 offset-md-2">
+            <!-- Heading for the log out section -->
             <h3><strong class="logout_text">{% trans "Log Out" %}</strong></h3>
+            <!-- Confirmation message for log out -->
             <p class="logout_text">{% trans 'Are you sure you want to log out?' %}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
+            <!-- Log out form -->
             <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
+                {% csrf_token %}  <!-- Cross-Site Request Forgery protection -->
                 {% if redirect_field_value %}
+                <!-- Hidden field for redirecting after log out -->
                 <input type="hidden" name="{{redirect_field_name}}" value="{{redirect_field_value}}"/>
                 {% endif %}
+                <!-- Submit button for log out -->
                 <button class="btn btn-signup right btn-outline-dark btn-sm" type="submit">{% trans 'Sign Out' %}</button>
-
-
             </form>
         </div>
     </div>
 </div>
-        
-
         
 {% endblock content %}
