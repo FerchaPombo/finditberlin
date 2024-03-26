@@ -253,3 +253,5 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
 [TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)
 [Django favourites](https://www.youtube.com/watch?v=1XiJvIuvqhs)
+[ImageFiled](https://www.geeksforgeeks.org/imagefield-django-models/)
+[Cloudinary Imafield](https://cloudinary.com/blog/placeholder_images_and_gravatar_integration_with_cloudinary)

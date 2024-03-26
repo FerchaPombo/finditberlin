@@ -11,10 +11,11 @@
              <div class="d-flex justify-content-between">
                 {% if page_user.profile.profile_pic %}
                 <!-- If the user has a profile picture, display it -->
-                <img src="{% static 'images/avatar_icon.png' %}" width="100" height="100" class="rounded" style="margin: 4px 4px 4px 10px;">
+                <img src='{{ page_user.profile_pic.url }}' height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
                 {% else %}
                 <!-- If the user does not have a profile picture, display a default icon -->
-                <img src='{{ page_user.profile_pic.url }}' width="100", height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+                <img src="https://banner2.cleanpng.com/20180715/pao/kisspng-computer-icons-icon-design-user-web-user-icon-5b4ad7c5b9eaf6.9562954315316315577615.jpg" width="100" height="100" class="rounded" style="margin: 4px 4px 4px 10px;">
+                
                 {% endif %}
                 <div class="card-body">
                    <div class="card-title">

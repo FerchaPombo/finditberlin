@@ -154,7 +154,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.CloudinaryMediaStorage'
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static', 'staticfiles')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
