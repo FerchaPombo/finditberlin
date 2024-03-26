@@ -98,10 +98,12 @@
       <div class="row justify-content-center">
          <div class="col-md-8 card mb-5 mt-4">
             <div class="d-flex justify-content-between">
-               {% if "placeholder" in post.author.profile.profile_pic %}
-               <img src="{% static 'images/avatar_icon.png' %}" width="100" height="100" class="rounded" style="margin: 4px 4px 4px 10px;">
+               {% if post.author.profile.profile_pic %}
+               <img src='{{ post.author.profile.profile_pic.url }}' height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+               
                {% else %}
-               <img src='{{ post.author.profile.profile_pic.url }}' width="100", height="100" class="rounded"style="margin: 4px 4px 4px 10px;">
+               <img src="https://banner2.cleanpng.com/20180715/pao/kisspng-computer-icons-icon-design-user-web-user-icon-5b4ad7c5b9eaf6.9562954315316315577615.jpg" height="100" class="rounded" style="margin: 4px 4px 4px 10px;">
+               
          
                {% endif %}
                <div class="card-body">
