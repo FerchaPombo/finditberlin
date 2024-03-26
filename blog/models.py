@@ -16,7 +16,8 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=200)
-    featured_image = models.ImageField(upload_to ='static/images', default='placeholder')
+    featured_image = CloudinaryField(
+        'image', default="placeholder", blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
@@ -59,8 +60,7 @@ class Comments(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, null = True, on_delete=models.CASCADE, related_name="profile")
     bio = models.TextField()
-    profile_pic = CloudinaryField(
-        'image', default="placeholder")
+    profile_pic = models.ImageField(upload_to ='static/images', default='placeholder')
     instagram_url = models.CharField(max_length=255, null=True, blank=True)
     website_url = models.CharField(max_length=255, null=True, blank=True)
 
