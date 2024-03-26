@@ -9,7 +9,7 @@
 
 <div class="container_login">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+    <div class="col-md-8 mt-5 offset-md-2">
       <!-- Heading for the sign-in section -->
       <h3><strong>{% trans "Sign In" %}</strong></h3>
 
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+    <div class="col-md-8 mt-5 offset-md-2">
       <!-- Sign-in form -->
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}  <!-- Cross-Site Request Forgery protection -->

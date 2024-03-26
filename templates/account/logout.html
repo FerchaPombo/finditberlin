@@ -10,7 +10,7 @@
 
 <div class="container_logout">
     <div class="row">
-         <div class="col-md-8 mt-3 offset-md-2">
+         <div class="col-md-8 mt-5 offset-md-2">
             <!-- Heading for the log out section -->
             <h3><strong class="logout_text">{% trans "Log Out" %}</strong></h3>
             <!-- Confirmation message for log out -->
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="col-md-8 mt-5 offset-md-2">
             <!-- Log out form -->
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}  <!-- Cross-Site Request Forgery protection -->

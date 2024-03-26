@@ -3,30 +3,29 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="masthead">
-    <div class="container">
+
+    <div class="container-fluid mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8 masthead-text" style="width: 80%; float: none; margin: 0 auto;">
-                <div class="col card mb-4 mt-3 left top">
-                    <!-- Welcome message for the user -->
-                    <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">( ͡❛ ‿ ͡❛) Hey there {{ user.username }}, Welcome!</h1>
+            <div class="col-sm-12">
+                <div class="card text-center">
+                    <div class="card-body">
+
+                    <strong class="card-title">( ͡❛ ‿ ͡❛) Hey there {{ user.username }}, Welcome!</strong> </br>
+                        <small>Here is a list of the posts you've created :</small>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- New config  -->
-<div class="masthead">
-  <div class="container">
-    <div class="col-12 mt-3 left rounded-7">
-        <div class="row">
-            <h3>Here is a list of the posts you've created :</h3>
-            <p>Access to the list of posts you have created</p>
-            {% for post in user_posts %}
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="image-container">
+
+    <!-- List of user's posts -->
+    
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="row">
+                {% for post in user_posts %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
                             {% if "placeholder" in post.featured_image.url %}
                             <!-- Display placeholder image if no featured image -->
                             <img class="card-img-top" src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
@@ -34,32 +33,23 @@
                             <!-- Display featured image -->
                             <img class="card-img-top" src="{{ post.featured_image.url }}">
                             {% endif %}
-                            <div class="image-flash">
-                                <!-- Display author -->
-                                <p class="author">Author: {{ post.author }}</p>
+                            <!-- Display author -->
+                            <p class="author">Author: {{ post.author }}</p>
+                            <!-- Display post title with link to detail page -->
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </a>
+                            <hr>
+                            <!-- Display post creation date and number of likes -->
+                            <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart fa-xl"></i> {{ blog.likes }}</p>
+                            <!-- Buttons to delete and edit posts -->
+                            <div class="text-center">
+                                <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
+                                <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-info btn-sm">Edit</a>
                             </div>
-                        </div>
-                        {% if post.slug %}
-                        <!-- Display post title with link to detail page -->
-                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                            <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
-                            <p class="card-text">{{ post.excerpt }}</p>
-                        </a>
-                        {% else %}
-                        <!-- Display post title if no slug -->
-                        {{ post.title }}
-                        {% endif %}
-
-                        <hr />
-                        <!-- Display post creation date and number of likes -->
-                        <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart fa-xl"></i> {{ blog.likes }}</p>
-
-                        <!-- Buttons to delete and edit posts -->
-                        <button style='margin-left: 20px;' class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ post.slug }}')">Delete</button>
-                        <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-info btn-sm">Edit</a>
-
-                        <!-- Form for deleting posts (hidden by default) -->
-                        <form id="deleteForm_{{ post.slug }}" action="{% url 'delete_post' post_slug=post.slug %}" method="post" style="display: none;">
+                            <!-- Form for deleting posts (hidden by default) -->
+                            <form id="deleteForm_{{ post.slug }}" action="{% url 'delete_post' post_slug=post.slug %}" method="post" style="display: none;">
                                 {% csrf_token %}
                                 <input type="hidden" name="post_slug" value="{{ post.slug }}">
                                 <button type="submit">Delete</button>
@@ -67,30 +57,33 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% if forloop.counter|divisibleby:3 %}
-        </div>
-        <div class="row">
-            {% endif %}
-            {% endfor %}
         </div>
     </div>
+
     <!-- Pagination -->
     {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
     {% endif %}
+
     <!-- Form for creating new posts -->
-    <div class="masthead">
-        <div class="container">
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
             <div class="card text-center">
                 <div class="card-body">
                     <h2 class="card-title">Share a New Post:</h2>
@@ -104,7 +97,8 @@
         </div>
     </div>
 </div>
-<!-- styles for this particular template written here in order to over ride bulma bootstrap template, styles not repeated anywhere else -->
+
+<!-- styles for this particular template written here in order to override bulma bootstrap template, styles not repeated anywhere else -->
 <style>
     .user-posts-list {
         list-style: none;
@@ -124,33 +118,6 @@
 </style>
 
 <script>
-    function editPost(slug) {
-        console.log('Edit post clicked for slug:', slug);
-
-        // Hide all edit forms and close alerts
-        document.querySelectorAll('[id^="editForm_"]').forEach(form => {
-            form.style.display = 'none';
-        });
-
-        //Drop down the selected edit form
-        var editForm = document.getElementById(`editForm_${slug}`);
-        if (editForm.style.display === 'block') {
-            editForm.style.display = 'none';
-        } else {
-            editForm.style.display = 'block';
-        }
-    }
-
-    // function to close the alert
-    function closeAlert() {
-        document.querySelectorAll('.alert').forEach(alert => {
-            if (!alert.classList.contains('show')) {
-                // Only close if the alert is visible
-                new bootstrap.Alert(alert).close();
-            }
-        });
-    }
-
     function confirmDelete(slug) {
         if (confirm('Are you sure you want to delete this post?')) {
             document.getElementById(`deleteForm_${slug}`).submit();
