@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 
 {% if searched %}
+<!-- Display search results if a search query is provided -->
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8 masthead-text">
+           <!-- Display the search query -->
            <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">You searched for "{{ searched }}"</h1>
         </div>
     </div>
@@ -17,24 +20,30 @@
                 <div class="card-body">
                     <div class="image-container">
                         {% if "placeholder" in post.featured_image.url %}
+                        <!-- If the post has no featured image, display a placeholder image -->
                         <img class="card-img-top" src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
                         {% else %}
+                        <!-- Display the post's featured image -->
                         <img class="card-img-top" src="{{ post.featured_image.url }}">
                         {% endif %}
                         <div class="image-flash">
+                            <!-- Display the post's author -->
                             <p class="author">Author: {{ post.author }}</p>
                         </div>
                     </div>
                     {% if post.slug %}
+                    <!-- If the post has a slug, display a link to the post detail page -->
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">
                         <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
                         <p class="card-text">{{ post.excerpt }}</p>
                     </a>
                     {% else %}
+                    <!-- If the post has no slug, just display the post's title -->
                     {{ post.title }}
                     {% endif %}
 
                     <hr />
+                    <!-- Display the post's creation date and number of likes -->
                     <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart fa-xl"></i> {{ post.likes }}</p>
                 </div>
             </div>
@@ -44,6 +53,7 @@
     <div class="row">
         {% endif %}
         {% empty %}
+        <!-- If no posts are found for the search query, display a message -->
         <div class="col-md-12">
             <h1 style="margin-bottom: 30px; margin-top: 30px; text-align: center;">No results found!</h1>
         </div>
@@ -51,6 +61,7 @@
     </div>
 </div>
 {% else %}
+<!-- Display a message if no search query is provided -->
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8 masthead-text">
@@ -60,6 +71,7 @@
 </div>
 {% endif %}
 
+<!-- Pagination -->
 {% if is_paginated %}
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">

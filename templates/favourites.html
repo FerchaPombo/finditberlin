@@ -5,62 +5,52 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="row justify-content-center">
-            <div class="col-md-8 masthead-text">
-               <!-- Post title goes in these h1 tags -->
-               <h1><strong style="text-transform: uppercase">Welcome to your favourite posts!</strong></h1>
-               <!-- Post author goes before the | the post's created date goes after -->
-               <p class="post-subtitle">Here you can find all the posts you have liked</p>
-            </div>
-        </div>
-
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left rounded-7">
-            <div class="row">
-                {% for post in favourites %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            {% if post.slug %}
-                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                                </a>
-                            {% else %}
-                                <!-- Handle case where slug is empty -->
-                                {{ post.title }}
-                            {% endif %}
-                        
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart fa-xl"></i>
-                                {{ blog.likes }}</p>
-                        </div>
-                        <!--Link to the view we created to erase post from liked posts-->
-                        <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class=" btn btn-outline-secondary">Remove</a>
-
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
-            </div>
+        <div class="col-md-8 offset-md-2 masthead-text">
+            <h1><strong style="text-transform: uppercase">Welcome to your favourite posts!</strong></h1>
+            <p class="post-subtitle">Here you can find all the posts you have liked</p>
         </div>
     </div>
+
+    <div class="row">
+        {% for post in favourites %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="image-container">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-img-top"
+                            src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
+                        {% else %}
+                        <img class="card-img-top" src="{{ post.featured_image.url }}">
+                        {% endif %}
+                        <div class="image-flash">
+                            <p class="author">Author: {{ post.author }}</p>
+                        </div>
+                    </div>
+                    {% if post.slug %}
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <h2 class="card-title" style="font-size: large;">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                    </a>
+                    {% else %}
+                    <!-- Handle case where slug is empty -->
+                    {{ post.title }}
+                    {% endif %}
+
+                    <hr />
+                    <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart fa-xl"></i>
+                        {{ blog.likes }}</p>
+                </div>
+                <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class="btn btn-outline-secondary">Remove</a></div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -69,10 +59,10 @@
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
             {% endif %}
         </ul>
     </nav>
     {% endif %}
 </div>
-{%endblock%}
+
+{% endblock %}
