@@ -255,3 +255,6 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Django favourites](https://www.youtube.com/watch?v=1XiJvIuvqhs)
 [ImageFiled](https://www.geeksforgeeks.org/imagefield-django-models/)
 [Cloudinary Imafield](https://cloudinary.com/blog/placeholder_images_and_gravatar_integration_with_cloudinary)
+[default](https://www.geeksforgeeks.org/default-django-built-in-field-validation/)
+[Searchbar](https://www.youtube.com/watch?v=XIwA6g34jZo&t=453s)
+
