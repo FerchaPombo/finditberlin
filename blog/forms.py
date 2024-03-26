@@ -8,10 +8,11 @@ from django.utils.text import slugify
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.contrib.auth.forms import UserChangeForm
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 class CommentsForm(forms.ModelForm):  
+    """Form for adding comments."""
     class Meta:
         model = Comments  
         fields = ['author', 'body']
@@ -40,8 +41,10 @@ class CloudinaryField(BaseCloudinaryField):
     def formfield(self, **kwargs):
         return super().formfield(widget=CloudinaryJsFileInput(), **kwargs)
 
+
+
 class UsersPostForm(forms.ModelForm):
-    '''Class for Users Post based on  model Post'''
+
     class Meta:
         model = Post
         fields = ['title', 'content', 'featured_image']
@@ -92,7 +95,8 @@ class UsersPostForm(forms.ModelForm):
 
 
 class EditForm(forms.ModelForm):
-    '''Form to edit a post'''
+    """Form for editing a post."""
+
     class Meta:
         model = Post
         fields = ['title', 'content', 'featured_image','excerpt']
@@ -107,7 +111,7 @@ class EditForm(forms.ModelForm):
 
 
 class UsersPostAdminForm(forms.ModelForm):
-    '''Define UsersPostAdmin form so i can see the form in my Admin Panel '''
+    """Form for admin to manage posts."""
     class Meta:
         model = Post
         fields = ['title', 'slug', 'content', 'featured_image', 'status']
@@ -125,8 +129,7 @@ class UsersPostAdminForm(forms.ModelForm):
 
         return title
 
-
-'''Class for Edit Profile  based on  model Profile'''
+# From for editing Users Profile
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
