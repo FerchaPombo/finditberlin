@@ -49,8 +49,8 @@ class UsersPostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'content', 'featured_image']
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Title'}),
-            'content': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
+            'title': forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'placeholder': 'Write something here!', 'class': 'form-control'}),
         }
 #check if a post with the same title exists, if it does, raises validation.
     def clean_title(self):
@@ -116,8 +116,8 @@ class UsersPostAdminForm(forms.ModelForm):
         model = Post
         fields = ['title', 'slug', 'content', 'featured_image', 'status']
         widgets ={
-            'title': forms.TextInput(attrs={'placeholder': 'Title'}),
-            'body': forms.Textarea(attrs={'placeholder': 'Write something here!'}),
+            'title': forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'placeholder': 'Write something here!', 'class': 'form-control'}),
         }
 
     def slug_unique(self,title):

@@ -1,3 +1,7 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
 /* general styling of the blog */
 
 body {
@@ -15,6 +19,11 @@ strong {
     margin-left: 0%;
 
 
+}
+/* Styling navbar */
+
+.navbar-expand-md.navbar-light.bg-light {
+    font-size: larger;
 }
 
 .navbar-item.is-active.is-size-6.has-text-weight-light {

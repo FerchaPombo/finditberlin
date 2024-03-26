@@ -21,7 +21,7 @@
             <form method="post" enctype="multipart/form-data" action="{% url 'edit_post' post.slug %}">
               {% csrf_token %}
               {{ form.as_p }}
-              <button class="btn btn-secondary" type="submit">Update Post!</button>
+              <button class="btn btn-secondary mt-3" type="submit">Update Post!</button>
             </form>
           </div>
       </div>

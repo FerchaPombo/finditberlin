@@ -20,7 +20,7 @@
                     <form id="editProfileForm" method="post" enctype="multipart/form-data" action="{% url 'edit_profile' %}" style="margin: 25px 40px 40px 100px;">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="btn btn-secondary">Update Profile</button>
+                        <button type="submit" class="btn btn-secondary mt-3">Update Profile</button>
                     </form>
                 </div>
             </div>

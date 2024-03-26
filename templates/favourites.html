@@ -41,7 +41,7 @@
                     <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart fa-xl"></i>
                         {{ blog.likes }}</p>
                 </div>
-                <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class="btn btn-outline-secondary">Remove</a></div>
+                <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class="btn btn-outline-secondary mb-3 ml-3">Remove</a></div>
             </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
