@@ -39,7 +39,7 @@
 
                     <hr />
                     <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart fa-xl"></i>
-                        {{ blog.likes }}</p>
+                        {{ blog.likes }}| {{ post.number_of_likes }}</p>
                 </div>
                 <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class="btn btn-outline-secondary mb-3 ml-3">Remove</a></div>
             </div>
