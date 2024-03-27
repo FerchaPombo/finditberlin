@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const commentForm = document.getElementById("CommentsForm");
     const submitButton = document.getElementById("submitButton");
 
-
     // empty the comment text after post
-
     commentText.value = "";
 
     for (let button of deleteButtons) {
@@ -28,50 +26,42 @@ document.addEventListener("DOMContentLoaded", function(event) {
             commentText.value = commentContent;
             editModal.show(); //show the edit modal
             commentText.setAttribute("data-comment-id", commentId);
-
-            
         });
     }
-})
+});
 
-//form submission for the edit modal 
-
-const editForm = document.getElementById("editFrom");
-editForm.addEventListener("submit", function(e){
+// form submission for the edit modal 
+const editForm = document.getElementById("editForm");
+editForm.addEventListener("submit", function(e) {
     e.preventDefault(); //Prevents default form submission 
     const commentId = commentText.getAttribute("data-comment-id");
     const editedComment = commentText.value;
     //ajax request using fetch 
-    fetch(`/edit_comment/&{commentId}`, {
+    fetch(`/edit_comment/${commentId}`, {
         method: 'POST',
         headers: {
-            'Content-Type':'applicstion/json',
-            'X-CSRFToken': getcookie('csrftoken'), //define get cookie function under
-
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'), //define get cookie function under
         },
         body: JSON.stringify({comment: editedComment}),
     })
     .then(response => {
         if (response.ok) {
             // update the comment content on the page 
-            document.getElementById('comment${commentID}').innerText = editedComment;
+            document.getElementById('/comment${commentId}').innerText = editedComment;
             //Close the edit modal
             editModal.hide();
-
-        }
-        else {
+        } else {
             console.error('error updating comment', response.statusText);
         }
-
     })
     .catch(error => {
         console.error('Error updating comment', error);
     });
-
 });
 
-// Function to get the CSRF token from cokkies
-function getcookie(name) {
+// Function to get the CSRF token from cookies
+function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
@@ -83,6 +73,5 @@ function getcookie(name) {
             }
         }
     }
-    return cookieValue
+    return cookieValue;
 }
-

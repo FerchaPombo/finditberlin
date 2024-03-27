@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 //form submission for the edit modal 
 
-const editForm = document.getElementById("editFrom");
+const editForm = document.getElementById("editForm");
 editForm.addEventListener("submit", function(e){
     e.preventDefault(); //Prevents default form submission 
     const commentId = commentText.getAttribute("data-comment-id");
@@ -45,7 +45,7 @@ editForm.addEventListener("submit", function(e){
     fetch(`/edit_comment/&{commentId}`, {
         method: 'POST',
         headers: {
-            'Content-Type':'applicstion/json',
+            'Content-Type':'application/json',
             'X-CSRFToken': getcookie('csrftoken'), //define get cookie function under
 
         },
