@@ -199,8 +199,8 @@
       </div>
    </div>
 </div>
-{% block extras %}
-{% load static %}
-<script src="{% static '/js/comments.js' %}"></script>
-{% endblock extras %}
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock extras %}

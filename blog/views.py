@@ -113,21 +113,21 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comments, pk=comment_id)
         comment_form = CommentsForm(data=request.POST, instance=comment)
 
-        # Check if the user is authenticated and the comment author
-        if request.user.is_authenticated and comment.author == request.user.username:
-            comment_form = CommentsForm(data=request.POST, instance=comment)
-            if comment_form.is_valid():
-                comment = comment_form.save(commit=False)
-                comment.post = post
-                comment.approved = False
-                comment.save()
-                messages.add_message(request, messages.SUCCESS, 'Your comment was Updated!')
-            else:
-                messages.add_message(request, messages.ERROR, 'Error updating comment!')
+        if comment_form.is_valid() and comment_author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Your comment was Updated!')
         else:
+                messages.add_message(request, messages.ERROR, 'Error updating comment!')
+    else:
             messages.add_message(request, messages.ERROR, 'You can only edit your own comments!')
+            
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
 
 
 @login_required
