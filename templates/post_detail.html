@@ -204,7 +204,26 @@
       </div>
    </div>
 </div>
-<!-- Edit comment modal -->
+<!-- Edit comment modal based on delete modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="True">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <h5 class="modal-title" id="editModalLabel">Edit Comment</h5>
+         <button type="button" clas="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         <div class="modal-body">
+            <form id="editForm" method="post">
+               {% csrf_token %}
+               <textarea id="editCommentText" name="comment" class="formcontrol" rows="3" required>{{ existing_comment_content }}</textarea>
+
+            </form>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-secondary">Save Changes</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock content %}
 
 {% block extras %}

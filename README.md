@@ -257,4 +257,10 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Cloudinary Imafield](https://cloudinary.com/blog/placeholder_images_and_gravatar_integration_with_cloudinary)
 [default](https://www.geeksforgeeks.org/default-django-built-in-field-validation/)
 [Searchbar](https://www.youtube.com/watch?v=XIwA6g34jZo&t=453s)
+[Modals](https://ux.stackexchange.com/questions/136055/what-is-the-best-way-to-add-edit-and-delete-buttons-to-a-modal)
+[Modals](https://symfonycasts.com/screencast/last-stack/modal-edit)
+[Modals](https://github.com/MedicOneSystems/livewire-datatables/issues/90)
+[Ajax](https://api.jquery.com/jQuery.ajax/)
+[Ajax](https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/)
+[Fetch()](https://www.geeksforgeeks.org/javascript-fetch-method/)
 
