@@ -189,16 +189,22 @@
             <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
-         <div class="modal-body">
-            Are you sure you want to delete your comment? This action cannot be undone.
+         <div class="modal-body"><!--Add a loop to iterate throught messages in django-->
+         {% for message in messages %}
+         <div class="alert alert-{{ message.tags }}">
+            {{ message }} 
          </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         {% endfor %}
+            Are you sure you want to delete your comment? This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
          </div>
       </div>
    </div>
 </div>
+<!-- Edit comment modal -->
 {% endblock content %}
 
 {% block extras %}
