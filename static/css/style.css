@@ -1,5 +1,4 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
-@import "../node_modules/bootstrap/scss/bootstrap";
+
 
 
 /* general styling of the blog */
@@ -137,9 +136,7 @@ p.card-text {
 h3 {
     font-weight: bolder;
 }
-.card {
-    color: #4a4a4a;
-}
+
 
 .logout_text {
     align-items: center;
