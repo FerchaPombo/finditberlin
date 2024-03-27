@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserChangeForm
 from django.urls import reverse_lazy
-
+from django.db.models import Q
 
 class PostList(generic.ListView):
     model = Post
@@ -208,18 +208,28 @@ def delete_post(request, post_slug):
         messages.error(request, 'You do not have permission to delete this post.')
 
 
-#logic for the search bar, decided to leave it availabel for non logged in users
 def search_bar(request):
     if request.method == "POST":
-        searched = request.POST['searched'] # Get the searched word from the form
-        searched_posts = Post.objects.filter(title__contains=searched) # Filter posts by the searched word 
+        searched = request.POST.get('searched', '').strip()  # Get the searched word from the form
+        if searched:  # Check if the search term is not empty
+            # Filter posts by searching in multiple fields (title, content, etc.)
+            searched_posts = Post.objects.filter(
+                Q(title__icontains=searched) |  # Search in title (case-insensitive)
+                Q(content__icontains=searched)  # Search in content (case-insensitive)
+            ).distinct()  # Ensure distinct results
 
-        return render(request, 'search_bar.html', 
-            {'searched':searched,
-            'searched_posts': searched_posts})  # Pass the filtered posts to the template
-    else: 
+            return render(request, 'search_bar.html', {
+                'searched': searched,
+                'searched_posts': searched_posts
+            })
+        else:
+            # If search term is empty, return all posts
+            return render(request, 'search_bar.html', {
+                'searched': '',
+                'searched_posts': Post.objects.all()  # Return all posts
+            })
+    else:
         return render(request, 'search_bar.html', {})
-
 #logic for adding  a post to a favourite list 
 
 @login_required
