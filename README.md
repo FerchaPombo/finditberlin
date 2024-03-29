@@ -89,8 +89,9 @@ Post - Post model handles all the Posts created by the users :
 
 | POST MODEL :     |
 | -------|----------|---------|---------|-----------|---------|
-| NAME  | TYPE      | VALUES  |                     |     |     |
-| title | CharField | maxl-length= 100  | blank=fasle |unique=True| |
+
+| NAME  | TYPE      | VALUE 1  | VALUE 2 |   VALUE 3  |  VALUE 4  | 
+| title | CharField | maxl-length= 100  | blank=fasle |unique=True| - |
 | slug | SlugField | maxl-length= 100  | null=fasle | unique=True||
 | author | FK |User |related_name = ‘blog_posts’  |-| -|
 | updated_on | DateTimeField | auto_now=True  | - | - | - |
