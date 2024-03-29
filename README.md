@@ -16,10 +16,17 @@ UX design is user-centered and multidisciplinary, drawing from backgrounds such 
 
 ### Project Goals
 
+#### Objective 
+
+Explore Berlin's vibrant street art scene, brimming with new and emblematic pieces. Findit Berlin is a photoblog crafted to invite street art enthusiasts to share their favorite works, while also serving as a platform to discover new and ongoing emerging interventions."
+
+#### Site users goals 
+
 Create an account to unlock full access to Findit Berlin's features.
 Create, Edit, and Delete Posts: Share your favorite graffiti artworks with the community. Add descriptions to provide context and insights about the art.
 Commenting and Liking: Engage with fellow street art enthusiasts by leaving comments and expressing appreciation through likes.
 Interactive Dashboard: Upon logging in, users are greeted with an interactive dashboard. From here, they can manage their posts effortlessly. This includes listing, editing, and deleting posts, as well as leaving new comments directly from the dashboard.
+
 ---
 
 ## Agile Developement Methodology 
@@ -62,7 +69,6 @@ Kanban teams use a visualization tool called Kanban boards to manage their workl
 
 In a Kanban board, work is displayed on a project board that is organized by columns. Traditionally, each column represents a stage of work. The most basic Kanban board might have columns like “To do,” “In progress,” and “Done.” Each column is filled with visual cards that represent individual tasks. A team moves through the columns until the tasks are completed.
 
-Like the shelves in a supermarket. As product inventory diminishes because it’s bought by consumers, staff refills the shelves with new products. The shelves are never empty, but the product is constantly replaced with new items—a Kanban board is continuously filled with new tasks as your team completes old ones.
 
 ![MY Kanban board]()
 
@@ -76,6 +82,30 @@ As work advances, team members shift cards from left to right. Some swimlanes ma
 
 ### User Stories 
 --- 
+## Database Schema 
+
+Models used (besides standard user model) in this project are:
+Post - Post model handles all the Posts created by the users : 
+| Post      |
+| ---    | ---   | ---     | ---    | ---   |
+| title | CharField | maxl-length= 100  | blank=fasle |unique=True|
+| slug | SlugField | maxl-length= 100  | null=fasle | unique=True|
+| author | FK |User |related_name = ‘blog_posts’  | |
+| updated_on | DateTimeField | auto_now=True  | | |
+| content | TextField| maxl-length= 200  | ||
+| featured_image | CloudinaryField |  | blank=fasle ||
+| created_on | DateTimeField | auto_now_add=True|||
+| status | IntegerField | choices= STATUS  |default=0||
+| likes | ManytoMany |Users  | related_name=’blog_likes’ |blank=True|
+| excerpt | TextField | blank=True| ||
+| favourites | ManytoMany| User | related_name=’favourites’|default=none|blank=True|
+
+
+
+
+
+
+
 ## Features 
 
 ### Existing Features :
@@ -263,4 +293,4 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Ajax](https://api.jquery.com/jQuery.ajax/)
 [Ajax](https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/)
 [Fetch()](https://www.geeksforgeeks.org/javascript-fetch-method/)
-
+[Database table generator](https://codebeautify.org/sql-table-generator)

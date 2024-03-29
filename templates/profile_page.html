@@ -20,8 +20,9 @@
                 <div class="card-body">
                    <div class="card-title">
                       <!-- Display the username of the post author -->
-                      <h5 class="card-title">{{ post.author }}</h5>
+                      <h5 class="card-title">{{ post.author.profile.user }}</h5>
                       <!-- Display links to the user's Instagram and website, if available -->
+
                       <p class="small text-muted">
                          {% if page_user.instagram_url %}
                          <a href="{{ post.author.profile.instagram_url }}">Instagram</a> | 
@@ -41,5 +42,5 @@
        </div>
     </div>
  </div>
- 
+
 {% endblock %}
