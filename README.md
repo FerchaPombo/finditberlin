@@ -7,12 +7,6 @@ Join us today and become part of a thriving community passionate about uncoverin
 
 [Am I responsive]()
 ---
-## UX Design 
-
-### Ux principles 
-User Experience (UX) design is a process focused on creating products that offer meaningful and relevant experiences to users. It involves various elements, including branding, design, usability, and functionality, aiming to address users' pain points and needs throughout their journey with the product. While designers cannot control users' perceptions and responses, they can influence how the product behaves and looks.
-
-UX design is user-centered and multidisciplinary, drawing from backgrounds such as visual design, programming, psychology, and interaction design. Designers conduct tasks like user research, creating personas, designing wireframes and prototypes, and testing designs.
 
 ### Project Goals
 
@@ -110,7 +104,8 @@ Models used (besides standard user model) in this project are:
 | approved       | BooleanField   | default=False           |
 | created_on     | DateTimeField  | auto_now=True       |
 
-*PROFILE* - Profile model handles the Profile creation and editing of Users:
+*PROFILE* - Profile model handles the Profile creation and editing of Users.
+In this model there is a one-to-one relation to the *usermodel* to connect it to the standard user model:
 | Field          | Type           | Details                                  |
 |----------------|----------------|------------------------------------------|
 | user           | OneToOneField  | User, null=True, on_delete=models.CASCADE, related_name='profile' |
@@ -119,10 +114,35 @@ Models used (besides standard user model) in this project are:
 | instagram_url  | CharField      | max_length=255, null=True, blank=True    |
 | website_url    | CharField      | max_length=255, null=True, blank=True    |
 
+![Database Schema]()
+---
+## UX Design 
 
+### Ux principles 
+User Experience (UX) design is a process focused on creating products that offer meaningful and relevant experiences to users. It involves various elements, including branding, design, usability, and functionality, aiming to address users' pain points and needs throughout their journey with the product. While designers cannot control users' perceptions and responses, they can influence how the product behaves and looks.
 
+UX design is user-centered and multidisciplinary, drawing from backgrounds such as visual design, programming, psychology, and interaction design. Designers conduct tasks like user research, creating personas, designing wireframes and prototypes, and testing designs.
 
+### Wireframes 
 
+The site's wireframes were crafted using [Balsamiq](https://balsamiq.com/) software, covering desktop, tablet, and mobile interfaces. While the text content wasn't finalized at that stage, it's important to note some visual variances from the wireframes due to design decisions made during development.
+
+<details>
+<summary>Wireframes</summary>
+<br>
+
+### Landing Page 
+![LandingPage](/static/images/landingpage1.png)
+
+### Post Detail 
+![Post Detail](/static/images/postdetail.png)
+
+### Users Dashboard 
+![Users Dashboard](/static/images/usersdashboard.png)
+
+</details>
+
+### 
 
 ## Features 
 
