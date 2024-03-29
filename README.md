@@ -164,15 +164,59 @@ The design of the Findit BERLIN site draws inspiration from the Bootstrap 'light
 
 ### Existing Features :
 
-#### Header and Navigation bar
+#### Navigation bar
 
-#### Footer
+The navigation bar offers a streamlined and intuitive experience. Depending on the user's login status, different menus are presented.
 
-#### Landing Maing Page
+##### For users who are not logged in, the following links are visible:
+
+* About: Provides insights into Findit BERLIN and its creator.
+* Home: Directs to the homepage featuring a list of posts, accessible by clicking on the title.
+* Register: Navigates to the registration page.
+* Login: Offers users the option to log in and access their accounts.
+
+![Nav Bar Big]()
+![Nav Bar Small]()
+
+##### All of the links that are visible to a logged in user:
+Along with 'Home' 
+
+* User Dashboard: Allows users to navigate through their created posts and add new ones.
+* Favorites: Displays all bookmarked posts with options to edit and delete them.
+* Profile: Accessible through a dropdown menu, enabling users to visit their profile and edit their profile page.
+* Log Out: Allows users to log out of their account.
+
+![Nav Bar Big]()
+![Nav Bar Small]()
 
 #### About Page
 
-#### Dashboard
+The About section provides users with insights into Findit BERLIN, offering a glimpse into its purpose and mission. Additionally, users can learn more about the creator behind the platform, gaining a deeper understanding of its origins and vision.
+
+![About]()
+
+#### Landing Maing Page
+
+On the landing page, users, whether logged in or not, can easily access the blog's list of posts. The layout is simple and intuitive, with pagination allowing users to navigate through the blog's content, organized in sets of six posts per page. Each post is displayed as a card, featuring a clickable link to view the post's details. Additionally, users can see the author of each post and the number of likes it has garnered, providing valuable context and engagement opportunities.
+
+![Home]()
+
+#### Users Dashboard
+
+
+In the user dashboard, each user, including the admin, is greeted with a personalized view showcasing a list of posts they've created. Here, users have the ability to perform actions such as editing or deleting their posts. Each action is accompanied by a warning prompt, ensuring users are informed before proceeding, and a confirmation message informs them of the success or failure of their action.
+
+The admin enjoys exclusive privileges, including the ability to approve, delete, or manage comments across all users' posts. This ensures that the platform maintains high standards of content quality and moderation.
+
+Additionally, users can create new posts directly from the dashboard. If the admin is logged in, posts are instantly published without the need for approval. However, for regular users, a message notifies them that their post is awaiting approval, ensuring transparency and adherence to the platform's guidelines.
+
+![Users Dashboard]()
+
+
+#### Footer
+
+
+
 
 #### Admin Panel 
 
