@@ -86,8 +86,10 @@ As work advances, team members shift cards from left to right. Some swimlanes ma
 
 Models used (besides standard user model) in this project are:
 Post - Post model handles all the Posts created by the users : 
-| Post      |
-| ---    | ---   | ---     | ---    | ---   |
+
+| Post :     |
+| :---------------------------------------------------------------|
+| NAME  | TYPE      | VALUES                                      |
 | title | CharField | maxl-length= 100  | blank=fasle |unique=True|
 | slug | SlugField | maxl-length= 100  | null=fasle | unique=True|
 | author | FK |User |related_name = ‘blog_posts’  | |
