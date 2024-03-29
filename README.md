@@ -87,20 +87,20 @@ As work advances, team members shift cards from left to right. Some swimlanes ma
 Models used (besides standard user model) in this project are:
 Post - Post model handles all the Posts created by the users : 
 
-| Post :     |
-| :---------------------------------------------------------------|
-| NAME  | TYPE      | VALUES                                      |
-| title | CharField | maxl-length= 100  | blank=fasle |unique=True|
-| slug | SlugField | maxl-length= 100  | null=fasle | unique=True|
-| author | FK |User |related_name = ‘blog_posts’  | |
-| updated_on | DateTimeField | auto_now=True  | | |
-| content | TextField| maxl-length= 200  | ||
-| featured_image | CloudinaryField |  | blank=fasle ||
-| created_on | DateTimeField | auto_now_add=True|||
-| status | IntegerField | choices= STATUS  |default=0||
-| likes | ManytoMany |Users  | related_name=’blog_likes’ |blank=True|
-| excerpt | TextField | blank=True| ||
-| favourites | ManytoMany| User | related_name=’favourites’|default=none|blank=True|
+| POST MODEL :     |
+| ----------------------------------------------------------------|
+| NAME  | TYPE      | VALUES  |                     |     |     |
+| title | CharField | maxl-length= 100  | blank=fasle |unique=True| |
+| slug | SlugField | maxl-length= 100  | null=fasle | unique=True||
+| author | FK |User |related_name = ‘blog_posts’  |-| -|
+| updated_on | DateTimeField | auto_now=True  | - | - | - |
+| content | TextField| maxl-length= 200  | - | - | - |
+| featured_image | CloudinaryField | - | blank=fasle | - | - |
+| created_on | DateTimeField | auto_now_add=True| - | - | - |
+| status | IntegerField | choices= STATUS  | default=0 | - | - |
+| likes | ManytoMany | Users  | related_name=’blog_likes’ | blank=True | - |
+| excerpt | TextField | blank=True| - | - | - |
+| favourites | ManytoMany| User | related_name=’favourites’ | default=none | blank=True |
 
 
 
