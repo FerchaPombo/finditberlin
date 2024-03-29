@@ -88,7 +88,7 @@ Models used (besides standard user model) in this project are:
 Post - Post model handles all the Posts created by the users : 
 
 | POST MODEL :     |
-| ----------------------------------------------------------------|
+| -------|----------|---------|---------|-----------|---------|
 | NAME  | TYPE      | VALUES  |                     |     |     |
 | title | CharField | maxl-length= 100  | blank=fasle |unique=True| |
 | slug | SlugField | maxl-length= 100  | null=fasle | unique=True||
