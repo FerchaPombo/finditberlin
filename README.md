@@ -85,24 +85,39 @@ As work advances, team members shift cards from left to right. Some swimlanes ma
 ## Database Schema 
 
 Models used (besides standard user model) in this project are:
-Post - Post model handles all the Posts created by the users : 
 
-| POST MODEL :     |
-| -------|----------|---------|---------|-----------|---------|
+*POST* - Post model handles all the Posts created by the users : 
+| Field          | Type           | Details                 |
+|----------------|----------------|-------------------------|
+| title          | CharField      | max_length=100          |
+| slug           | SlugField      | max_length=100          |
+| author         | ForeignKey     | User, related_name='blog_posts' |
+| updated_on     | DateTimeField  | auto_now=True           |
+| content        | TextField      | max_length=200          |
+| featured_image | CloudinaryField|                         |
+| created_on     | DateTimeField  | auto_now_add=True       |
+| status         | IntegerField   | choices=STATUS, default=0 |
+| likes          | ManyToMany     | Users, related_name='blog_likes', blank=True |
+| excerpt        | TextField      | blank=True              |
+| favourites     | ManyToMany     | User, related_name='favourites', blank=True |
 
-| NAME  | TYPE      | VALUE 1  | VALUE 2 |   VALUE 3  |  VALUE 4  | 
-| title | CharField | maxl-length= 100  | blank=fasle |unique=True| - |
-| slug | SlugField | maxl-length= 100  | null=fasle | unique=True||
-| author | FK |User |related_name = ‘blog_posts’  |-| -|
-| updated_on | DateTimeField | auto_now=True  | - | - | - |
-| content | TextField| maxl-length= 200  | - | - | - |
-| featured_image | CloudinaryField | - | blank=fasle | - | - |
-| created_on | DateTimeField | auto_now_add=True| - | - | - |
-| status | IntegerField | choices= STATUS  | default=0 | - | - |
-| likes | ManytoMany | Users  | related_name=’blog_likes’ | blank=True | - |
-| excerpt | TextField | blank=True| - | - | - |
-| favourites | ManytoMany| User | related_name=’favourites’ | default=none | blank=True |
+*COMMENTS* - Comments model handles all the Comments created by the users:
+| Field          | Type           | Details                 |
+|----------------|----------------|-------------------------|
+| post           | ForeignKey     | Post, related_name='comments'         |
+| body           | TextField      |           |
+| author         | ForeignKey     | User, related_name='author' |
+| approved       | BooleanField   | default=False           |
+| created_on     | DateTimeField  | auto_now=True       |
 
+*PROFILE* - Profile model handles the Profile creation and editing of Users:
+| Field          | Type           | Details                                  |
+|----------------|----------------|------------------------------------------|
+| user           | OneToOneField  | User, null=True, on_delete=models.CASCADE, related_name='profile' |
+| bio            | TextField      |                                          |
+| profile_pic    | ImageField     | upload_to='static/images', default='placeholder' |
+| instagram_url  | CharField      | max_length=255, null=True, blank=True    |
+| website_url    | CharField      | max_length=255, null=True, blank=True    |
 
 
 
