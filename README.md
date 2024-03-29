@@ -142,7 +142,23 @@ The site's wireframes were crafted using [Balsamiq](https://balsamiq.com/) softw
 
 </details>
 
-### 
+### Site Structure 
+
+The Findit Berlin website is designed with a clear division for users based on their login status.
+Whether logged in or out, distinct pages cater to their needs. When logged out, users can only access pages such as 'About,' 'home,' 'Search,' and 'Post Details' 
+Upon logging in, additional features including 'Posting,' 'Commenting’, ‘Adding Bookmarks,' and 'Creating a  Profile' become available, enhancing the user experience. 
+Further insights into these choices in the 'Features' section.
+
+## Design Choices 
+
+### Color Scheme:
+
+The design of the Findit BERLIN site draws inspiration from the Bootstrap 'light' color theme, fostering a visually appealing environment. Complemented by the subtle accents of Bootstrap Blue for the links, the site achieves a harmonious balance between aesthetics and functionality. Embracing a clean, easy-to-navigate, and minimalistic approach, users are greeted with a seamless browsing experience that enhances their exploration of the platform.
+![Light Theme](/static/images/Bootstrapthemelight.png) ![Blue](/static/images/links.png)
+
+### Typography 
+
+
 
 ## Features 
 
