@@ -94,17 +94,18 @@
                     <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                 </li>
                 {% endif %}
-                <li class="nav-item">
-                    <form class="d-flex" role="search" method="POST" action="{% url 'search_bar' %}">
-                        {% csrf_token %}
-                        <input class="form-control me-2" type="search" placeholder="Search for any word!" aria-label="Search" name="searched">
-                        <button class="btn btn-outile right btn-outline-dark btn-sm" type="submit">Search</button>
-                    </form>
-                </li>
+                
             </ul>
+            
+                <form class="d-flex" role="search" method="POST" action="{% url 'search_bar' %}">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search for any word!" aria-label="Search" name="searched">
+                    <button class="btn btn-outile right btn-outline-dark btn-sm" type="submit">Search</button>
+                </form>
+            <!-- 
             <span class="navbar-text text-muted">
                 Follow the best street art around Berlin!
-            </span>
+            </span> -->
         </div>
     </div>
 </nav>
