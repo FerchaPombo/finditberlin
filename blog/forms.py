@@ -63,13 +63,15 @@ class UsersPostForm(forms.ModelForm):
         return title
 
 #slug field populated with the title
-    def save(self, commit=True, author=None):
+    def save(self, commit=True, author=None, approved=False):
         post = super(UsersPostForm, self).save(commit=False)
         post.author = author
+        post.status = 1 if approved else 0
+        post.approved = approved
         if not post.slug:
             post.slug = slugify(post.title)
         if commit:
-            post.save
+            post.save()
         return post
 
     def __init__(self, *args, **kwargs):

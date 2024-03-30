@@ -138,10 +138,12 @@ def userspost_create(request):
         print('form', form)
 
         if form.is_valid():
-            post = form.save(commit=False, author=request.user)
+            approved = request.user.is_superuser
+            post = form.save(commit=False, author=request.user, approved=approved)
             print('post', post)
             new_post = post.save()
-            messages.success(request, 'Your post was created successfully!, now its waiting for aproval')
+            if not approved:
+                messages.success(request, 'Your post was created successfully!, now its waiting for approval')
             return redirect('home')
         else:
             error_message = ', '.join([f'{field}: {error}' for field, error in form.errors.items()])
