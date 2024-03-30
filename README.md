@@ -396,3 +396,6 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Image Responsivenes](https://stackoverflow.com/questions/63648620/bootstrap-image-not-displaying-on-smaller-screens)
 [Pagination](https://getbootstrap.com/docs/4.0/components/pagination/)
 [Pagination](https://design-system.w3.org/components/pagination.html)
+[Navbarstyling](https://forum.bootstrapstudio.io/t/how-to-set-the-navbar-to-full-width-of-the-browser/7385)
+[Navbar](https://www.w3schools.com/bootstrap/bootstrap_navbar.asp)
+[Bootstrap Modal](https://www.w3schools.com/bootstrap/bootstrap_modal.asp)

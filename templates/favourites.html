@@ -41,7 +41,9 @@
                     <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart fa-xl"></i>
                         {{ blog.likes }}| {{ post.number_of_likes }}</p>
                 </div>
-                <div id="Favourite-section"><a href="{% url 'favourite_add' post.slug %}" class="btn btn-outline-secondary mb-3 ml-3">Remove</a></div>
+                <!-- add a remove button with a remove class and a data-post-slug attribute -->
+                <div id="Favourite-section"><a href="#" class="btn btn-outline-secondary mb-3 ml-3 remove-btn" data-post-slug="{{ post.slug }}">Remove</a>
+                </div>
             </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
@@ -66,5 +68,19 @@
         </ul>
     </nav>
     {% endif %}
+<!--Logic to handle revoming from favourites -->
+<script>
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) { //when the remove btn class is clicked , displays confirmation.
+            e.preventDefault();
+            const postSlug = this.getAttribute('data-post-slug');
+            if (confirm('Are you sure you want to remove this post from your favourites?')) {
+                window.location.href = "{% url 'favourite_add' '__slug__' %}".replace('__slug__', postSlug); // If user confirms, its redirected to the url to remov the post 
+
+            }
+        });
+    });
+
+</script>
 
 {% endblock %}
