@@ -392,3 +392,4 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Ajax](https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/)
 [Fetch()](https://www.geeksforgeeks.org/javascript-fetch-method/)
 [Database table generator](https://codebeautify.org/sql-table-generator)
+[Navbar](https://stackoverflow.com/questions/46221287/dropdown-link-not-working-in-navigation-bar-bootstrap)
