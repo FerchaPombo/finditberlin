@@ -42,14 +42,13 @@ def post_detail(request, slug, *args, **kwargs):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.author = request.user
+            comment.approved = request.user.is_superuser
             comment.save()
-            messages.success(request, 'Youy comment submitted and awaiting approval')
+            if not request.user.is_superuser:
+                messages.success(request, 'Your comment submitted and awaiting approval')
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
-            
             messages.error(request, 'Error submitting comment. Please check the form.')
-    
-            
     else:
         '''
         Exclude the author field from the form, so it doesnt require a filled filed when saving it to the daatabase
