@@ -394,3 +394,5 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Database table generator](https://codebeautify.org/sql-table-generator)
 [Navbar](https://stackoverflow.com/questions/46221287/dropdown-link-not-working-in-navigation-bar-bootstrap)
 [Image Responsivenes](https://stackoverflow.com/questions/63648620/bootstrap-image-not-displaying-on-smaller-screens)
+[Pagination](https://getbootstrap.com/docs/4.0/components/pagination/)
+[Pagination](https://design-system.w3.org/components/pagination.html)
