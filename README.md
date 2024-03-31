@@ -243,6 +243,8 @@ Additionally, users can create new posts directly from the dashboard. If the adm
 ## Credits 
 ---
 ## Content 
+[Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
+
 ---
 ## Acknowledgements 
 
