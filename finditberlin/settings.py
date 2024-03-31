@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitp
 '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu109.gitpod.io', 
 '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io',
 '127.0.0.1',
+'8000-ferchapombo-finditberli-2ahme6dh3mz.ws-eu110.gitpod.io',
 ]
 
 # Installed apps configuration
@@ -206,7 +207,8 @@ CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
     'https://*.herokuapp.com',
     'https://gitpod.io',
-    'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io'
+    'https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io',
+    'https://8000-ferchapombo-finditberli-2ahme6dh3mz.ws-eu110.gitpod.io',
 ]
 
 #allowed crispy bootstra4 
