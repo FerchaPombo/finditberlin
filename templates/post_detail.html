@@ -13,7 +13,7 @@
             <div class="card-body">
                <!-- Title and Meta Information -->
                <div class="row mb-3">
-                  <div class="col">
+                  <div class="col text-center">
                      <h1 class="post-title"><strong style="text-transform: uppercase">{{ post.title }}</strong></h1>
                      <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
                   </div>
@@ -237,6 +237,12 @@
     padding-top: 4px;
     border-top-width: 1px;
 }
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
 
 </style>
 {% endblock content %}
