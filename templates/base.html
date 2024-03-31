@@ -75,7 +75,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'favourite_list' %}">Favourites</a>
                 </li>
-                <!--New Dropdown -->
+                <!--Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Profile
@@ -140,7 +140,12 @@
     </div>
     <!-- Copyright -->
 </footer>
-
+<style>
+.navbar-collapse {
+    background-color: #fff; /* Set the background color of the navbar menu */
+    z-index: 1000; /* Ensure the navbar menu is positioned above other elements */
+}
+</style>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
