@@ -16,7 +16,7 @@
       <p>
         <!-- Message for users who are not signed up yet -->
         {% trans "Not part of the streetart community? Then, do not wait longer and" %}
-        <a class="link" href="/templates/account/signup.html">{% trans "sign up" %}</a> {% trans "now!" %}
+        <a class="link" href="{% url 'account_signup' %}">{% trans "sign up" %}</a> {% trans "now!" %}
       </p>
     </div>
   </div>
