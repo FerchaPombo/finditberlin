@@ -49,7 +49,7 @@
 
         
     </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-rRybOw4P4qMgzy9KK0jeEchWtwMrpvUVnl19yGN+wcA7gPCRT6/maBKUJc1SyJRcUj5pg/P1Kb0+VYOuHZnx+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -147,26 +147,23 @@
 }
 </style>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the target navbar menu
+    var navbarMenu = document.getElementById('navbarMenu');
 
-        // Get the navbar burger element
-        var navbarBurger = document.querySelector('.navbar-burger');
-
-        // Get the target navbar menu
-        var target = navbarBurger.dataset.target;
-        var navbarMenu = document.getElementById(target);
-
-        // Toggle the "is-active" class on click
-        navbarBurger.addEventListener('click', function () {
-            navbarBurger.classList.toggle('is-active');
+    // Toggle the "is-active" class on click
+    if (navbarMenu) {
+        var navbarToggler = document.querySelector('.navbar-toggler');
+        navbarToggler.addEventListener('click', function () {
             navbarMenu.classList.toggle('is-active');
         });
-    });
+    }
 
-        // Automatically close the alert after 3 seconds
-        setTimeout(function() {
+    // Automatically close the alert after 3 seconds
+    setTimeout(function() {
         $('.alert').alert('close');
     }, 3000);
+});
 </script>
 
 {% block extras %}
