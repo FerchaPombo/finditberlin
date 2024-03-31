@@ -128,14 +128,14 @@ p.card-text {
 
 
 /* Footer styling */
-
-.footer_style {
+.footer-custom {
     background-color: #fff;
-    height: 6rem !important;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    color: #4a4a4a; 
 }
+.footer-custom i {
+    color: #4a4a4a;
+}
+
 
 .text_footer {
     font-size: medium;
