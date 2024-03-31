@@ -106,23 +106,29 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
     """
     View to edit comments
     """
+
     if request.method == "POST":
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comments, pk=comment_id)
         comment_form = CommentsForm(data=request.POST, instance=comment)
 
-        if comment_form.is_valid() and comment_author == request.user:
+        if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
             comment.post = post
-            comment.approved = False
+
+            if request.user.is_superuser:
+                comment.approved = True
+                messages.add_message(request, messages.SUCCESS, 'Your comment was Updated!')
+            else:
+                comment.approved = False
+                messages.add_message(request, messages.SUCCESS, 'Your edited comment has been submitted for approval.')
+
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Your comment was Updated!')
         else:
-                messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
     else:
-            messages.add_message(request, messages.ERROR, 'You can only edit your own comments!')
-            
+        messages.add_message(request, messages.ERROR, 'You can only edit your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 

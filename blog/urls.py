@@ -12,16 +12,13 @@ urlpatterns = [
     path('favourites/', views.favourite_list, name='favourite_list'),
     path('search_bar', views.search_bar, name='search_bar'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
-     path('profile_create/', views.profile_create, name='profile_create'),
+    path('profile_create/', views.profile_create, name='profile_create'),
     path('fav/<slug:slug>/', views.favourite_add, name='favourite_add'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('like/<slug:slug>', views.post_like, name='post_like'),
     path('<slug:slug>/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),
     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
     path('delete_post/<slug:post_slug>/', delete_post, name='delete_post'),
-    
-    
-
 ]
 
     

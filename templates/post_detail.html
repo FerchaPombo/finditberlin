@@ -155,8 +155,8 @@
                   <p class="approval">This comment is awaiting approval</p>
                   {% endif %}
                   {% if request.user.is_superuser or comment.author == user %}
-                  <button class="btn btn-delete btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Delete</button>
-                  <button class="btn btn-edit btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Edit</button>
+                     <button class="btn btn-delete btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Delete</button>
+                     <button class="btn btn-edit btn-outline-dark btn-sm" comment_id="{{ comment.id }}">Edit</button>
                   {% endif %}
                </div>
          <!-- Our for loop ends here -->
@@ -214,11 +214,10 @@
             <form id="editForm" method="post">
                {% csrf_token %}
                <textarea id="editCommentText" name="comment" class="formcontrol" rows="3" required>{{ existing_comment_content }}</textarea>
-
+               <button type="submit" class="btn btn-secondary">Save Changes</button>
             </form>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-secondary">Save Changes</button>
             </div>
          </div>
       </div>
