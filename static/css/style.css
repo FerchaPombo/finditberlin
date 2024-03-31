@@ -1,11 +1,9 @@
 
-
-
 /* general styling of the blog */
 
 body {
-    margin-left: 10%;
-    margin-right: 10%;
+    font-family: "Inter Tight", sans-serif;
+
 }
 
 strong {
