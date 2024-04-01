@@ -3,13 +3,18 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 masthead-text">
-            <h1><strong style="text-transform: uppercase">Welcome to your favourite posts!</strong></h1>
-            <p class="post-subtitle">Here you can find all the posts you have liked</p>
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <div class="card text-center">
+                <div class="card-body">
+
+                <h1><strong class="card-title">Your Favourites </strong></h1>
+                    <p>Here is a list of the posts you've liked the most!</p>
+            </div>
         </div>
     </div>
+</div>
 
     <div class="row">
         {% for post in favourites %}
@@ -46,7 +51,7 @@
                         {{ blog.likes }} | {{ post.number_of_likes }}</p>
                 </div>
                 <!-- add a remove button with a remove class and a data-post-slug attribute -->
-                <div id="Favourite-section"><a href="#" class="btn btn-outline-secondary mb-3 ml-3 remove-btn" data-post-slug="{{ post.slug }}">Remove</a>
+                <div id="Favourite-section"><a href="#" class="btn btn-outline-secondary mb-3 ms-3 remove-btn" data-post-slug="{{ post.slug }}">Remove</a>
                 </div>
             </div>
         </div>
