@@ -132,13 +132,13 @@ The site's wireframes were crafted using [Balsamiq](https://balsamiq.com/) softw
 <br>
 
 ### Landing Page 
-[LandingPage](/static/images/landingpage1.png)
+![LandingPage](/static/images/landingpage1.png)
 
 ### Post Detail 
-[Post Detail](/static/images/postdetail.png)
+![Post Detail](/static/images/postdetailwireframe.png)
 
 ### Users Dashboard 
-[Users Dashboard](/static/images/usersdashboardwireframe.png)
+![Users Dashboard](/static/images/usersdashboardwireframe.png)
 
 </details>
 
