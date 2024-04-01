@@ -401,3 +401,6 @@ https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-add
 [Navbarstyling](https://forum.bootstrapstudio.io/t/how-to-set-the-navbar-to-full-width-of-the-browser/7385)
 [Navbar](https://www.w3schools.com/bootstrap/bootstrap_navbar.asp)
 [Bootstrap Modal](https://www.w3schools.com/bootstrap/bootstrap_modal.asp)
+[Dev Tools](https://stackoverflow.com/questions/67252231/what-is-the-purpose-of-this-purple-dashed-line-area#:~:text=It%20is%20white%20space.,area%20by%20the%20Google%20inspector.)
+[Flex](https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size)
+[Flex Container](https://www.tutorialrepublic.com/faq/how-to-set-space-between-flex-items-using-css.php#:~:text=Answer%3A%20Use%20CSS%20justify%2Dcontent,set%20space%20between%20flexbox%20items.)

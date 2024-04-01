@@ -56,13 +56,16 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <h1 style="font-size: 170%; font-weight: bolder;">Findit! BERLIN</h1>
-            <p style="font-size: smaller;">Follow the best street art around Berlin!</p>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Adjust the container flex space -->
+        <div class="container-flex">
+            <a class="navbar-brand" href="/">
+                <h1 style="font-size: 170%; font-weight: bolder;">Findit! BERLIN</h1>
+                <p style="font-size: smaller;">Follow the best street art around Berlin!</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -172,6 +175,10 @@
 .container {
   position: relative; /* Add relative positioning to the container */
   z-index: 2; /* Set a higher z-index to ensure the text appears on top of the overlay */
+}
+.container-flex {
+    display: flex;
+    justify-content: space-between; /* Adjust the space between items */
 }
 /* CSS for extending specific containers on big screens */
 @media (min-width: 992px) {
