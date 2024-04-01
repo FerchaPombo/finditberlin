@@ -132,13 +132,13 @@ The site's wireframes were crafted using [Balsamiq](https://balsamiq.com/) softw
 <br>
 
 ### Landing Page 
-![LandingPage](/static/images/landingpage1.png)
+[LandingPage](/static/images/landingpage1.png)
 
 ### Post Detail 
-![Post Detail](/static/images/postdetail.png)
+[Post Detail](/static/images/postdetail.png)
 
 ### Users Dashboard 
-![Users Dashboard](/static/images/usersdashboard.png)
+[Users Dashboard](/static/images/usersdashboardwireframe.png)
 
 </details>
 
@@ -212,7 +212,7 @@ The admin enjoys exclusive privileges, including the ability to approve, delete,
 
 Additionally, users can create new posts directly from the dashboard. If the admin is logged in, posts are instantly published without the need for approval. However, for regular users, a message notifies them that their post is awaiting approval, ensuring transparency and adherence to the platform's guidelines.
 
-![Users Dashboard]()
+![Users Dashboard](/static/images/usersdashboard.png)
 
 
 #### Footer
