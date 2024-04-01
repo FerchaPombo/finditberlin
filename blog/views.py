@@ -132,15 +132,33 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+@login_required
+def userspost_create(request):
+    if request.method == 'POST':
+        form = UsersPostForm(request.POST, request.FILES)  # Pass request.FILES for file uploads
+        if form.is_valid():
+            approved = request.user.is_superuser
+            post = form.save(commit=False, author=request.user, approved=approved)
+            new_post = post.save()
+            if not approved:
+                messages.success(request, 'Your post was created successfully! It is now waiting for approval.')
+            return redirect('home')
+        else:
+            error_message = ', '.join([f'{field}: {error}' for field, error in form.errors.items()])
+            messages.error(request, f'Error creating the post: {error_message}')
+    else:
+        form = UsersPostForm()
+        form.set_user(request.user)  # Set the user for the form
 
+    return render(request, 'users_dashboard.html', {'form': form})
 
-
+'''
 @login_required
 
 def userspost_create(request):
-    '''Decorator to autentificate that only when user is logged in ,they can actually access the dashboard'''
+    Decorator to autentificate that only when user is logged in ,they can actually access the dashboard
     if request.method == 'POST':
-        form = UsersPostForm(request.POST)
+        form = UsersPostForm(request.POST, request.FILES) #request files for file uploads
         print('form', form)
 
         if form.is_valid():
@@ -158,7 +176,7 @@ def userspost_create(request):
         form = UsersPostForm()
         form.set_user(request_user) # only lets admins have the status field when creating a post 
     return render(request, 'users_dashboard.html', {'form': form})
-
+'''
 class UsersPostList(generic.ListView):
     model = Post
     queryset = Post.objects.all()
@@ -189,7 +207,7 @@ def edit_post(request, slug):
         if form.is_valid():
             form.save()
             messages.success(request, 'Post updated successfully! waiting for aproval...')
-            return redirect('post_detail', slug=slug)
+            return redirect('users_dashboard')
         else:
             messages.error(request, 'Error updating the post. Please check the form.')
     else:

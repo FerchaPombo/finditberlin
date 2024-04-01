@@ -16,6 +16,9 @@
                   <div class="col text-center">
                      <h1 class="post-title"><strong style="text-transform: uppercase">{{ post.title }}</strong></h1>
                      <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                     {% if user.is_authenticated and user == post.author %}
+                     <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-info btn-sm" style="margin-left: 8%;">Edit</a>
+                  {% endif %}
                      
                   </div>
                </div>
