@@ -193,13 +193,15 @@ Along with 'Home'
 
 The About section provides users with insights into Findit BERLIN, offering a glimpse into its purpose and mission. Additionally, users can learn more about the creator behind the platform, gaining a deeper understanding of its origins and vision.
 
-![About]()
+![About](/static/images/about.png)
 
 #### Landing Maing Page
 
 On the landing page, users, whether logged in or not, can easily access the blog's list of posts. The layout is simple and intuitive, with pagination allowing users to navigate through the blog's content, organized in sets of six posts per page. Each post is displayed as a card, featuring a clickable link to view the post's details. Additionally, users can see the author of each post and the number of likes it has garnered, providing valuable context and engagement opportunities.
 
-![Home]()
+The addition of the jumbotron function serves to captivate and engage new users upon landing, guiding them seamlessly through a user-friendly registration process. Additionally, it provides a concise introduction to the concept of the blog, setting the stage for their exploration.
+
+![Landing Page](/static/images/landingpage.png)
 
 #### Users Dashboard
 
