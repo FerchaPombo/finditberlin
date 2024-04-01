@@ -5,7 +5,7 @@ Findit Berlin is your ultimate destination for exploring and documenting street 
 Findit Berlin offers a simple and intuitive platform for street art lovers to connect and discover new artworks across the city. Whether you're a seasoned enthusiast or new to the scene, Findit Berlin is your gateway to exploring Berlin's vibrant street art culture.
 Join us today and become part of a thriving community passionate about uncovering the hidden gems of Berlin's street art scene!
 
-[Am I responsive]()
+[Findit Berlin](/static/images/AmIresponsive.png)
 ---
 
 ### Project Goals
@@ -185,9 +185,9 @@ Along with 'Home'
 * Favorites: Displays all bookmarked posts with options to edit and delete them.
 * Profile: Accessible through a dropdown menu, enabling users to visit their profile and edit their profile page.
 * Log Out: Allows users to log out of their account.
-
-![Nav Bar Big]()
-![Nav Bar Small]()
+![Nav Bar-logged in](/static/images/navbarloggedin.png)
+![Nav Bar-logged out](/static/images/NavBarloggedout.png)
+![Nav Bar Small](/static/images/navbarsmall.png)
 
 #### About Page
 
