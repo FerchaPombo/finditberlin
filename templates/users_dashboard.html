@@ -26,13 +26,18 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            {% if "placeholder" in post.featured_image.url %}
-                            <!-- Display placeholder image if no featured image -->
-                            <img class="card-img-top" src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
-                            {% else %}
-                            <!-- Display featured image -->
-                            <img class="card-img-top" src="{{ post.featured_image.url }}">
-                            {% endif %}
+                            <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <img class="card-img-top"
+                                    src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <img class="card-img-top" src="{{ post.featured_image.url }}">
+                                </a>
+                                {% endif %}
+
                             <!-- Display author -->
                             <p class="author">Author: {{ post.author }}</p>
                             <!-- Display post title with link to detail page -->
