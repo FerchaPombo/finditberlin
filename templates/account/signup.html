@@ -7,31 +7,50 @@
 {% endblock %}
 
 {% block content %}  <!-- Define the content block -->
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="container_register">  <!-- Container for the registration form -->
+                        <div class="row">  <!-- Row for the heading and instruction -->
+                            <div class="col-md-8 mt-3 offset-md-2">
+                                <h3><strong class="register_text">{% trans "Sign Up" %}</strong></h3>  <!-- Heading for the sign-up section -->
+                                <p class="register_text">
+                                    {% blocktrans %}If you are already part of the community, then <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}  <!-- Instruction for users who are already registered -->
+                                </p>
+                            </div>
+                        </div>
 
-<div class="container_register">  <!-- Container for the registration form -->
-    <div class="row">  <!-- Row for the heading and instruction -->
-         <div class="col-md-8 mt-3 offset-md-2">
-            <h3><strong class="register_text">{% trans "Sign Up" %}</strong></h3>  <!-- Heading for the sign-up section -->
-             <p class="register_text">
-                {% blocktrans %}If you are already part of the community, then <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}  <!-- Instruction for users who are already registered -->
-            </p>
-        </div>
-    </div>
-
-    <div class="row">  <!-- Row for the sign-up form -->
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">  <!-- Sign-up form -->
-                {% csrf_token %}  <!-- Cross-Site Request Forgery protection -->
-                {{ form.as_p }}  <!-- Render the sign-up form fields -->
-                {% if redirect_field_value %}
-                    <input type="hidden"
-                        name="{{ redirect_field_name }}"
-                        value="{{ redirect_field_value }}" />  <!-- Hidden field for redirecting after sign-up -->
-                {% endif %}
-                <button class="btn btn-signup right btn-outline-dark btn-sm" type="submit">{% trans "Sign Up" %}</button>  <!-- Submit button for sign-up -->
-            </form>
+                        <div class="row">  <!-- Row for the sign-up form -->
+                            <div class="col-md-8 mt-3 offset-md-2">
+                                <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">  <!-- Sign-up form -->
+                                    {% csrf_token %}  <!-- Cross-Site Request Forgery protection -->
+                                    {{ form.as_p }}  <!-- Render the sign-up form fields as paragraphs -->
+                                    {% if redirect_field_value %}
+                                        <input type="hidden"
+                                            name="{{ redirect_field_name }}"
+                                            value="{{ redirect_field_value }}" />  <!-- Hidden field for redirecting after sign-up -->
+                                    {% endif %}
+                                    <button class="btn btn-signup right btn-outline-dark btn-sm" type="submit">{% trans "Sign Up" %}</button>  <!-- Submit button for sign-up -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<style>
 
+.container_register ul {
+    list-style: none;  /* Remove bullet points */
+    padding-left: 0;   /* Remove default padding */
+}
+
+.container_register li {
+    margin-bottom: 10px;  /* Add spacing between each item */
+}
+</style>
 {% endblock %}
