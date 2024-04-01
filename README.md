@@ -175,8 +175,7 @@ The navigation bar offers a streamlined and intuitive experience. Depending on t
 * Register: Navigates to the registration page.
 * Login: Offers users the option to log in and access their accounts.
 
-![Nav Bar Big]()
-![Nav Bar Small]()
+![Nav Bar-logged out](/static/images/NavBarloggedout.png)
 
 ##### All of the links that are visible to a logged in user:
 Along with 'Home' 
@@ -185,8 +184,9 @@ Along with 'Home'
 * Favorites: Displays all bookmarked posts with options to edit and delete them.
 * Profile: Accessible through a dropdown menu, enabling users to visit their profile and edit their profile page.
 * Log Out: Allows users to log out of their account.
+
 ![Nav Bar-logged in](/static/images/navbarloggedin.png)
-![Nav Bar-logged out](/static/images/NavBarloggedout.png)
+
 ![Nav Bar Small](/static/images/navbarsmall.png)
 
 #### About Page
