@@ -5,6 +5,7 @@ Findit Berlin is your ultimate destination for exploring and documenting street 
 Findit Berlin offers a simple and intuitive platform for street art lovers to connect and discover new artworks across the city. Whether you're a seasoned enthusiast or new to the scene, Findit Berlin is your gateway to exploring Berlin's vibrant street art culture.
 Join us today and become part of a thriving community passionate about uncovering the hidden gems of Berlin's street art scene!
 
+Responsive Mockup from [Am I Responsive](https://ui.dev/amiresponsive)
 ![Findit Berlin](/static/images/AmIresponsive.png)
 ---
 
@@ -26,7 +27,7 @@ Interactive Dashboard: Upon logging in, users are greeted with an interactive da
 ## Agile Developement Methodology 
 
 Agile methodology, rooted in the Agile Manifesto, transforms product development by prioritizing incremental delivery, frequent customer feedback, and adaptability. It addresses the shortcomings of traditional waterfall approaches by breaking projects into smaller, manageable iterations called sprints, fostering quicker response to evolving requirements. Agile extends its applicability beyond software development to various industries, emphasizing responsiveness to market needs and customer demands. It encompasses methods like Scrum, XP, and Kanban, along with technical practices like DevOps, facilitating efficient delivery processes. The Agile Manifesto, established in 2001, articulates core values and principles for software development, serving as a guiding beacon for agile practitioners worldwide.
-![Agile Diagram]()
+![Agile Diagram](/static/images/agiledevelopmentdiagram.png)
 
 
 
@@ -54,7 +55,7 @@ Agile methodology, rooted in the Agile Manifesto, transforms product development
 * Kanban
 * Behavior Driven Development (BDD)
 
-This project was developed using Github Kanbanboard [here]() 
+This project was developed using Github Kanbanboard [here](https://github.com/users/FerchaPombo/projects/1) 
 Kanban is an Agile management method built on a philosophy of continuous improvement, where work items are “pulled” from a product backlog into a steady flow of work. The framework is applied using Kanban boards, a form of visual project management. In a Kanban board, tasks—represented as cards—move through stages of work—represented as columns. That way, your team can see where work is in real-time.
 
 Kanban is especially popular with product, engineering, and software development teams. But any team that wants to create a more dynamic, flexible workflow can use them.
@@ -71,8 +72,6 @@ Kanban boards visually represent a team's tasks using cards or sticky notes arra
 As work advances, team members shift cards from left to right. Some swimlanes may have a WIP limit to maintain the system's efficiency.
 
 ![4 principles of Kanban]()
-
-### Epics 
 
 ### User Stories 
 --- 
@@ -174,7 +173,7 @@ The navigation bar offers a streamlined and intuitive experience. Depending on t
 * Home: Directs to the homepage featuring a list of posts, accessible by clicking on the title.
 * Register: Navigates to the registration page.
 * Login: Offers users the option to log in and access their accounts.
-
+Navbar when logged out.
 ![Nav Bar-logged out](/static/images/NavBarloggedout.png)
 
 ##### All of the links that are visible to a logged in user:
@@ -184,9 +183,9 @@ Along with 'Home'
 * Favorites: Displays all bookmarked posts with options to edit and delete them.
 * Profile: Accessible through a dropdown menu, enabling users to visit their profile and edit their profile page.
 * Log Out: Allows users to log out of their account.
-
+Navbar Loged in
 ![Nav Bar-logged in](/static/images/navbarloggedin.png)
-
+Navbar Small Screen
 ![Nav Bar Small](/static/images/navbarsmall.png)
 
 #### About Page
@@ -200,8 +199,10 @@ The About section provides users with insights into Findit BERLIN, offering a gl
 On the landing page, users, whether logged in or not, can easily access the blog's list of posts. The layout is simple and intuitive, with pagination allowing users to navigate through the blog's content, organized in sets of six posts per page. Each post is displayed as a card, featuring a clickable link to view the post's details. Additionally, users can see the author of each post and the number of likes it has garnered, providing valuable context and engagement opportunities.
 
 The addition of the jumbotron function serves to captivate and engage new users upon landing, guiding them seamlessly through a user-friendly registration process. Additionally, it provides a concise introduction to the concept of the blog, setting the stage for their exploration.
-
+Landing Page
 ![Landing Page](/static/images/landingpage.png)
+Home
+![Home](/static/images/Home.png)
 
 #### Users Dashboard
 
@@ -212,24 +213,47 @@ The admin enjoys exclusive privileges, including the ability to approve, delete,
 
 Additionally, users can create new posts directly from the dashboard. If the admin is logged in, posts are instantly published without the need for approval. However, for regular users, a message notifies them that their post is awaiting approval, ensuring transparency and adherence to the platform's guidelines.
 
+Post Detail 
 ![Users Dashboard](/static/images/usersdashboard.png)
-
+![Users Dashboard 2](/static/images/usersdashboard2.png)
 
 #### Footer
 
+The footer is minimally designed to feature a simple text acknowledging the blog's creator and providing links to social media platforms. Positioned at the bottom of the page, it seamlessly blends with the background color of the blog, ensuring it remains unobtrusive and complementary to the overall design. As the blog does not offer any services requiring contact forms, the footer serves as a subtle yet informative addition to the site.
 
-
+![Footer](/static/images/footer.png)
 
 #### Admin Panel 
 
+The full admin panel functionality is currently accessible exclusively through Django /admin. That said,  when the admin is logged in, the user dashboard offers special privileges tailored specifically for administrative tasks. For instance, there's no need for post or comment approval, and the admin can edit or delete posts and comments as needed. Additionally, the admin has the authority to erase comments made by users, ensuring the safety and integrity of the site.
+
 #### Registration 
+
+New visitors to Findit Berlin who don't have a registered account can sign up here.
+
+![Register](/static/images/Register.png)
 
 #### Login 
 
+This page allows users to log in to their Findit Berlin account to access their personalized content and special features.
+
+1[Log In](/static/images/login.png)
+
 #### Logout 
+
+Clicking "Logout" in the menu bar prompts a confirmation page to prevent accidental sign-outs.
+
+![Logout](/static/images/logout.png)
 
 #### Profile 
 
+Users can create a brief and straightforward profile. The primary focus of this page is not to serve as a social networking platform but rather as a blog for discovering new city spots shared by others. Consequently, the profile contains minimal personal information. It is showcased on the post details page, allowing users to identify the author and access their profile via a link.
+
+Logged-in users can navigate to their profile on a dedicated page, where they have the option to edit their profile if necessary. The profile includes their name, a brief bio, and links to their social media profiles.
+
+![Profile Page]()
+![Profile in Postdetail]()
+![Profile dropdown ]()
 
 ---
 ## Features Left to implement 
@@ -247,6 +271,7 @@ Additionally, users can create new posts directly from the dashboard. If the adm
 ## Content 
 [Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
 [Grafitti Images](https://www.istockphoto.com)
+[Profile pictures](https://www.freepik.com/photos/people)
 
 ---
 ## Acknowledgements 
