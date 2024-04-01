@@ -5,7 +5,7 @@ Findit Berlin is your ultimate destination for exploring and documenting street 
 Findit Berlin offers a simple and intuitive platform for street art lovers to connect and discover new artworks across the city. Whether you're a seasoned enthusiast or new to the scene, Findit Berlin is your gateway to exploring Berlin's vibrant street art culture.
 Join us today and become part of a thriving community passionate about uncovering the hidden gems of Berlin's street art scene!
 
-Responsive Mockup from [Am I Responsive](https://ui.dev/amiresponsive)
+######Responsive Mockup from [Am I Responsive](https://ui.dev/amiresponsive)
 ![Findit Berlin](/static/images/AmIresponsive.png)
 ---
 
@@ -55,7 +55,9 @@ Agile methodology, rooted in the Agile Manifesto, transforms product development
 * Kanban
 * Behavior Driven Development (BDD)
 
-This project was developed using Github Kanbanboard [here](https://github.com/users/FerchaPombo/projects/1) 
+This project was developed using Github Kanbanboard Click on the link to access-> [here](https://github.com/users/FerchaPombo/projects/1) .
+
+
 Kanban is an Agile management method built on a philosophy of continuous improvement, where work items are “pulled” from a product backlog into a steady flow of work. The framework is applied using Kanban boards, a form of visual project management. In a Kanban board, tasks—represented as cards—move through stages of work—represented as columns. That way, your team can see where work is in real-time.
 
 Kanban is especially popular with product, engineering, and software development teams. But any team that wants to create a more dynamic, flexible workflow can use them.
@@ -127,7 +129,7 @@ UX design is user-centered and multidisciplinary, drawing from backgrounds such 
 The site's wireframes were crafted using [Balsamiq](https://balsamiq.com/) software, covering desktop, tablet, and mobile interfaces. While the text content wasn't finalized at that stage, it's important to note some visual variances from the wireframes due to design decisions made during development.
 
 <details>
-<summary>Wireframes</summary>
+<summary>*Wireframes*</summary>
 <br>
 
 ### Landing Page 
@@ -153,11 +155,21 @@ Further insights into these choices in the 'Features' section.
 ### Color Scheme:
 
 The design of the Findit BERLIN site draws inspiration from the Bootstrap 'light' color theme, fostering a visually appealing environment. Complemented by the subtle accents of Bootstrap Blue for the links, the site achieves a harmonious balance between aesthetics and functionality. Embracing a clean, easy-to-navigate, and minimalistic approach, users are greeted with a seamless browsing experience that enhances their exploration of the platform.
-![Light Theme](/static/images/Bootstrapthemelight.png) ![Blue](/static/images/links.png)
+
 
 ### Typography 
 
+The Inter Font was chosen for its simple yet elegant design and its excellent readability. This font was obtained at no cost from Google Fonts, ensuring accessibility and compatibility with the project's design goals.
+[GoogleFonts](https://fonts.google.com/specimen/Inter+Tight)
 
+<details>
+<summary>*Color choices and Typography*</summary>
+<br>
+
+![Light Theme](/static/images/Bootstrapthemelight.png)
+![Blue](/static/images/links.png)
+![Typography](/static/images/font.png)
+</details>
 
 ## Features 
 
@@ -255,12 +267,39 @@ Logged-in users can navigate to their profile on a dedicated page, where they ha
 ![Profile in Postdetail]()
 ![Profile dropdown ]()
 
----
-## Features Left to implement 
+### Features Left to implement 
+
+* In the future, the blog will evolve to include the exciting feature of geolocation tagging for each post. This enhancement will enable users to capture and share photos of street art, accompanied by the specific location of each piece. This way, others can easily visit and appreciate the artwork firsthand.
+
+* Additionally, a Category section will be implemented, organized by neighborhoods. Users will have the option to browse posts related to a particular neighborhood of interest, facilitating exploration and discovery of street art within specific areas of the city.
+
 ---
 ## Teechnologies Used 
+
+### Languages 
+* [Python](https://www.python.org/) powers the site's functionality.
+* [HTML5](https://es.wikipedia.org/wiki/HTML) forms the foundation and structure of the website.
+* [CSS](https://en.wikipedia.org/wiki/CSS) enhances the visual styling of the website.
+* [JavaScript](https://www.javascript.com/) adds interactive elements to the website.
+
+
+### Frameworks & Softwares
+
+* [Bootstrap](https://getbootstrap.com/): A CSS framework facilitating the creation of robust, responsive, and mobile-first websites.
+* [Django](https://www.djangoproject.com/): Model-view-template framework employed in the development of the site.
+* [Balsamiq](https://balsamiq.com/): Utilized for wireframing purposes.
+* [Github](https://github.com/about): Used for hosting and editing the website, alongside GitBash terminal in Gitpod for pushing changes to the GitHub repository.
+* [Heroku](https://www.heroku.com/about): A cloud platform for deploying the application.
+* [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview): Utilized for testing the site's performance.
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools): Utilized for debugging and testing responsiveness.
+* [Cloudinary](https://cloudinary.com/): Utilized for hosting all static files in the project.
+* [HTML Validation](https://validator.w3.org/): Employed for validating HTML code.
+* [CSS Validation](https://jigsaw.w3.org/css-validator/): Utilized for validating CSS code.
+* [PEP8 Validation](https://www.pythonchecker.com/) :Validating code against PEP8 standards.
+* [JSHint Validation](https://jshint.com/): Utilized for validating JavaScript code.
 ---
 ## Testing 
+
 ---
 ## Bugs
 ---
