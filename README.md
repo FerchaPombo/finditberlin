@@ -341,184 +341,157 @@ Finndit Berlin was deployed to [Heroku](https://www.heroku.com/about) folowwing 
 
 9. Add a database and copy the DATABASE_URL.
 * Go to the resources tab >> add-ons >>serach  for 'Heroku Postgres' and add it to the app. 
-11. Create env.py in Gitpod and add environment variables.
-Add the secret key to Heroku config vars.
-Configure settings.py to use environment variables.
-Migrate changes and set up Cloudinary connection.
-Add Cloudinary libraries to installed apps.
-Configure static file storage settings.
-Link files to the Heroku templates directory.
-Update allowed hosts in settings.py.
-Create media, static, and templates folders.
-Create a Procfile and add the gunicorn command.
-Stage changes, commit, and push to GitHub.
-Add 'PORT' and '8000' to Heroku config vars.
-Deploy the app from the GitHub repository.
----
-## Credits 
+
+10. Create env.py in Gitpod and add environment variables.
+![Env.py](/static/images/env.png)
+
+11. Add the secret key to Heroku config vars.
+![ConfigVargs](/static/images/configvarsheroku.png)
+
+12. Configure settings.py to use environment variables.
+
+13. Migrate changes and set up Cloudinary connection.
+* `python3 manage.py migrate`
+
+14. Create a [Cloudinary](https://cloudinary.com/users/register_free) account, and add Cloudinary libraries to installed apps. Add the Cloudinary Url to Heroku Config Vars 
+![Cloudinary](/static/images/CloudinaryDeployment.png)
+
+15. Add cloudinary links to settings.py and configure static file storage settings.
+
+
+16. Link files to the Heroku templates directory.
+* `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`
+
+17. Update allowed hosts in settings.py.
+* ` ALLOWED_HOSTS = [PROJECT_NAME_HERE.herokuapp.com, 'localhost']`
+
+18. Create media, static, and templates folders on your Main Directory.
+
+19. Create a Procfile and add the gunicorn command.
+* `web: gunicorn PROJ_NAME.wsgi?`
+
+20. Stage changes, commit, and push to GitHub.
+* `git add .`
+* `git commit -m "Deployment Commit`
+* `git push`
+
+21. Add 'PORT' and '8000' to Heroku config vars. (Important!)
+![800](/static/images/8000.png)
+
+22. Deploy the app manually from the GitHub repository.
+![Deploy](/static/images/deploy.png)
 
 ---
 ## Content 
-[Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
-[Grafitti Images](https://www.istockphoto.com)
-[Profile pictures](https://www.freepik.com/photos/people)
+Some of the images from Findit Berlin are taken from the following sources :
+* [Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
+* [Grafitti Images](https://www.istockphoto.com)
+* [Profile pictures](https://www.freepik.com/photos/people)
 
 ---
 ## Acknowledgements 
 
-Source Code Links: 
-diference between  null=true, blank=true django: https://stackoverflow.com/questions/8609192/what-is-the-difference-between-null-true-and-blank-true-in-django
 
-no migrations to apply :
-https://forum.djangoproject.com/t/no-migrations-to-apply-when-run-migrate-after-makemigrations/15519
+---
+### External  Resources:
+During the development of this project , I relied heavily on external sources, it was hard to link and keep track of the many webpages visited, here are the most important.
 
+#### Source Code Links: 
+* [Diference between  null=true, blank=true django](https://stackoverflow.com/questions/8609192/what-is-the-difference-between-null-true-and-blank-true-in-django)
 
+* [No migrations to apply](https://forum.djangoproject.com/t/no-migrations-to-apply-when-run-migrate-after-makemigrations/15519)
 
-location pin on django app:
-https://sbabashahi.medium.com/add-location-point-to-django-postgresql-app-803ae4a57d48
-https://www.youtube.com/watch?v=2uFJ43DvhHg
-https://www.abstractapi.com/guides/django-geolocation
+* [Location pin on django app](https://sbabashahi.medium.com/add-location-point-to-django-postgresql-app-803ae4a57d48)
+* [Location pin on django app](https://www.youtube.com/watch?v=2uFJ43DvhHg)
+* [Location pin on django app](https://www.abstractapi.com/guides/django-geolocation)
 
-dd summernote:
-https://ctrlzblog.com/how-to-add-a-text-editor-to-a-django-blog-with-summernote/
+* [Add summernote](https://ctrlzblog.com/how-to-add-a-text-editor-to-a-django-blog-with-summernote/)
 
-location pin on django app:
-https://sbabashahi.medium.com/add-location-point-to-django-postgresql-app-803ae4a57d48
-https://www.youtube.com/watch?v=2uFJ43DvhHg
-https://www.abstractapi.com/guides/django-geolocation
+* [Migrations](https://forum.djangoproject.com/t/no-migrations-to-apply-when-run-migrate-after-makemigrations/15519)
 
+* [Django templates](https://github.com/Williano/django-bona-blog/blob/master/blog/templates/blog/blog_base.html)
+* [Django templates](https://www.youtube.com/watch?v=_s6g6yP0ahY)
 
-add summernote:
-https://ctrlzblog.com/how-to-add-a-text-editor-to-a-django-blog-with-summernote/
+* [Css](https://www.google.com/search?q=how+to+make+my+style.css+to+override+bootstrap+and+django&oq=how+to+make+my+style.css+to+override+bootstrap+and+django+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRigAdIBCTIxNjE4ajBqNKgCALACAA&sourceid=chrome&ie=UTF-8)
 
-no migrations to apply :
-https://forum.djangoproject.com/t/no-migrations-to-apply-when-run-migrate-after-makemigrations/15519
+* [Geo location](https://pypi.org/project/django-easy-maps/)
+* [Geo location](https://developer.mozilla.org/en-US/docs/Web/API/)
+* [Geo location](https://stackoverflow.com/questions/64113710/extracting-gps-coordinates-from-image-using-python)
+* [Geo location](https://thepythoncode.com/article/extracting-image-metadata-in-python)
 
-django templates documentation :
-https://github.com/Williano/django-bona-blog/blob/master/blog/templates/blog/blog_base.html
-https://www.youtube.com/watch?v=_s6g6yP0ahY
+* [Traceback error](https://realpython.com/python-traceback/#valueerror)
 
-over ride css styles with my style.css file 
-https://www.google.com/search?q=how+to+make+my+style.css+to+override+bootstrap+and+django&oq=how+to+make+my+style.css+to+override+bootstrap+and+django+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRigAdIBCTIxNjE4ajBqNKgCALACAA&sourceid=chrome&ie=UTF-8
+* [Send location to my django server](https://stackoverflow.com/questions/44169448/how-to-send-latitude-and-longitude-to-django-server-using-ajax)
 
+* [Crispyform](https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms)
 
-geo location :
-https://pypi.org/project/django-easy-maps/
-https://developer.mozilla.org/en-US/docs/Web/API/
-https://stackoverflow.com/questions/64113710/extracting-gps-coordinates-from-image-using-python
-https://thepythoncode.com/article/extracting-image-metadata-in-python
+* [Django easy maps](https://pypi.org/project/django-easy-maps/)
 
-traceback error :
-https://realpython.com/python-traceback/#valueerror
+* [Error loading because MIM is not executable](https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-because-its-mime-type-text-html-is-not-execut)
 
-send location to my django server:
-https://stackoverflow.com/questions/44169448/how-to-send-latitude-and-longitude-to-django-server-using-ajax
+* [Rendering data on the console](https://stackoverflow.com/questions/70625340/uncaught-in-promise-typeerror-cannot-read-properties-of-undefined-reading-d\)
+
+[AdressFields](https://helpv2.quickbase.com/hc/en-us/articles/4570349602836)
 
 
-crispyform 
-https://stackoverflow.com/questions/75495403/django-returns-templatedoesnotexist-when-using-crispy-forms
+* [Images responsiveness](https://www.w3schools.com/bootstrap/bootstrap_images.asp#:~:text=Responsive%20images%20automatically%20adjust%20to,nicely%20to%20the%20parent%20element.)
+* [Images responsiveness](https://getbootstrap.com/docs/4.0/components/card/)
+* [Images responsiveness](https://stackoverflow.com/questions/61617160/bootstrap-4-card-image-resizing-on-mobile)
 
-django eas maps:
-https://pypi.org/project/django-easy-maps/
+* [Null- violation](https://bobbyhadz.com/blog/javascript-cannot-read-property-classlist-of-null)
+* [Null- violation](https://stackoverflow.com/questions/48101400/django-null-value-in-column-user-id-violates-not-null-constraint-detail-faili)
+* [Null- violation](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-not-null-constraint/)
+* [Null-violation](https://www.commandprompt.com/education/how-to-add-or-drop-not-null-constraints-in-postgresql/#:~:text=A%20NOT%20NULL%20constraint%20can,Constraint%20From%20a%20Postgres%20Table%3F)
 
-
-error loading because MIM is not executable :
-https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-because-its-mime-type-text-html-is-not-execut
-
-
-error mim type :
-https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type/50173968
-https://stackoverflow.com/questions/50778910/refused-to-execute-script-from-because-its-mime-type-text-html-is-not-execut
-https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type/50173968
-rendering data on the console :
-https://stackoverflow.com/questions/70625340/uncaught-in-promise-typeerror-cannot-read-properties-of-undefined-reading-d\
-
-adressFields:
-https://helpv2.quickbase.com/hc/en-us/articles/4570349602836
+* [Django messages](https://ordinarycoders.com/blog/article/django-messages-framework
+)
 
 
-non nullable fields :
-https://ctrlzblog.com/django-migrations-how-to-add-non-nullable-fields-without-compromising-your-database/exit
-https://djangopackages.org/packages/p/django-address/
-
-styling icons:
-https://stackoverflow.com/questions/50557610/have-two-font-awesome-icons-side-by-side
-
-center raw container:
-https://stackoverflow.com/questions/13462535/center-contents-of-bootstrap-row-container
-
-images responsiveness:
-https://www.w3schools.com/bootstrap/bootstrap_images.asp#:~:text=Responsive%20images%20automatically%20adjust%20to,nicely%20to%20the%20parent%20element.
-https://getbootstrap.com/docs/4.0/components/card/
-https://stackoverflow.com/questions/61617160/bootstrap-4-card-image-resizing-on-mobile
-
-null- violation
-https://bobbyhadz.com/blog/javascript-cannot-read-property-classlist-of-null
-https://stackoverflow.com/questions/48101400/django-null-value-in-column-user-id-violates-not-null-constraint-detail-faili
-https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-not-null-constraint/
-https://www.commandprompt.com/education/how-to-add-or-drop-not-null-constraints-in-postgresql/#:~:text=A%20NOT%20NULL%20constraint%20can,Constraint%20From%20a%20Postgres%20Table%3F
-
-django messages:
-https://ordinarycoders.com/blog/article/django-messages-framework
+* [Users creating posts](https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django)
+* [Users creating posts](https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django)
 
 
-users creating posts:
-https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django
-https://stackoverflow.com/questions/68968059/how-can-i-allow-users-to-create-their-own-posts-in-django
+* [Importing cloudinary file field to forms](https://alphacoder.xyz/image-upload-with-django-and-cloudinary/)
+* [Importing cloudinary file field to forms](https://cloudinary.com/documentation/django_image_and_video_upload)
+* [Cloudinary  field ](https://www.contentstack.com/docs/developers/create-custom-fields/cloudinary#use-your-custom-field)
+* [Cloudinary  field ](https://alphacoder.xyz/image-upload-with-django-and-cloudinary/)
+* [Cloudinary  field ](https://stackoverflow.com/questions/59448227/imagefield-object-has-no-attribute-value-from-datadict)
 
+* [Default slug value](https://stackoverflow.com/questions/4884584/django-generate-default-slug)
 
-importing cloudinary file field to forms :
-https://alphacoder.xyz/image-upload-with-django-and-cloudinary/
-https://cloudinary.com/documentation/django_image_and_video_upload
+* [Over ride bootstrap properties](https://www.google.com/search?q=how+to+over+ride+all+the+blue+colors+of+the+bootstrap+theme+in+css&oq=how+to+over+ride+all+the+blue+colors+of+the+bootstrap+theme+&gs_lcrp=EgZjaHJvbWUqCQgDECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgkIBBAhGAoYoAHSAQkxOTc4NmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8)
+* [Override bootstrap](https://blog.hubspot.com/website/how-to-override-bootstrap-css#how-to-customize-bootstrap-colors-sass-variables)
 
-https://www.contentstack.com/docs/developers/create-custom-fields/cloudinary#use-your-custom-field
-https://alphacoder.xyz/image-upload-with-django-and-cloudinary/
-https://stackoverflow.com/questions/59448227/imagefield-object-has-no-attribute-value-from-datadict
+* [Styling](https://venngage.com/blog/pastel-color-palettes/)
 
-default slug value :
-https://stackoverflow.com/questions/4884584/django-generate-default-slug
+* [Rendering comments](https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-added-but-they-are-not-visible-on-the-site)
 
-over ride bootstrap properties :
-https://www.google.com/search?q=how+to+over+ride+all+the+blue+colors+of+the+bootstrap+theme+in+css&oq=how+to+over+ride+all+the+blue+colors+of+the+bootstrap+theme+&gs_lcrp=EgZjaHJvbWUqCQgDECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgkIBBAhGAoYoAHSAQkxOTc4NmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8
-https://blog.hubspot.com/website/how-to-override-bootstrap-css#how-to-customize-bootstrap-colors-sass-variables
-
-styling:
-https://venngage.com/blog/pastel-color-palettes/
-
-navbar burger links:
-https://stackoverflow.com/questions/35233307/add-sidebar-links-to-bootstrap-hamburger-menu
-https://getbootstrap.com/docs/4.1/components/navbar/
-
-rendering comments ;
-https://stackoverflow.com/questions/67886427/comments-in-the-admin-panel-are-added-but-they-are-not-visible-on-the-site
-
-[Erase Migrations](https://stackoverflow.com/questions/28404461/can-i-delete-the-django-migration-files-inside-migrations-directory)
-[Reset Migrations](https://medium.com/@mustahibmajgaonkar/how-to-reset-django-migrations-6787b2a1e723)
-[Slug](https://github.com/statamic/v2-hub/issues/1514)
-[form validation](https://codereview.stackexchange.com/questions/154820/raise-error-when-slug-already-exists)
-[slug](https://stackoverflow.com/questions/56330503/how-to-fix-post-with-this-user-already-exists-error-on-django-while-trying-to)
-[Search Function](https://www.youtube.com/watch?v=AGtae4L5BbI)
-[Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
-[TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)
-[Django favourites](https://www.youtube.com/watch?v=1XiJvIuvqhs)
-[ImageFiled](https://www.geeksforgeeks.org/imagefield-django-models/)
-[Cloudinary Imafield](https://cloudinary.com/blog/placeholder_images_and_gravatar_integration_with_cloudinary)
-[default](https://www.geeksforgeeks.org/default-django-built-in-field-validation/)
-[Searchbar](https://www.youtube.com/watch?v=XIwA6g34jZo&t=453s)
-[Modals](https://ux.stackexchange.com/questions/136055/what-is-the-best-way-to-add-edit-and-delete-buttons-to-a-modal)
-[Modals](https://symfonycasts.com/screencast/last-stack/modal-edit)
-[Modals](https://github.com/MedicOneSystems/livewire-datatables/issues/90)
-[Ajax](https://api.jquery.com/jQuery.ajax/)
-[Ajax](https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/)
-[Fetch()](https://www.geeksforgeeks.org/javascript-fetch-method/)
-[Database table generator](https://codebeautify.org/sql-table-generator)
-[Navbar](https://stackoverflow.com/questions/46221287/dropdown-link-not-working-in-navigation-bar-bootstrap)
-[Image Responsivenes](https://stackoverflow.com/questions/63648620/bootstrap-image-not-displaying-on-smaller-screens)
-[Pagination](https://getbootstrap.com/docs/4.0/components/pagination/)
-[Pagination](https://design-system.w3.org/components/pagination.html)
-[Navbarstyling](https://forum.bootstrapstudio.io/t/how-to-set-the-navbar-to-full-width-of-the-browser/7385)
-[Navbar](https://www.w3schools.com/bootstrap/bootstrap_navbar.asp)
-[Bootstrap Modal](https://www.w3schools.com/bootstrap/bootstrap_modal.asp)
-[Dev Tools](https://stackoverflow.com/questions/67252231/what-is-the-purpose-of-this-purple-dashed-line-area#:~:text=It%20is%20white%20space.,area%20by%20the%20Google%20inspector.)
-[Flex](https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size)
-[Flex Container](https://www.tutorialrepublic.com/faq/how-to-set-space-between-flex-items-using-css.php#:~:text=Answer%3A%20Use%20CSS%20justify%2Dcontent,set%20space%20between%20flexbox%20items.)
+* [Erase Migrations](https://stackoverflow.com/questions/28404461/can-i-delete-the-django-migration-files-inside-migrations-directory)
+* [Reset Migrations](https://medium.com/@mustahibmajgaonkar/how-to-reset-django-migrations-6787b2a1e723)
+* [Slug](https://github.com/statamic/v2-hub/issues/1514)
+* [form validation](https://codereview.stackexchange.com/questions/154820/raise-error-when-slug-already-exists)
+* [slug](https://stackoverflow.com/questions/56330503/how-to-fix-post-with-this-user-already-exists-error-on-django-while-trying-to)
+* [Search Function](https://www.youtube.com/watch?v=AGtae4L5BbI)
+* [Search bar](https://getbootstrap.com/docs/5.2/components/navbar/)
+* [TypeError](https://www.dhiwise.com/post/troubleshooting-the-cannot-read-properties-of-null-error)
+* [Django favourites](https://www.youtube.com/watch?v=1XiJvIuvqhs)
+* [ImageFiled](https://www.geeksforgeeks.org/imagefield-django-models/)
+* [Cloudinary Imafield](https://cloudinary.com/blog/placeholder_images_and_gravatar_integration_with_cloudinary)
+* [default](https://www.geeksforgeeks.org/default-django-built-in-field-validation/)
+* [Searchbar](https://www.youtube.com/watch?v=XIwA6g34jZo&t=453s)
+* [Modals](https://ux.stackexchange.com/questions/136055/what-is-the-best-way-to-add-edit-and-delete-buttons-to-a-modal)
+* [Modals](https://symfonycasts.com/screencast/last-stack/modal-edit)
+* [Modals](https://github.com/MedicOneSystems/livewire-datatables/issues/90)
+* [Ajax](https://api.jquery.com/jQuery.ajax/)
+* [Ajax](https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/)
+* [Fetch()](https://www.geeksforgeeks.org/javascript-fetch-method/)
+*[Database table generator](https://codebeautify.org/sql-table-generator)
+* [Navbar](https://stackoverflow.com/questions/46221287/dropdown-link-not-working-in-navigation-bar-bootstrap)
+* [Image Responsivenes](https://stackoverflow.com/questions/63648620/bootstrap-image-not-displaying-on-smaller-screens)
+* [Pagination](https://getbootstrap.com/docs/4.0/components/pagination/)
+* [Pagination](https://design-system.w3.org/components/pagination.html)
+* [Navbarstyling](https://forum.bootstrapstudio.io/t/how-to-set-the-navbar-to-full-width-of-the-browser/7385)
+* [Navbar](https://www.w3schools.com/bootstrap/bootstrap_navbar.asp)
+* [Bootstrap Modal](https://www.w3schools.com/bootstrap/bootstrap_modal.asp)
+* [Flex](https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size)
+* [Flex Container](https://www.tutorialrepublic.com/faq/how-to-set-space-between-flex-items-using-css.php#:~:text=Answer%3A%20Use%20CSS%20justify%2Dcontent,set%20space%20between%20flexbox%20items.)
