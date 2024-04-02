@@ -249,7 +249,7 @@ New visitors to Findit Berlin who don't have a registered account can sign up he
 
 This page allows users to log in to their Findit Berlin account to access their personalized content and special features.
 
-1[Log In](/static/images/login.png)
+![Log In](/static/images/login.png)
 
 #### Logout 
 
@@ -304,8 +304,59 @@ Logged-in users can navigate to their profile on a dedicated page, where they ha
 ## Bugs
 ---
 ## Deployment 
+
+### Deployment to Heroku 
+
+Finndit Berlin was deployed to [Heroku](https://www.heroku.com/about) folowwing this process:
+#### Part 1
+1. Create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template)
+![Deploy1](/static/images/Deploy1.png)
+
+2. Open the repository in Gitpod.
+![Deploy2](/static/images/Deploy2.png)
+
+3. Install Django and necessary libraries.
+* `pip3 install 'django<4' gunicorn`
+* `pip3 install 'dj_database_url psycopg2`
+* `pip3 install 'dj3-cloudinary-storage`
+
+4. Generate a requirements.txt file.
+* `pip3 freeze --local > requirements.txt` - This will create and add required libraries to requirements.txt file. 
+
+5. Create the project and application.
+* `django-admin startproject PROJECT_NAME_HERE` . - Running this command will create your project directory.
+* `python3 manage.py startapp APP_NAME_HERE` - This will create your application and folders
+
+
+6. Add the application to settings.py.
+* `INSTALLED APPS = [`
+    `...other apps...,`
+    `'APP_NAME_HERE',`
+    `]`
+7. Perform the initial migration and test the server.
+* `python3 manage.py migrate` - Migrate to Server
+* `python3 manage.py runserver` - Run the server, click open in browser and verify it runs.
+#### Part 2
+8. Create a new app on Heroku. -[Heroku](https://signup.heroku.com/). Enter application's name , choose Region and click on 'Create New App'.
+
+9. Add a database and copy the DATABASE_URL.
+* Go to the resources tab >> add-ons >>serach  for 'Heroku Postgres' and add it to the app. 
+11. Create env.py in Gitpod and add environment variables.
+Add the secret key to Heroku config vars.
+Configure settings.py to use environment variables.
+Migrate changes and set up Cloudinary connection.
+Add Cloudinary libraries to installed apps.
+Configure static file storage settings.
+Link files to the Heroku templates directory.
+Update allowed hosts in settings.py.
+Create media, static, and templates folders.
+Create a Procfile and add the gunicorn command.
+Stage changes, commit, and push to GitHub.
+Add 'PORT' and '8000' to Heroku config vars.
+Deploy the app from the GitHub repository.
 ---
 ## Credits 
+
 ---
 ## Content 
 [Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
