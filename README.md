@@ -385,8 +385,86 @@ requests-oauthlib: Offers OAuth library support for Requests, a Python HTTP libr
 
 ## Testing 
 
+### Testing users stories 
+
+* As a site user, I can add posts to my favourites So that I can save content that i like. 
+    * When User clicks on the 'Add to Favourites' button , post is added to their bookmarks section and rendered on their Favourites Page.
+
+* As a site user, I can logout of my account So that I can keep my details secure.
+     * When a user click on 'Logout' tab, they are taking to the Logout page where they are asked to confirm their wish ti log out. 
+
+* As a Site User, I can click on a post So that so that i can view the full post.
+    * When users click on a post title or image, they are taken to Post Detail page so they can see the full Post.
+
+* As a Site User / Admin, I can view comments on an individual post so that I can read the conversation.
+    * When clicking on the post detial , the list of comments is loaded under each post, so they can read the comments.
+
+* As a site user, I can navigate to the About Page easily, So that I can access information about the page, and the people who created it. 
+    * When user clicks on the About tab, they are redirected to the About Section, so they can have more insights on the blog's purpose and its creator.
+
+* As a site user, I can click on easy to find edit/delete buttons so i can  edit or delete the comments I made.
+    * When the user access a post they created they can easily access the edit/delete buttons and delete their  or edit their comments. 
+
+* As a site user I can login to my dashboard, So that i can update, delete and manage my posts. 
+    * When users log in, they have access to their Dashboard when clicking on the tab on the navbar, so they can see the posts they created and add new ones. 
+
+* As a site user, I can create an account when clicking the Register link in navbar
+So that i can also create content and engage with other users.
+    * When site users click on the Register tab, they can sign up a form to create an account and start having access to features and engage with other users.
+
+* As a site user, I can use my username and password So that i can access my user account.
+    * Site Users can log in using their username and password to acces their content. 
+
+* As a new arrived person to the site,I can see a jumbotron that recieved me withthe right information, So that i can know what the blog is about and i can be easily directed to Register.
+    * When arriving to the page, users are recieved with a infromational jumbotron and have a quick access through a link to the registration page.
+
+* As a Site User, I can like or unlike a post, so that I can interact with the content.
+    * When the user clicks on the Like button, the like count increments, when they click again the like count decrease.
+
+* As a site user , I can view a paginated post So that I can select which post to view.
+    * When landing on the home page, the user can see snipets of posts created and choose the most apealing. 
+
+* As a site user, I can click a button next to the title of a post i created, So that I can edit my post.
+    * After creating a post, a user can easily edit the post through the button under the title .
+
+* As a Site User / Admin, I can view the number of likes on each post, so that I can see which is the most popular or viral. 
+    * Likes are registered in a counter next to each posts title in the snipet.
+
+* As a site user, I can search for anyword in the searchbar, So that can find content more quickly.
+    * The site offers a serch bar in the top right side of the page, so users can search for any word they want, and get the results in a separate Search Page. 
+
+* As a site user, I can access my profile page from the navbar, So that I can see how my profile page looks.
+    * When users are logged in , they can click on the nav bat tab 'Profile' to have a dropdown menu that lets them go to their Profile Page, as well as Edit their profile.
+
+* As a site user, I want to arrive to a clear, well structured and visual description of the blog, So that i can engage imediatly with it. 
+    * Blog appearance is clean and clear, with contrasting white background, posts are organised evenly and the posts are easy to access.
+
+
+
+#### As a Site admin 
+
+* As a Site Admin, I can create, read, update and delete posts in my Dashboard ,so that I can manage my blog content.
+    * When the admin is logged in, they have special capabilities on the Dashboard, where they can  delete other peoples comments. Admins do not need for approving any posts or comments they create. 
+
+* As an admin, I can click on easy to find buttons So that i can edit or delete any comment created by any user. 
+    * When Admin is logged in, all posts appear with a edit or delete button next to it. Comments they created are also editable and all comments are eraseable by the admin. 
+
+* As a Site Admin, I can approve or disapprove comments, so that I can filter out objectionable comments.
+    * When Admin goes through the admin panel offered by Django, the adimn can approve or disprove people's comments. 
+
+
+#### ToDo's
+
+* As a Site Admin, I can create draft posts, so that I can finish writing the content later.[#12](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294651)
+
+* As a Site Admin, I can access an admin panel so that I can get a general view of users activity and basic CRUD functionality.[#29](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58440580)
+
+* As a site user, I can select a specific neighbourhood, So that I can see all blog posts in the same Neighbourhood.[#28](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58248048)
 ---
+
 ## Bugs
+
+
 ---
 
 ## Deployment 
