@@ -174,8 +174,13 @@ In this model there is a one-to-one relation to the *usermodel* to connect it to
 | profile_pic    | ImageField     | upload_to='static/images', default='placeholder' |
 | instagram_url  | CharField      | max_length=255, null=True, blank=True    |
 | website_url    | CharField      | max_length=255, null=True, blank=True    |
+<details>
+<summary>Click here for Database EDR</summary>
+<br>
 
-![Database Schema]()
+![Database Schema](/static/images/Dataschema.png)
+</details>
+
 ---
 ## UX Design 
 
