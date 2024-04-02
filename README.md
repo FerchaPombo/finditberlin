@@ -21,14 +21,12 @@ Create an account to unlock full access to Findit Berlin's features.
 Create, Edit, and Delete Posts: Share your favorite graffiti artworks with the community. Add descriptions to provide context and insights about the art.
 Commenting and Liking: Engage with fellow street art enthusiasts by leaving comments and expressing appreciation through likes.
 Interactive Dashboard: Upon logging in, users are greeted with an interactive dashboard. From here, they can manage their posts effortlessly. This includes listing, editing, and deleting posts, as well as leaving new comments directly from the dashboard.
-
 ---
 
 ## Agile Developement Methodology 
 
 Agile methodology, rooted in the Agile Manifesto, transforms product development by prioritizing incremental delivery, frequent customer feedback, and adaptability. It addresses the shortcomings of traditional waterfall approaches by breaking projects into smaller, manageable iterations called sprints, fostering quicker response to evolving requirements. Agile extends its applicability beyond software development to various industries, emphasizing responsiveness to market needs and customer demands. It encompasses methods like Scrum, XP, and Kanban, along with technical practices like DevOps, facilitating efficient delivery processes. The Agile Manifesto, established in 2001, articulates core values and principles for software development, serving as a guiding beacon for agile practitioners worldwide.
 ![Agile Diagram](/static/images/agiledevelopmentdiagram.png)
-
 
 
 ### 12 Agile Manifesto Principles:
@@ -66,17 +64,79 @@ Kanban teams use a visualization tool called Kanban boards to manage their workl
 
 In a Kanban board, work is displayed on a project board that is organized by columns. Traditionally, each column represents a stage of work. The most basic Kanban board might have columns like “To do,” “In progress,” and “Done.” Each column is filled with visual cards that represent individual tasks. A team moves through the columns until the tasks are completed.
 
-
-![MY Kanban board]()
+![MY Kanban board](/static/images/Kanbanboard.png)
 
 Kanban boards visually represent a team's tasks using cards or sticky notes arranged in columns on a whiteboard. Swimlanes within the columns illustrate the value stream, representing stages tasks must pass through. Cards are placed in the appropriate swimlane to map out the workflow.
 
 As work advances, team members shift cards from left to right. Some swimlanes may have a WIP limit to maintain the system's efficiency.
-
-![4 principles of Kanban]()
+---
 
 ### User Stories 
+
+This section is dedicated to defining user expectations when interacting with the website. Utilizing the agile methodology and leveraging the GitHub Issues Kanban board, I have crafted user stories categorized into two main groups: site users and user admins. Each user type's actions and scenarios are documented comprehensively in this section.
+
+#### As a Site User 
+
+* As a site user, I can add posts to my favourites So that I can save content that i like. [#24](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58179558)
+
+* As a site user, I can logout of my account So that I can keep my details secure.[#23](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58179052)
+
+* As a Site User, I can click on a post So that *so that i can read the full text.[#16](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178322)
+
+* As a Site User / Admin, I can view comments on an individual post so that I can read the conversation. [#7](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294316)
+
+* As a site user, I can navigate to the About Page easily, So that I can access information about the page, and the people who created it. [#18](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178380)
+
+* As a site user, I can click on easy to find edit/delete buttons so i can  edit or delete the comments i made.[#26](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58182493)
+
+* As a site user I can login to my dashboard, So that i can update, delete and manage my posts. [#17](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=47738838)
+
+* As a site user, I can create an account when clicking the Register link in navbar
+So that i can also create content and engage with other users.[#22](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178974)
+
+* As a Site User I can click on a post title so that I can see displayed the whole post detail.[#5](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294224)
+
+* As a site user, I can learn about the blog and the people who created it, So that I feel connected to the blog.[#30](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58441780)
+
+* As a site user, I can use my username and password So that i can access my user account.[#21](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178892)
+
+* As a new arrived person to the site,I can see a jumbotron that recieved me withthe right information, So that i can know what the blog is about and i can be easily directed to Register.[#27](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58198863)
+
+* As a Site User, I can like or unlike a post, so that I can interact with the content.[#10](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294568)
+
+* As a site user , I can view a paginated post So that I can select which post to view.[#3](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44292168)
+
+* As a site user, I can click a button next to the title of a post i created, So that I can edit my post.[#20](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178562)
+
+* As a Site User, I can view a list of posts, so that I can select one to read.[#4](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294178)
+
+* As a Site User / Admin, I can view the number of likes on each post, so that I can see which is the most popular or viral. [#6](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294266)
+
+* As a site user, I can search for anyword in the searchbar, So that can find content more quickly.[#25](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58179608)
+
+* As a site user, I can access my profile page from the navbar, So that I can see how my profile page looks.[#19](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178485)
+
+* As a site user, I want to arrive to a clear, well structured and visual description of the blog, So that i can engage imediatly with it.[#31](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58442872)
+
+
+
+#### As a Site admin 
+
+* As a Site Admin, I can create, read, update and delete posts in my Dashboard ,so that I can manage my blog content. [#11](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294615)
+
+* As an admin, I can click on easy to find buttons So that i can edit or delete any comment created by any user. [#26](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58182493)
+
+* As a Site Admin, I can approve or disapprove comments, so that I can filter out objectionable comments.[#13](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294756)
+
+* As a site user, I can select a specific neighbourhood, So that I can see all blog posts in the same Neighbourhood.[#28](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58248048)
+
+#### ToDo's
+
+* As a Site Admin, I can create draft posts, so that I can finish writing the content later.[#12](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294651)
+
+* As a Site Admin, I can access an admin panel so that I can get a general view of users activity and basic CRUD functionality.[#29](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58440580)
 --- 
+
 ## Database Schema 
 
 Models used (besides standard user model) in this project are:
@@ -129,7 +189,7 @@ UX design is user-centered and multidisciplinary, drawing from backgrounds such 
 The site's wireframes were crafted using [Balsamiq](https://balsamiq.com/) software, covering desktop, tablet, and mobile interfaces. While the text content wasn't finalized at that stage, it's important to note some visual variances from the wireframes due to design decisions made during development.
 
 <details>
-<summary>*Wireframes*</summary>
+<summary>Click here for view of Wireframes</summary>
 <br>
 
 ### Landing Page 
@@ -163,7 +223,7 @@ The Inter Font was chosen for its simple yet elegant design and its excellent re
 [GoogleFonts](https://fonts.google.com/specimen/Inter+Tight)
 
 <details>
-<summary>*Color choices and Typography*</summary>
+<summary>Click here for Color choices and Typography</summary>
 <br>
 
 ![Light Theme](/static/images/Bootstrapthemelight.png)
@@ -272,11 +332,12 @@ Logged-in users can navigate to their profile on a dedicated page, where they ha
 * In the future, the blog will evolve to include the exciting feature of geolocation tagging for each post. This enhancement will enable users to capture and share photos of street art, accompanied by the specific location of each piece. This way, others can easily visit and appreciate the artwork firsthand.
 
 * Additionally, a Category section will be implemented, organized by neighborhoods. Users will have the option to browse posts related to a particular neighborhood of interest, facilitating exploration and discovery of street art within specific areas of the city.
-
 ---
+
 ## Teechnologies Used 
 
 ### Languages 
+
 * [Python](https://www.python.org/) powers the site's functionality.
 * [HTML5](https://es.wikipedia.org/wiki/HTML) forms the foundation and structure of the website.
 * [CSS](https://en.wikipedia.org/wiki/CSS) enhances the visual styling of the website.
@@ -316,11 +377,13 @@ requests-oauthlib: Offers OAuth library support for Requests, a Python HTTP libr
 * sqlparse: A non-validating SQL parser for Python, providing parsing, splitting, and formatting of SQL statements.
 * cryptography-3.3.23: Provides cryptographic recipes and primitives to Python developers.
 ---
+
 ## Testing 
 
 ---
 ## Bugs
 ---
+
 ## Deployment 
 
 ### Deployment to Heroku 
