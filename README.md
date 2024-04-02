@@ -297,6 +297,24 @@ Logged-in users can navigate to their profile on a dedicated page, where they ha
 * [CSS Validation](https://jigsaw.w3.org/css-validator/): Utilized for validating CSS code.
 * [PEP8 Validation](https://www.pythonchecker.com/) :Validating code against PEP8 standards.
 * [JSHint Validation](https://jshint.com/): Utilized for validating JavaScript code.
+
+### Libraries 
+
+The project utilizes various libraries documented below in the requirements.txt file:
+
+* Asgiref: Facilitates communication between Python asynchronous web apps and servers, serving as an asynchronous successor to WSGI.
+* Cloudinary: Enables seamless integration of applications with Cloudinary, allowing optimization, transformation, and management of cloud assets.
+* Dj3-cloudinary-storage: Simplifies integration with Cloudinary by implementing Django Storage API.
+* Django: A high-level Python web framework promoting rapid development and pragmatic design.
+    * Django-allauth: Offers a comprehensive suite of Django applications for authentication, registration, and account management, including support for third-party (social) authentication.
+    * django-crispy-forms: Integrates Django DRY forms into the project for enhanced usability.
+    * django-extensions: Provides a collection of custom extensions for the Django Framework.
+* Gunicorn: A Python WSGI HTTP Server for UNIX systems, known for its compatibility, simplicity, and efficiency.
+* oauthlib: Implements OAuth1 or OAuth2 logic without assuming a specific HTTP request object or web framework.
+* psycopg2: The most popular PostgreSQL database adapter for Python.
+requests-oauthlib: Offers OAuth library support for Requests, a Python HTTP library.
+* sqlparse: A non-validating SQL parser for Python, providing parsing, splitting, and formatting of SQL statements.
+* cryptography-3.3.23: Provides cryptographic recipes and primitives to Python developers.
 ---
 ## Testing 
 
