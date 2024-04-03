@@ -19,7 +19,7 @@ class PostList(generic.ListView):
 
 def post_detail(request, slug, *args, **kwargs):
     """
-    Post detail view 
+    Post detail view
     """
 
     queryset = Post.objects.filter(status=1)
@@ -32,7 +32,7 @@ def post_detail(request, slug, *args, **kwargs):
     if post.likes.filter(id=request.user.id).exists():
         liked = True
 
-    fav = bool #Remove button if post already saved to favourites based on the user id existing already or not 
+    fav = bool # Remove button if post already saved to favourites based on the user id existing already or not 
     if post.favourites.filter(id=request.user.id).exists():
         fav = True
 
@@ -55,7 +55,6 @@ def post_detail(request, slug, *args, **kwargs):
         '''
         comment_form = CommentsForm(initial={'author': request.user})
         
-
     return render(
         request,
         "post_detail.html",
@@ -87,7 +86,7 @@ def post_like(request, slug, *args, **kwargs):
 
 def comment_delete(request, slug, comment_id, *args, **kwargs):
     """
-    View to delete comment 
+    View to delete comment
     """
 
     post = get_object_or_404(Post, slug=slug, status=1)
@@ -132,6 +131,7 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 @login_required
 def userspost_create(request):
     if request.method == 'POST':
@@ -152,31 +152,7 @@ def userspost_create(request):
 
     return render(request, 'users_dashboard.html', {'form': form})
 
-'''
-@login_required
 
-def userspost_create(request):
-    Decorator to autentificate that only when user is logged in ,they can actually access the dashboard
-    if request.method == 'POST':
-        form = UsersPostForm(request.POST, request.FILES) #request files for file uploads
-        print('form', form)
-
-        if form.is_valid():
-            approved = request.user.is_superuser
-            post = form.save(commit=False, author=request.user, approved=approved)
-            print('post', post)
-            new_post = post.save()
-            if not approved:
-                messages.success(request, 'Your post was created successfully!, now its waiting for approval')
-            return redirect('home')
-        else:
-            error_message = ', '.join([f'{field}: {error}' for field, error in form.errors.items()])
-            messages.error(request, f'Error creating the post: {error_message}')
-    else:
-        form = UsersPostForm()
-        form.set_user(request_user) # only lets admins have the status field when creating a post 
-    return render(request, 'users_dashboard.html', {'form': form})
-'''
 class UsersPostList(generic.ListView):
     model = Post
     queryset = Post.objects.all()
@@ -200,7 +176,8 @@ def users_dashboard(request):
 def edit_post(request, slug):
     '''View for the edit post form that renders in the users_dashboard'''
     post = get_object_or_404(Post, slug=slug)
-    user = request.user 
+    user = request.user
+
 
     if request.method == 'POST':
         form = EditForm(request.POST, instance=post, user=user)
@@ -257,16 +234,16 @@ def search_bar(request):
     else:
         return render(request, 'search_bar.html', {})
 
-#logic for adding  a post to a favourite list 
+# logic for adding  a post to a favourite list 
 
 @login_required
-def favourite_add(request, slug): #pass the id of the user 
-    post = get_object_or_404(Post, slug=slug) #grab the post object and get its id 
+def favourite_add(request, slug): #p ass the id of the user 
+    post = get_object_or_404(Post, slug=slug) # grab the post object and get its id 
     if post.favourites.filter(id=request.user.id).exists(): #we check to see if the id = request user's id 
-        post.favourites.remove(request.user) #if it does exist, we remove user id from the fav field. 
+        post.favourites.remove(request.user) # if it does exist, we remove user id from the fav field. 
     else:
         post.favourites.add(request.user)
-    return HttpResponseRedirect(reverse('favourite_list'))#refresh page 
+    return HttpResponseRedirect(reverse('favourite_list'))# refresh page 
 
 @login_required
 def favourite_list(request):

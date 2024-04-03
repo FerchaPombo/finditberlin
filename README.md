@@ -494,14 +494,13 @@ The code of 'Findit Berlin' site underwent testing using the W3C Markup Validati
 
 #### Python Validation 
 
-Python code was validated with the Code Institute [Python Linter](https://pep8ci.herokuapp.com/). Subsequently, I tested the following Python files:
+Python code was validated with the Code Institute [Python Linter](https://pep8ci.herokuapp.com/). Subsequently, I tested the following Python files with some minor spaceing mentions: 
 
 * blog/admin.py - Passed with no errors or warnings reported 
-* forms.py - Passed with no errors reported 
-models.py - No errors or warnings reported
-test_forms.py - No errors or warnings reported
-urls.py - No errors or warnings reported
-views.py - No errors or warnings reported
+* blog/forms.py - Passed with no errors reported 
+* blog/models.py - No errors or warnings reported
+* blog/urls.py - No errors or warnings reported
+* blog/views.py - No errors or warnings reported
 
 
 #### Lighthouse Testing 

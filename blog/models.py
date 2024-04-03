@@ -8,7 +8,6 @@ from django.utils.text import slugify
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True, blank=False)
     slug = models.SlugField(max_length=100, null=False, unique=True)
@@ -22,7 +21,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
     excerpt = models.TextField(blank=True)
-    favourites = models.ManyToManyField(User, related_name='favourite', default=None, blank=True)
+    favourites = models.ManyToManyField(User, related_name='favourite', 
+     default=None, blank=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -38,7 +38,7 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
-        
+
 class Comments(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='comments')
@@ -55,18 +55,17 @@ class Comments(models.Model):
         return f"This is {self.author} comment: {self.body}"
 
 
-# create users profile model 
+# create users profile model
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, null = True, on_delete=models.CASCADE, related_name="profile")
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, related_name="profile")
     bio = models.TextField()
-    profile_pic = models.ImageField(upload_to ='static/images', default='placeholder')
+    profile_pic = models.ImageField(upload_to='static/images', default='placeholder')
     instagram_url = models.CharField(max_length=255, null=True, blank=True)
     website_url = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return str(self.user)
-    
+
     def get_absolute_url(self):
         return reverse('home')
-

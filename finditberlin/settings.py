@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitp
 '8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io',
 '127.0.0.1',
 '8000-ferchapombo-finditberli-2ahme6dh3mz.ws-eu110.gitpod.io',
+'https://finditberlin1-8d780379d530.herokuapp.com/'
 ]
 
 # Installed apps configuration
