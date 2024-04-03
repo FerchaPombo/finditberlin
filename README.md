@@ -511,11 +511,25 @@ Testing was conducted on the index page, and details page, yielding the followin
 ![lighthpost](/static/images/lighthouseseopostdetail.png)
 
 </details>
+---
+
+### Responsiveness Test
 
 
+The responsiveness of Findit Berlin was thoroughly tested using [Developer Tools]() and the [Am I Responsive?](https://ui.dev/amiresponsive) webpage, successfully passing all tests. This ensures that the website is optimized for various screen sizes and devices, providing users with a consistent and enjoyable experience across different platforms.
+
+![Am I Responsive](/static/images/AmIresponsive.png)
+![Dev Tools](/static/images/responsivenessdevtools1.png)
+![Dev Tools](/static/images/resopnsivenesdevtools2.png)
 ## Bugs
 
+### Bugs to Fix 
 
+Several bugs and tasks remain to be addressed, primarily focusing on testing and functionality enhancements. Notably, testing of Python code has not been conducted, and while the Pep8 tool was unavailable, no further tests were performed to ensure the reliability of the codebase.
+
+One crucial task is to implement a "Delete" button for administrators to remove posts directly from the site interface, eliminating the need to navigate to the Django admin panel.
+
+Additionally, users should be able to create and edit their profiles, with the ability to view their profile displayed on a separate page and in the detail page of each post they create. Currently, only a placeholder image is displayed, and uploaded images from profiles or the admin site are not rendered on the website. This issue needs to be addressed to ensure proper functionality and user experience.
 ---
 
 ## Deployment 
