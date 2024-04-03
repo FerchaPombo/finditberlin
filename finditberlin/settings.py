@@ -113,7 +113,7 @@ WSGI_APPLICATION = 'finditberlin.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://ximqpzqj:G9A9lL3imPByVtXQhDqR5icQjb1vR4zO@tyke.db.elephantsql.com/ximqpzqj')
+    'default': dj_database_url.config(default='postgres://ptewhhrj:0yhHkdOAwLzz3BWz_y6nj7a0aJQtbU6S@flora.db.elephantsql.com/ptewhhrj')
 }
 
 
