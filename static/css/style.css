@@ -1,7 +1,13 @@
 
 .navbar-collapse {
     background-color: #fff; 
-    z-index: 1000; /* Ensure the navbar menu is positioned above other elements */
+    z-index: 1001; /* Ensure the navbar menu is positioned above other elements */
+}
+
+
+.navbar {
+    position: relative;
+    z-index: 1000; /* Ensure the navbar is positioned above other elements */
 }
 .container-fluid {
     padding-right: 30px;

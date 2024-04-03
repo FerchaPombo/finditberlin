@@ -143,6 +143,81 @@
     <!-- Copyright -->
 </footer>
 
+<style>
+.navbar-collapse {
+    background-color: #fff; /* Set the background color of the navbar menu */
+    z-index: 1000; /* Ensure the navbar menu is positioned above other elements */
+}
+.container-fluid {
+    padding-right: 30px;
+    padding-left: 35px;
+}
+.bg-cover {
+  background-image: url('https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative; /* Add relative positioning */
+
+}
+
+.bg-cover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); 
+  z-index: 1; /* Set a higher z-index to ensure the overlay is behind the text */
+}
+
+.container {
+  position: relative; /* Add relative positioning to the container */
+  z-index: 2; /* Set a higher z-index to ensure the text appears on top of the overlay */
+}
+.container-flex {
+    display: flex;
+    justify-content: space-between; /* Adjust the space between items */
+}
+/* CSS for extending specific containers on big screens */
+@media (min-width: 992px) {
+  /* Adjusting the width of the .container class */
+  .container {
+    max-width: 100%;
+  }
+  
+  /* Adjusting the width of the .container-fluid class */
+  .container-fluid {
+    max-width: 100%;
+  }
+  
+  /* Adjusting the width of the .container.mt-5 class */
+  .container.mt-5 {
+    max-width: 100%;
+  }
+  .image-container {
+    max-width: 100%;
+  }
+  .container-login {
+    max-width: 100%;
+  }
+  .container-logout {
+    max-width: 100%;
+  }
+  .container-register {
+    max-width: 100%;
+  }
+}
+@media (max-width: 576px) {
+    /* Styles for extra small devices (phones) */
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    /* Styles for small devices (tablets) */
+}
+
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Get the target navbar menu
