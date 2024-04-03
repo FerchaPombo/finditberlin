@@ -472,10 +472,8 @@ So that i can also create content and engage with other users.
 The code of 'Findit Berlin' site underwent testing using the W3C Markup Validation Service, W3C CSS Validation Service, and JSHint. 
 
 
-* The deployed site link[here](https://finditberlin-943ba7305bd2.herokuapp.com/), passed the [Nu Html checker](https://validator.w3.org/nu/) with no issues:
-![NuHMTL](/static/images/NuHtmlcheckergood.png)
 
-* When attempting to validate the code from the deployed app's link, the [W3C Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options) returned thousands of errors related to Bootstrap files. To resolve this issue, the style.css file was directly inputted on the webpage, resulting in successful validation without errors. 
+* The validation of the individual 'style.css' file passed the validator with no issues or warnings. 
 ![W3C](/static/images/W3Cpassed.png)
 
 
@@ -499,7 +497,7 @@ The code of 'Findit Berlin' site underwent testing using the W3C Markup Validati
 Python code was validated with the Code Institute [Python Linter](https://pep8ci.herokuapp.com/). Subsequently, I tested the following Python files:
 
 * blog/admin.py - Passed with no errors or warnings reported 
-* forms.py - 
+* forms.py - Passed with no errors reported 
 models.py - No errors or warnings reported
 test_forms.py - No errors or warnings reported
 urls.py - No errors or warnings reported
@@ -558,6 +556,11 @@ The responsiveness of Findit Berlin was thoroughly tested using [Developer Tools
 ## Bugs
 
 ### Bugs to Fix 
+
+When the code was passes through thepassed the [Nu Html checker](https://validator.w3.org/nu/) the following errors appeared: 
+* Styling properties embeded in the HTML file. This issue appeard right after submission time, and due to lack of time, i decided to leave the working Css properties on the html file. 
+![NuHMTL](/static/images/hmtlvalidatorfinal.png)
+
 
 Several bugs and tasks remain to be addressed, primarily focusing on testing and functionality enhancements. Notably, testing of Python code has not been conducted, and while the Pep8 tool was unavailable, no further tests were performed to ensure the reliability of the codebase.
 
