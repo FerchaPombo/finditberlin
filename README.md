@@ -523,6 +523,13 @@ The responsiveness of Findit Berlin was thoroughly tested using [Developer Tools
 ![Dev Tools](/static/images/responsivenessdevtools1.png)
 ![Dev Tools](/static/images/resopnsivenesdevtools2.png)
 
+### Browser Compatibility
+
+* Safari Version 17.2.1 (17617.1.17.11.12, 17617): The site experienced a minor change in the expansion of the container but maintained responsiveness and overall design.
+* Google Chrome Version 122.0.6261.129 (Official Build) (x86_64): Tested on desktop with no reported issues.
+* Google Chrome Version 123.0.6312.80: Tested on Android 10; CLT-L29 Build/HUAWEICLT-L29 without any observed changes.
+* Mozilla Firefox Version 124.0.2: Tested on desktop without encountering any issues.
+
 
 ## Bugs
 
