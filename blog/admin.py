@@ -4,8 +4,6 @@ from django_summernote.admin import SummernoteModelAdmin
 from django import forms
 from .forms import UsersPostAdminForm
 
-
-
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
@@ -29,4 +27,3 @@ class CommentsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Profile)
-

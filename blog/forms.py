@@ -1,6 +1,6 @@
 from .models import Comments, Post, Profile
 from django import forms
-from crispy_forms.helper import FormHelper  
+from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from cloudinary.forms import CloudinaryJsFileField
 from cloudinary.models import CloudinaryField as BaseCloudinaryField
@@ -11,21 +11,21 @@ from django.shortcuts import render
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-class CommentsForm(forms.ModelForm):  
+class CommentsForm(forms.ModelForm): 
     """Form for adding comments."""
     class Meta:
-        model = Comments  
+        model = Comments
         fields = ['author', 'body']
         widgets = {'author': forms.HiddenInput()}
-
-
+        
     def __init__(self, *args, **kwargs):
         super(CommentsForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             'body',
-            Submit('submit', 'Submit', css_class='btn-primary btn-outline-dark btn-sm') 
+            Submit('submit', 'Submit', css_class=
+             'btn-primary btn-outline-dark btn-sm')
         )
 
     def save(self, commit=True):
@@ -41,18 +41,19 @@ class CloudinaryField(BaseCloudinaryField):
     def formfield(self, **kwargs):
         return super().formfield(widget=CloudinaryJsFileInput(), **kwargs)
 
-
-
 class UsersPostForm(forms.ModelForm):
 
     class Meta:
         model = Post
         fields = ['title', 'content', 'featured_image']
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'placeholder': 'Write something here!', 'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'placeholder': 
+             'Title', 'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'placeholder': 
+             'Write something here!', 'class': 'form-control'}),
         }
-#check if a post with the same title exists, if it does, raises validation.
+# Check if a post with the same title exists, if it does, raises validation.
+    
     def clean_title(self):
         title = self.cleaned_data['title']
         slug = slugify(title)
@@ -62,7 +63,7 @@ class UsersPostForm(forms.ModelForm):
 
         return title
 
-#slug field populated with the title
+# Slug field populated with the title
     def save(self, commit=True, author=None, approved=False):
         post = super(UsersPostForm, self).save(commit=False)
         post.author = author
@@ -82,13 +83,14 @@ class UsersPostForm(forms.ModelForm):
             'title',
             'featured_image',
             'content',
-            Submit('submit', 'Submit', css_class='btn-primary btn-outline-dark btn-sm')
+            Submit('submit', 'Submit', css_class= 
+             'btn-primary btn-outline-dark btn-sm')
         )
-
         # functions added to add status field only if you are the admin 
         def add_status_field(self):
             if self.user_is_admin():
-                self.fields['status']= forms.ChoiceField(choices=Post.STATUS)
+                self.fields['status'] = forms.ChoiceField(choices=Post.STATUS)
+
         def user_is_admin(self):
             return self.user.user_is_admin
         def set_user(self,user):
@@ -101,7 +103,7 @@ class EditForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'content', 'featured_image','excerpt']
+        fields = ['title', 'content', 'featured_image', 'excerpt']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)  # Get the user passed as argument

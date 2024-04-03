@@ -491,7 +491,19 @@ The code of 'Findit Berlin' site underwent testing using the W3C Markup Validati
 
         * One undefined variable: bootstrap
         * Three unused variables: editModal, editCommentForm, and getCookie
+
 ![Jshint](/static/images/Jshintgood.png)
+
+#### Python Validation 
+
+Python code was validated with the Code Institute [Python Linter](https://pep8ci.herokuapp.com/). Subsequently, I tested the following Python files:
+
+* blog/admin.py - Passed with no errors or warnings reported 
+* forms.py - 
+models.py - No errors or warnings reported
+test_forms.py - No errors or warnings reported
+urls.py - No errors or warnings reported
+views.py - No errors or warnings reported
 
 
 #### Lighthouse Testing 
