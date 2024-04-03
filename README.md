@@ -8,7 +8,7 @@ Find deployed like [here](https://finditberlin-943ba7305bd2.herokuapp.com/)
 
 #### Responsive Mockup from [Am I Responsive](https://ui.dev/amiresponsive)
 ![Findit Berlin](/static/images/AmIresponsive.png)
----
+
 
 ### Project Goals
 
@@ -17,10 +17,10 @@ Find deployed like [here](https://finditberlin-943ba7305bd2.herokuapp.com/)
 Explore Berlin's vibrant street art scene, brimming with new and emblematic pieces. Findit Berlin is a photoblog crafted to invite street art enthusiasts to share their favorite works, while also serving as a platform to discover new and ongoing emerging interventions.
 
 ### Site users goals 
-Create an account to unlock full access to Findit Berlin's features.
-Create, Edit, and Delete Posts: Share your favorite graffiti artworks with the community. Add descriptions to provide context and insights about the art.
-Commenting and Liking: Engage with fellow street art enthusiasts by leaving comments and expressing appreciation through likes.
-Interactive Dashboard: Upon logging in, users are greeted with an interactive dashboard. From here, they can manage their posts effortlessly. This includes listing, editing, and deleting posts, as well as leaving new comments directly from the dashboard.
+* Create an account to unlock full access to Findit Berlin's features.
+* Create, Edit, and Delete Posts: Share your favorite graffiti artworks with the community. Add descriptions to provide context and insights about the art.
+* Commenting and Liking: Engage with fellow street art enthusiasts by leaving comments and expressing appreciation through likes.
+* Interactive Dashboard: Upon logging in, users are greeted with an interactive dashboard. From here, they can manage their posts effortlessly. This includes listing, editing, and deleting posts, as well as leaving new comments directly from the dashboard.
 
 
 ## Agile Developement Methodology 
