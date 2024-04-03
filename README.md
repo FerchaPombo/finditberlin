@@ -614,7 +614,9 @@ Finndit Berlin was deployed to [Heroku](https://www.heroku.com/about) folowwing 
 ![Deploy](/static/images/deploy.png)
 
 ---
-## Content 
+## Credits
+
+### Content 
 
 * All text content was written by Fercha Pombo, with help of online editors [Gramarly](https://app.grammarly.com/)
 * Placeholder image for post was taken from here : [Placeholder Post](https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg)
@@ -623,7 +625,8 @@ Some of the images from Findit Berlin are taken from the following sources :
 * [Grafitti Images](https://www.istockphoto.com)
 * [Profile pictures](https://www.freepik.com/photos/people)
 * Template for read.me provided by Code Institute and also inspired by some fellow classmates  projects. [here](https://github.com/MoniPar/tailors_thimble/blob/main/README.md) , and [here](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md).
----
+
+### Source links
 
 ## Acknowledgements 
 
