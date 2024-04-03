@@ -466,11 +466,19 @@ So that i can also create content and engage with other users.
 
 ### Code Validation 
 
-The code of 'Findit Berlin' site underwent testing using the W3C Markup Validation Service, W3C CSS Validation Service, and JSHint. Initially, errors were detected by the W3C Markup Validation Service, but they were promptly addressed (see bugs section). Additionally, a single error was identified in the W3C CSS Validation, which was linked to Font Awesome rather than the site code itself (see bugs section).
+The code of 'Findit Berlin' site underwent testing using the W3C Markup Validation Service, W3C CSS Validation Service, and JSHint. 
 
-Markup Validation
-Following the resolution of the initial errors reported by the W3C Markup Validation Service, no further errors were detected.
 
+The [Nu Html checker](https://validator.w3.org/nu/) threw errors as seen below, indicating issues in the code. Although all errors were addressed, the validator continues to report the same error. Further investigation will be conducted to resolve this issue.
+![NuHMTL](/static/images/Nuhmtlchecker.png)
+
+The [W3C Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options) displayed numerous errors located in folders that I have not created. This is an unusual occurrence for me, as I strive for meticulous development practices and maintain a thorough understanding of my project structure. I am committed to investigating this issue further to ensure clarity and accuracy in my development process.
+
+![W3C](/static/images/W3cValidationcss.png)
+
+The [JSHint validator](https://jshint.com/) results were undesirable and further check and improvement needs to be done by me.
+
+![Jshint]()
 
 
 #### Lighthouse Testing 
