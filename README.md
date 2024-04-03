@@ -557,16 +557,16 @@ The responsiveness of Findit Berlin was thoroughly tested using [Developer Tools
 
 ### Bugs to Fix 
 
-When the code was passes through thepassed the [Nu Html checker](https://validator.w3.org/nu/) the following errors appeared: 
-* Styling properties embeded in the HTML file. This issue appeard right after submission time, and due to lack of time, i decided to leave the working Css properties on the html file. 
+* When the code was passes through thepassed the [Nu Html checker](https://validator.w3.org/nu/) the following errors appeared: 
+    * Styling properties embeded in the HTML file. This issue appeard right after submission time, and due to lack of time, i decided to leave the working Css properties on the html file. 
 ![NuHMTL](/static/images/hmtlvalidatorfinal.png)
 
 
-Several bugs and tasks remain to be addressed, primarily focusing on testing and functionality enhancements. Notably, testing of Python code has not been conducted, and while the Pep8 tool was unavailable, no further tests were performed to ensure the reliability of the codebase.
+* Several bugs and tasks remain to be addressed, primarily focusing on testing and functionality enhancements. Notably, testing of Python code has not been conducted, and while the Pep8 tool was unavailable, no further tests were performed to ensure the reliability of the codebase.
 
-One crucial task is to implement a "Delete" button for administrators to remove posts directly from the site interface, eliminating the need to navigate to the Django admin panel.
+* One crucial task is to implement a "Delete" button for administrators to remove posts directly from the site interface, eliminating the need to navigate to the Django admin panel.
 
-Additionally, users should be able to create and edit their profiles, with the ability to view their profile displayed on a separate page and in the detail page of each post they create. Currently, only a placeholder image is displayed, and uploaded images from profiles or the admin site are not rendered on the website. This issue needs to be addressed to ensure proper functionality and user experience.
+* Additionally, users should be able to create and edit their profiles, with the ability to view their profile displayed on a separate page and in the detail page of each post they create. Currently, only a placeholder image is displayed, and uploaded images from profiles or the admin site are not rendered on the website. This issue needs to be addressed to ensure proper functionality and user experience.
 
 
 ## Deployment 
