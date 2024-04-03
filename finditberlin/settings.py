@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'fontawesomefree',
     'about',
-    'members',
     'blog',
 ]
 
