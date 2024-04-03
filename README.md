@@ -330,9 +330,12 @@ Users can create a brief and straightforward profile. The primary focus of this 
 
 Logged-in users can navigate to their profile on a dedicated page, where they have the option to edit their profile if necessary. The profile includes their name, a brief bio, and links to their social media profiles.
 
-![Profile Page]()
-![Profile in Postdetail]()
-![Profile dropdown ]()
+
+As indicated in the unresolved issues section, there's a current issue with displaying user-uploaded profile pictures. Whether uploaded via the admin panel or the site's edit form, profile images are not rendering properly and are only showing as placeholders.
+
+![Profile dropdown ](/static/images/Profiledropdown.png)
+![Profile Page Placeholder](/static/images/profilepageplaceholder.png)
+
 
 ### Features Left to implement 
 
