@@ -1,4 +1,4 @@
-/* eslint-env es6 */
+/*jshint esversion: 6 */
 document.addEventListener("DOMContentLoaded", function(event) { 
     const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
     const editModal = new bootstrap.Modal(document.getElementById("editModal"));

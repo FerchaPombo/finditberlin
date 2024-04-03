@@ -479,8 +479,19 @@ The code of 'Findit Berlin' site underwent testing using the W3C Markup Validati
 ![W3C](/static/images/W3Cpassed.png)
 
 
-* When attempting to validate the code from the deployed app's link, the validator returned thousands of errors related to Bootstrap files. To resolve this issue, the style.css file was directly inputted on the webpage, resulting in successful validation without errors.The [JSHint validator](https://jshint.com/) results were undesirable and further check and improvement needs to be done by me.
-![Jshint](/static/images/Jshintvalidator.png)
+* When the JavaScript code was validated using the [JSHint validator](https://jshint.com/), no errors were reported in the console. However, it's important to note that the cleanup of unused variables will be conducted after the project is deployed and submitted.
+
+    * Here are the results of the analysis:
+
+        * The file contains 4 functions.
+        * The largest function consists of 13 statements.
+        * The most complex function has a cyclomatic complexity value of 5, while the median complexity is 2.
+        * The function with the largest signature takes 1 argument, and the median signature takes 1 argument as well.
+        * Additionally, the analysis revealed:
+
+        * One undefined variable: bootstrap
+        * Three unused variables: editModal, editCommentForm, and getCookie
+![Jshint](/static/images/Jshintgood.png)
 
 
 #### Lighthouse Testing 
