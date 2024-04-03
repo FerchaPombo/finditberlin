@@ -22,7 +22,7 @@ SECRET_KEY= ("FOOBAR")
 
 
 # Debug mode setting
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://8000-ferchapombo-finditberli-6rfnsh29e5o.ws-eu110.gitpod.io/',
 '8000-ferchapombo-finditberli-o6sznhedac.us2.codeanyapp.com', 
