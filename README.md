@@ -561,7 +561,7 @@ The responsiveness of Findit Berlin was thoroughly tested using [Developer Tools
 ![NuHMTL](/static/images/hmtlvalidatorfinal.png)
 
 
-* Several bugs and tasks remain to be addressed, primarily focusing on testing and functionality enhancements. Notably, testing of Python code has not been conducted, and while the Pep8 tool was unavailable, no further tests were performed to ensure the reliability of the codebase.
+* Several bugs and tasks remain to be addressed, primarily focusing on testing and functionality enhancements. 
 
 * One crucial task is to implement a "Delete" button for administrators to remove posts directly from the site interface, eliminating the need to navigate to the Django admin panel.
 
