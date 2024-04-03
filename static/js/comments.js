@@ -1,3 +1,4 @@
+/* eslint-env es6 */
 document.addEventListener("DOMContentLoaded", function(event) { 
     const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
     const editModal = new bootstrap.Modal(document.getElementById("editModal"));
@@ -40,36 +41,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       });
     }
 });
-
-//// form submission for the edit modal
-//const editForm = document.getElementById("editForm");
-//editForm.addEventListener("submit", function(e) {
-//    e.preventDefault(); //Prevents default form submission
-//    const commentId = commentText.getAttribute("data-comment-id");
-//    const editedComment = commentText.value;
-//    //ajax request using fetch
-//    fetch(`/edit_comment/${commentId}`, {
-//        method: 'POST',
-//        headers: {
-//            'Content-Type': 'application/json',
-//            'X-CSRFToken': getCookie('csrftoken'), //define get cookie function under
-//        },
-//        body: JSON.stringify({comment: editedComment}),
-//    })
-//    .then(response => {
-//        if (response.ok) {
-//            // update the comment content on the page
-//            document.getElementById('/comment${commentId}').innerText = editedComment;
-//            //Close the edit modal
-//            editModal.hide();
-//        } else {
-//            console.error('error updating comment', response.statusText);
-//        }
-//    })
-//    .catch(error => {
-//        console.error('Error updating comment', error);
-//    });
-//});
 
 // Function to get the CSRF token from cookies
 function getCookie(name) {
