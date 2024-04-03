@@ -21,7 +21,7 @@ Create an account to unlock full access to Findit Berlin's features.
 Create, Edit, and Delete Posts: Share your favorite graffiti artworks with the community. Add descriptions to provide context and insights about the art.
 Commenting and Liking: Engage with fellow street art enthusiasts by leaving comments and expressing appreciation through likes.
 Interactive Dashboard: Upon logging in, users are greeted with an interactive dashboard. From here, they can manage their posts effortlessly. This includes listing, editing, and deleting posts, as well as leaving new comments directly from the dashboard.
----
+
 
 ## Agile Developement Methodology 
 
@@ -69,7 +69,7 @@ In a Kanban board, work is displayed on a project board that is organized by col
 Kanban boards visually represent a team's tasks using cards or sticky notes arranged in columns on a whiteboard. Swimlanes within the columns illustrate the value stream, representing stages tasks must pass through. Cards are placed in the appropriate swimlane to map out the workflow.
 
 As work advances, team members shift cards from left to right. Some swimlanes may have a WIP limit to maintain the system's efficiency.
----
+
 
 ### User Stories 
 
@@ -530,7 +530,7 @@ Several bugs and tasks remain to be addressed, primarily focusing on testing and
 One crucial task is to implement a "Delete" button for administrators to remove posts directly from the site interface, eliminating the need to navigate to the Django admin panel.
 
 Additionally, users should be able to create and edit their profiles, with the ability to view their profile displayed on a separate page and in the detail page of each post they create. Currently, only a placeholder image is displayed, and uploaded images from profiles or the admin site are not rendered on the website. This issue needs to be addressed to ensure proper functionality and user experience.
----
+
 
 ## Deployment 
 
