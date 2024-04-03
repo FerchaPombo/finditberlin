@@ -135,6 +135,8 @@ So that i can also create content and engage with other users.[#22](https://gith
 * As a Site Admin, I can create draft posts, so that I can finish writing the content later.[#12](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294651)
 
 * As a Site Admin, I can access an admin panel so that I can get a general view of users activity and basic CRUD functionality.[#29](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58440580)
+
+* As a site Admin, I can click on a Delete button , so that I can erase other peoples and my posts from the post detail page. [#32](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58494880)
 --- 
 
 ## Database Schema 
@@ -462,6 +464,7 @@ So that i can also create content and engage with other users.
 * As a site user, I can select a specific neighbourhood, So that I can see all blog posts in the same Neighbourhood.[#28](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58248048)
 ---
 
+
 ## Bugs
 
 
@@ -547,16 +550,22 @@ Finndit Berlin was deployed to [Heroku](https://www.heroku.com/about) folowwing 
 
 ---
 ## Content 
+
+* All text content was written by Fercha Pombo, with help of online editors [Gramarly](https://app.grammarly.com/)
 Some of the images from Findit Berlin are taken from the following sources :
 * [Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
 * [Grafitti Images](https://www.istockphoto.com)
 * [Profile pictures](https://www.freepik.com/photos/people)
-
+* Template for read.me provided by Code Institute and also inspired by some fellow classmates  projects. [here](https://github.com/MoniPar/tailors_thimble/blob/main/README.md) , and [here](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md).
 ---
+
 ## Acknowledgements 
 
+Findit Berlin is a fictional website developed for the Portfolio Project #4 at the Code Institute. During the project, I encountered significant challenges and relied heavily on external support. I am deeply grateful to Michelle, a dear friend, who generously offered her time and expertise. Michelle assisted me in resolving compatibility issues and dependencies at the project's outset, enabling me to overcome initial hurdles. Despite working with a deprecated module, I persevered for over a month and a half in attempting to integrate geolocation functionality with older library versions. Michelle's guidance and support were instrumental in restoring functionality to my project. Additionally, during a second meeting, she provided valuable insights that helped streamline the arrangement of Modals and Views for the final editing functionality.
 
+I am also thankful to my tutor and fellow alumni in the Slack community, who provided invaluable support during moments of frustration and despair, reminding me that there is always a solution to every challenge. Through collaborative efforts and mentorship, I was able to navigate through obstacles and ultimately achieve project success.
 ---
+
 ### External  Resources:
 During the development of this project , I relied heavily on external sources, it was hard to link and keep track of the many webpages visited, here are the most important.
 
