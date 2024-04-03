@@ -30,13 +30,13 @@
                             {% if "placeholder" in post.featured_image.url %}
                             <!-- Display placeholder image if no featured image -->
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                            <img class="card-img-top"
+                            <img class="card-img-top" alt="Placeholder"
                                 src="https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg">
                             </a>
                             {% else %}
                             <!-- Display featured image -->
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                            <img class="card-img-top" src="{{ post.featured_image.url }}">
+                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Post Image">
                             </a>
                             {% endif %}
                             <!-- Display author -->

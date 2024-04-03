@@ -464,7 +464,16 @@ So that i can also create content and engage with other users.
 * As a site user, I can select a specific neighbourhood, So that I can see all blog posts in the same Neighbourhood.[#28](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58248048)
 ---
 
-### Lighthouse Testing 
+### Code Validation 
+
+The code of 'Findit Berlin' site underwent testing using the W3C Markup Validation Service, W3C CSS Validation Service, and JSHint. Initially, errors were detected by the W3C Markup Validation Service, but they were promptly addressed (see bugs section). Additionally, a single error was identified in the W3C CSS Validation, which was linked to Font Awesome rather than the site code itself (see bugs section).
+
+Markup Validation
+Following the resolution of the initial errors reported by the W3C Markup Validation Service, no further errors were detected.
+
+
+
+#### Lighthouse Testing 
 
 Lighthouse, available within Chrome Developer Tools, served as the testing tool for various aspects of the application, including Performance, Accessibility, Best Practices, and SEO. 
 Testing was conducted on the index page, and details page, yielding the following results:
@@ -583,6 +592,7 @@ Finndit Berlin was deployed to [Heroku](https://www.heroku.com/about) folowwing 
 ## Content 
 
 * All text content was written by Fercha Pombo, with help of online editors [Gramarly](https://app.grammarly.com/)
+* Placeholder image for post was taken from here : [Placeholder Post](https://64.media.tumblr.com/065df304d20cf9b76071aa58c9f9c251/be1666fd3acc16af-be/s1280x1920/e372e56b5f3094d7e34d2764ba32ce941cbab4ac.jpg)
 Some of the images from Findit Berlin are taken from the following sources :
 * [Image for jumbotron](https://cdn.pixabay.com/photo/2023/08/05/07/19/berlin-8170586_1280.jpg)
 * [Grafitti Images](https://www.istockphoto.com)
