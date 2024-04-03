@@ -472,13 +472,14 @@ So that i can also create content and engage with other users.
 The code of 'Findit Berlin' site underwent testing using the W3C Markup Validation Service, W3C CSS Validation Service, and JSHint. 
 
 
-The [Nu Html checker](https://validator.w3.org/nu/) threw errors as seen below, indicating issues in the code. Although all errors were addressed, the validator continues to report the same error. Further investigation will be conducted to resolve this issue.
-![NuHMTL](/static/images/Nuhmtlchecker.png)
+* The deployed site link[here](https://finditberlin-943ba7305bd2.herokuapp.com/), passed the [Nu Html checker](https://validator.w3.org/nu/) with no issues:
+![NuHMTL](/static/images/NuHtmlcheckergood.png)
 
-The [W3C Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options) displayed numerous errors located in folders that I have not created. This is an unusual occurrence for me, as I strive for meticulous development practices and maintain a thorough understanding of my project structure. I am committed to investigating this issue further to ensure clarity and accuracy in my development process.
-![W3C](/static/images/W3cValidationcss.png)
+* When attempting to validate the code from the deployed app's link, the [W3C Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options) returned thousands of errors related to Bootstrap files. To resolve this issue, the style.css file was directly inputted on the webpage, resulting in successful validation without errors. 
+![W3C](/static/images/W3Cpassed.png)
 
-The [JSHint validator](https://jshint.com/) results were undesirable and further check and improvement needs to be done by me.
+
+* When attempting to validate the code from the deployed app's link, the validator returned thousands of errors related to Bootstrap files. To resolve this issue, the style.css file was directly inputted on the webpage, resulting in successful validation without errors.The [JSHint validator](https://jshint.com/) results were undesirable and further check and improvement needs to be done by me.
 ![Jshint](/static/images/Jshintvalidator.png)
 
 
