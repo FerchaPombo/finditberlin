@@ -4,8 +4,9 @@ Welcome to Findit Berlin!
 Findit Berlin is your ultimate destination for exploring and documenting street art in the vibrant city of Berlin. This Django-based blog empowers users to engage with Berlin's street art scene in various ways.
 Findit Berlin offers a simple and intuitive platform for street art lovers to connect and discover new artworks across the city. Whether you're a seasoned enthusiast or new to the scene, Findit Berlin is your gateway to exploring Berlin's vibrant street art culture.
 Join us today and become part of a thriving community passionate about uncovering the hidden gems of Berlin's street art scene!
+Find deployed like [here](https://finditberlin-943ba7305bd2.herokuapp.com/)
 
-######Responsive Mockup from [Am I Responsive](https://ui.dev/amiresponsive)
+#### Responsive Mockup from [Am I Responsive](https://ui.dev/amiresponsive)
 ![Findit Berlin](/static/images/AmIresponsive.png)
 ---
 
@@ -13,7 +14,7 @@ Join us today and become part of a thriving community passionate about uncoverin
 
 #### Objective 
 
-Explore Berlin's vibrant street art scene, brimming with new and emblematic pieces. Findit Berlin is a photoblog crafted to invite street art enthusiasts to share their favorite works, while also serving as a platform to discover new and ongoing emerging interventions."
+Explore Berlin's vibrant street art scene, brimming with new and emblematic pieces. Findit Berlin is a photoblog crafted to invite street art enthusiasts to share their favorite works, while also serving as a platform to discover new and ongoing emerging interventions.
 
 #### Site users goals 
 
