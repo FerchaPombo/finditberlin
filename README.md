@@ -464,6 +464,37 @@ So that i can also create content and engage with other users.
 * As a site user, I can select a specific neighbourhood, So that I can see all blog posts in the same Neighbourhood.[#28](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58248048)
 ---
 
+### Lighthouse Testing 
+
+Lighthouse, available within Chrome Developer Tools, served as the testing tool for various aspects of the application, including Performance, Accessibility, Best Practices, and SEO. 
+Testing was conducted on the index page, and details page, yielding the following results:
+
+* Index Page: Performance: 88, Accessibility: 983, Best Practices: 100, SEO: 90
+
+* Review Details Page: Performance: 95, Accessibility: 87, Best Practices: 96, SEO: 90
+
+100 % could be easily achived with a little bit more time to work on the detials. 
+
+<details>
+<summary>Click here for Complete Metrics Result</summary>
+<br>
+
+<h5>Landing page</h5>
+
+![LighthouseAccesibilityGral](/static/images/Lighthousegenerallandingpage.png)
+![LighhouseLanding](/static/images/Lighthouseaccesibiilty.png)
+![LighhouseBest](/static/images/lighthousebestpractices.png)
+![LighhouseSEo](/static/images/lighthouseceo.png)
+
+<h5>Post Detail</h5>
+
+![Lighhousegral](/static/images/lighthousepostdetailgrlandperformnace.png)
+![Lighthousedetail](/static/images/lighthousepostdetailaccesibility.png)
+![Light](/static/images/lighthousebestpracticespostdetial.png)
+![lighthpost](/static/images/lighthouseseopostdetail.png)
+
+</details>
+
 
 ## Bugs
 
