@@ -581,44 +581,75 @@ Finndit Berlin was deployed to [Heroku](https://www.heroku.com/about) folowwing 
 9. Add a database and copy the DATABASE_URL.
 * Go to the resources tab >> add-ons >>serach  for 'Heroku Postgres' and add it to the app. 
 
-10. Create env.py in Gitpod and add environment variables.
-![Env.py](/static/images/env.png)
-
-11. Add the secret key to Heroku config vars.
+10. Add the secret key to Heroku config vars.
 ![ConfigVargs](/static/images/configvarsheroku.png)
 
-12. Configure settings.py to use environment variables.
+11. Configure settings.py to use environment variables.
 
-13. Migrate changes and set up Cloudinary connection.
+12. Migrate changes and set up Cloudinary connection.
 * `python3 manage.py migrate`
 
-14. Create a [Cloudinary](https://cloudinary.com/users/register_free) account, and add Cloudinary libraries to installed apps. Add the Cloudinary Url to Heroku Config Vars 
+13. Create a [Cloudinary](https://cloudinary.com/users/register_free) account, and add Cloudinary libraries to installed apps. Add the Cloudinary Url to Heroku Config Vars 
 ![Cloudinary](/static/images/CloudinaryDeployment.png)
 
-15. Add cloudinary links to settings.py and configure static file storage settings.
+14. Add cloudinary links to settings.py and configure static file storage settings.
 
 
-16. Link files to the Heroku templates directory.
+15. Link files to the Heroku templates directory.
 * `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`
 
-17. Update allowed hosts in settings.py.
+16. Update allowed hosts in settings.py.
 * ` ALLOWED_HOSTS = [PROJECT_NAME_HERE.herokuapp.com, 'localhost']`
 
-18. Create media, static, and templates folders on your Main Directory.
+17. Create media, static, and templates folders on your Main Directory.
 
-19. Create a Procfile and add the gunicorn command.
+18. Create a Procfile and add the gunicorn command.
 * `web: gunicorn PROJ_NAME.wsgi?`
 
-20. Stage changes, commit, and push to GitHub.
+19. Stage changes, commit, and push to GitHub.
 * `git add .`
 * `git commit -m "Deployment Commit`
 * `git push`
 
-21. Add 'PORT' and '8000' to Heroku config vars. (Important!)
+20. Add 'PORT' and '8000' to Heroku config vars. (Important!)
 ![800](/static/images/8000.png)
 
-22. Deploy the app manually from the GitHub repository.
+21. Deploy the app manually from the GitHub repository.
 ![Deploy](/static/images/deploy.png)
+
+## Froking this Repository 
+
+You can create an independent copy of this GitHub repository by forking it. This allows you to view and make changes to the copy without affecting the original repository. Follow these steps to fork a repository:
+
+1. Log in to your GitHub account.
+2. Locate the repository you want to fork.
+3. On the top right side of the repository page, you'll find a 'Fork' button. Click on it to create a copy of the original repository.
+![GitHub Fork](/static/images/forking.png)
+
+## Cloning this Repository 
+
+To clone and set up this project, follow these steps:
+
+1. Navigate to the repository and click on the 'Code' tab.
+2. Next to the green 'GitPod' button, click on the 'Code' menu and copy the repository's URL by clicking on the clipboard icon.
+![Clone1](/static/images/Clone1.png)
+
+3. Open Git Bash in your preferred IDE and navigate to the directory where you want the cloned project to be located.
+4. Type git clone, followed by the copied URL from GitHub, and press Enter to create a local clone.
+`git clone https://github.com/FerchaPombo/finditberlin.git`
+
+5. After cloning the repository, install the required dependencies using the following command:
+`pip3 install -r requirements.txt`
+This command downloads and installs all required dependencies listed in the requirements file.
+
+6. Before running the server, perform necessary migrations by executing:
+`python3 manage.py makemigrations`
+`python3 manage.py migrate`
+
+7. Finally, run the server using the command:
+`python3 manage.py runserver`
+
+8. If everything is set up correctly, the project should now be live locally.
 
 
 ## Credits
