@@ -81,7 +81,7 @@ This section is dedicated to defining user expectations when interacting with th
 
 * As a site user, I can logout of my account So that I can keep my details secure.[#23](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58179052)
 
-* As a Site User, I can click on a post So that *so that i can read the full text.[#16](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178322)
+* As a Site User, I can click on a post So that i can read the full text.[#16](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=58178322)
 
 * As a Site User / Admin, I can view comments on an individual post so that I can read the conversation. [#7](https://github.com/users/FerchaPombo/projects/1/views/1?pane=issue&itemId=44294316)
 
