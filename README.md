@@ -473,12 +473,10 @@ The [Nu Html checker](https://validator.w3.org/nu/) threw errors as seen below, 
 ![NuHMTL](/static/images/Nuhmtlchecker.png)
 
 The [W3C Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options) displayed numerous errors located in folders that I have not created. This is an unusual occurrence for me, as I strive for meticulous development practices and maintain a thorough understanding of my project structure. I am committed to investigating this issue further to ensure clarity and accuracy in my development process.
-
 ![W3C](/static/images/W3cValidationcss.png)
 
 The [JSHint validator](https://jshint.com/) results were undesirable and further check and improvement needs to be done by me.
-
-![Jshint]()
+![Jshint](/static/images/Jshintvalidator.png)
 
 
 #### Lighthouse Testing 
@@ -521,6 +519,8 @@ The responsiveness of Findit Berlin was thoroughly tested using [Developer Tools
 ![Am I Responsive](/static/images/AmIresponsive.png)
 ![Dev Tools](/static/images/responsivenessdevtools1.png)
 ![Dev Tools](/static/images/resopnsivenesdevtools2.png)
+
+
 ## Bugs
 
 ### Bugs to Fix 
